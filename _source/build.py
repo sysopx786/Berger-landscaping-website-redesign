@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "2"
+VER = "3"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -501,12 +501,13 @@ def gallery():
     for i, p in enumerate(ph):
         tall = " tall" if p["h"] > p["w"] else ""
         tiles += f'<button type="button" class="sk{tall}" data-cat="{p["cat"]}" data-full="img/{p["id"]}-1280.webp" data-fallback="img/{p["id"]}-1024.jpg" data-cap="{E(p["alt"])}" aria-label="Open photo: {E(p["alt"])}">{pic(p["id"],"(max-width:600px) 92vw, (max-width:1100px) 45vw, 25vw")}<span class="gcap" aria-hidden="true">{E(p["alt"])}</span></button>'
-    body = phero("Our work", "Fifty photos from recent Berger Landscaping jobs: lawns, beds, stonework, trimming, fall clean-ups, and snow. Tap any photo to view it larger.", [("index.html","Home"),("gallery.html","Gallery")]) + f'''
+    body = phero("Our work", f"{len(ph)} photos from Berger Landscaping jobs: lawns, beds, stonework, trimming, trees, fall clean-ups, and snow. Filter by type, then tap any photo to view it larger.", [("index.html","Home"),("gallery.html","Gallery")]) + f'''
 <section class="section" aria-label="Photo gallery">
  <div class="wrap">
-  <div class="sec-head" style="margin-bottom:0;align-items:center"><div role="group" aria-label="Filter photos" class="chips">{chips}</div><a class="linkarrow fb-link" href="{BIZ["fb_photos"]}" target="_blank" rel="noopener">{FBLOGO.replace("<svg ","<svg style=\"width:20px;height:20px\" ")}700+ more on Facebook {ic("arrow")}</a></div>
+  <div class="sec-head" style="margin-bottom:0;align-items:center"><div role="group" aria-label="Filter photos" class="chips">{chips}</div><a class="linkarrow fb-link" href="{BIZ["fb_photos"]}" target="_blank" rel="noopener">{FBLOGO.replace("<svg ","<svg style=\"width:20px;height:20px\" ")}Full photo archive on Facebook {ic("arrow")}</a></div>
   <p class="vh" aria-live="polite" data-gallery-status></p>
-  <div class="gallery" data-gallery>{tiles}</div>
+  <div class="gallery" data-gallery data-page="36">{tiles}</div>
+  <div class="gallery-more"><button class="btn btn-quiet" type="button" data-gallery-more hidden>Show more photos</button><p class="faq-count" data-gallery-count></p></div>
   <div data-ba-section hidden style="margin-top:3rem;display:grid;gap:1rem">
    <h2>Before &amp; after</h2>
    <p class="lede">Drag the handle, or focus it and use the arrow keys.</p>
@@ -673,7 +674,7 @@ def notfound():
 def extras():
     idx = [dict(k="Page", t=t, d=d, u=u) for u, t, d in [
         ("index.html","Home","Landscaping that looks cared for, all year."),("services.html","All services","Compare all eight services"),
-        ("gallery.html","Gallery","50 photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
+        ("gallery.html","Gallery",f"{len(PHOTOS)} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
         ("faqs.html","FAQs","120 answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
         ("contact.html","Contact & hours","Phone, email, address, map, hours"),("contact.html#quote","Get a quote","Call, text, or email with details"),
         ("contact.html#hiring","We're hiring","Join the crew"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]

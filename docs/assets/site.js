@@ -179,14 +179,27 @@
   var gal = $("[data-gallery]");
   if (gal) {
     var tiles = $$("button", gal), chips = $$(".chip"), status = $("[data-gallery-status]");
+    var PAGE = +gal.getAttribute("data-page") || 36, limit = PAGE, filter = "all";
+    var moreBtn = $("[data-gallery-more]"), countEl = $("[data-gallery-count]");
+    function applyGallery(focusFrom) {
+      var matched = tiles.filter(function (t) { return filter === "all" || t.getAttribute("data-cat") === filter; });
+      tiles.forEach(function (t) { t.hidden = true; });
+      matched.forEach(function (t, i) { t.hidden = i >= limit; });
+      var shown = Math.min(limit, matched.length), left = matched.length - shown;
+      if (moreBtn) { moreBtn.hidden = left <= 0; moreBtn.textContent = "Show " + Math.min(PAGE, left) + " more photos"; }
+      if (countEl) countEl.textContent = "Showing " + shown + " of " + matched.length + " photos";
+      if (status) status.textContent = "Showing " + shown + " of " + matched.length + " photos";
+      if (focusFrom != null && matched[focusFrom]) matched[focusFrom].focus({ preventScroll: true });
+    }
     chips.forEach(function (c) {
       c.addEventListener("click", function () {
-        var f = c.getAttribute("data-filter"), n = 0;
+        filter = c.getAttribute("data-filter"); limit = PAGE;
         chips.forEach(function (x) { x.setAttribute("aria-pressed", x === c); });
-        tiles.forEach(function (t) { var show = f === "all" || t.getAttribute("data-cat") === f; t.hidden = !show; if (show) n++; });
-        if (status) status.textContent = "Showing " + n + " photos";
+        applyGallery();
       });
     });
+    if (moreBtn) moreBtn.addEventListener("click", function () { var from = limit; limit += PAGE; applyGallery(from); });
+    applyGallery();
     var lb = $(".lb"), lbImg = $(".lb-stage img"), lbCap = $(".lb-cap"), lbCount = $(".lb-count"), cur = 0, opener;
     function visible() { return tiles.filter(function (t) { return !t.hidden; }); }
     function show(i) {

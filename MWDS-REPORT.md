@@ -40,6 +40,10 @@ Site uses neutral wording for each until confirmed.
 11. **Google listing URL.** Done (Oct 11): owner-supplied listing and "Leave a review" links are in place. Not click-tested from the build environment.
 12. **Review dates.** Relative dates ("3 months ago") were dropped because they go stale.
 
+13. **New photos show work not on the services list.** 9 tree-planting photos and a wood chipper suggest tree planting/tree work; 34 photos show stonework and patios (10 before). Confirm whether to add these services or keep the photos as examples of landscaping only.
+14. **House numbers visible** in at least two customer photos (e.g. beds-s226 "607", beds-s252). Confirm customers are OK with this, or blur the numbers.
+15. **Two near-identical photos** (trimming-s385 and trimming-s386) were both added as requested. Remove one if you prefer.
+
 ## Deliberate deviations from the prompt (and why)
 
 | Prompt asked | Built | Reason |
@@ -86,7 +90,7 @@ Limited. Confirmed facts come from your notes only. A web search returned no lis
 
 - [ ] Owner confirmations above (item 11 done)
 - [ ] Vector/high-res logo files
-- [ ] Junk removal and snow photos (4 labeled placeholders remain)
+- [ ] Junk removal and snow photos (4 labeled placeholders remain; the new snow photo is a road seen from a truck, not plowing work, so it's in the gallery but not on the Snow page)
 - [ ] Before/after pairs, if Drew has them
 - [ ] Verify the Google "G" mark and attribution against Google's current brand rules before launch
 - [ ] Decide on optional features: quote form, Spanish version, analytics, Facebook feed

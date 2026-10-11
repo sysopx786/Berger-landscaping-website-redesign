@@ -82,7 +82,7 @@ SERVICES = [
   desc=["Trimming trees and bushes serves a dual purpose: it enhances the visual appeal and aesthetic charm of your landscape while also bolstering the health of your trees and promoting safety on your property.",
         "Our services extend to the removal of plants and shrubbery to meet your landscaping needs comprehensively."],
   included=["Tree and bush trimming","Hedge shaping to the height and form you want","Plant and shrub removal","Clean-up and haul-away of trimmings"],
-  photos=["berger-trimming-01","berger-trimming-02","berger-beds-14"],
+  photos=["berger-trimming-01","berger-trimming-02","berger-trimming-s228"],
   tip=("Right time, right plant","The best time to trim varies by plant. We'll recommend timing that won't hurt flowering or growth."),
   related=["yard-clean-up","property-maintenance","custom-landscaping"]),
  dict(slug="junk-removal", name="Junk Removal", icon="junk", season=None,
@@ -126,7 +126,7 @@ REVIEWS = [
  dict(name="Cindy Homol", meta="6 reviews", text="Drew and his crew are a pleasure to work with, knowledgeable, and dependable.", reply=None),
 ]
 
-CATS = [("lawn","Lawns & mowing"),("beds","Beds & mulch"),("hardscape","Stonework & patios"),("trimming","Trimming"),("seasonal","Fall work"),("snow","Snow"),("crew","Crew at work")]
+CATS = [("lawn","Lawns & mowing"),("beds","Beds & mulch"),("hardscape","Stonework & patios"),("trimming","Trimming & shrubs"),("trees","Trees"),("seasonal","Fall work"),("snow","Snow"),("crew","Crew & equipment")]
 
 ALT_FIX = {
  "berger-hardscape-01":"Timber-framed gravel steps edged with river rock on a hillside",
