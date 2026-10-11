@@ -388,9 +388,9 @@ def home():
 
 <section class="section" aria-labelledby="rev-h">
  <div class="wrap">
-  <div class="sec-head"><div><p class="label">What customers say</p><h2 id="rev-h">Respectful, efficient, dependable</h2></div><a class="g-badge" href="reviews.html">{GLOGO}<span>Reviews from Google · 5.0</span></a></div>
+  <div class="sec-head"><div><p class="label">What customers say</p><h2 id="rev-h">Respectful, efficient, dependable</h2></div><div class="g-actions"><a class="g-badge" href="reviews.html">{GLOGO}<span>Reviews from Google · 5.0</span></a><a class="g-review-btn" href="{BIZ["greview"]}" target="_blank" rel="noopener">{GLOGO}<span class="g-review-txt"><strong>Leave a review</strong><small>on Google</small></span><span class="g-review-stars" aria-hidden="true">{STAR*5}</span></a></div></div>
   <div class="quotes" tabindex="0" role="region" aria-label="Customer reviews">{quotes}</div>
-  <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem"><a class="linkarrow" href="reviews.html">Read all reviews and Drew's replies {ic("arrow")}</a><a class="linkarrow" href="{BIZ["greview"]}" target="_blank" rel="noopener">Leave a Google review {ic("arrow")}</a></p>
+  <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem"><a class="linkarrow" href="reviews.html">Read all reviews and Drew's replies {ic("arrow")}</a></p>
  </div>
 </section>
 

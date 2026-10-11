@@ -205,6 +205,18 @@ body.no-scroll{overflow:hidden}
 .g-badge{min-height:44px;display:inline-flex;align-items:center;gap:.55rem;background:#FFFFFF;color:#3C4043;border-radius:999px;padding:.35rem .8rem .35rem .4rem;border:1px solid #DADCE0;text-decoration:none;font:500 .86rem var(--sans)}
 .g-badge .g-logo{width:24px;height:24px;padding:2px;flex:none}
 .g-logo{display:block}
+.g-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+/* Leave-a-review button: white backing + unaltered Google "G" + Google yellow stars (MWDS 15) */
+.g-review-btn{display:inline-flex;align-items:center;gap:.7rem;min-height:52px;padding:.45rem 1.1rem .45rem .55rem;border-radius:999px;background:#FFFFFF;color:#3C4043;border:1px solid #DADCE0;text-decoration:none;box-shadow:0 1px 2px rgba(60,64,67,.18),0 2px 6px rgba(60,64,67,.12);transition:box-shadow .2s,transform .2s var(--ease)}
+.g-review-btn:hover{box-shadow:0 2px 4px rgba(60,64,67,.2),0 8px 18px -6px rgba(60,64,67,.3);transform:translateY(-1px)}
+.g-review-btn:focus-visible{outline:3px solid #4285F4;outline-offset:3px}
+.g-review-btn .g-logo{width:30px;height:30px;padding:3px;flex:none}
+.g-review-txt{display:grid;line-height:1.15}
+.g-review-txt strong{font:600 .98rem var(--sans);color:#202124}
+.g-review-txt small{font:500 .78rem var(--sans);color:#5F6368}
+.g-review-stars{display:inline-flex;gap:1px;color:#FBBC05;padding-left:.6rem;border-left:1px solid #DADCE0}
+.g-review-stars svg{width:15px;height:15px}
+@media (max-width:420px){.g-review-stars{display:none}}
 .stars{display:inline-flex;gap:1px;color:#FBBC05}
 .stars svg{width:16px;height:16px}
 .rating-num{font:600 1.05rem var(--sans);font-variant-numeric:tabular-nums}
