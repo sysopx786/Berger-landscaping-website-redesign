@@ -83,18 +83,18 @@ p{margin:0}
 .hdr{display:flex;align-items:center;gap:var(--s2);height:var(--header-h);transition:height .25s var(--ease)}
 .is-scrolled .hdr{height:64px}
 .brand{display:flex;align-items:center;flex:none;text-decoration:none;color:inherit;margin-right:auto}
-.brand img{height:58px;width:auto;transition:height .25s var(--ease)}
-.is-scrolled .brand img{height:44px}
-.brand img{display:none}
-.brand img.brand-full.logo-light{display:block}
-:root[data-theme="dark"] .brand img.brand-full.logo-light{display:none}:root[data-theme="dark"] .brand img.brand-full.logo-dark{display:block}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img.brand-full.logo-light{display:none}:root:not([data-theme="light"]) .brand img.brand-full.logo-dark{display:block}}
-@media (max-width:960px){
- .brand img.brand-full{display:none!important}
- .brand img.brand-icon.logo-light{display:block}
- :root[data-theme="dark"] .brand img.brand-icon.logo-light{display:none}:root[data-theme="dark"] .brand img.brand-icon.logo-dark{display:block}
-}
-@media (max-width:960px) and (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img.brand-icon.logo-light{display:none}:root:not([data-theme="light"]) .brand img.brand-icon.logo-dark{display:block}}
+
+.brand{gap:.6rem}
+.brand img{display:none;width:auto;transition:height .25s var(--ease)}
+.brand img.logo-light{display:block}
+.brand .brand-mark{height:58px}
+.brand .brand-word{height:42px}
+.is-scrolled .brand .brand-mark{height:46px}
+.is-scrolled .brand .brand-word{height:33px}
+:root[data-theme="dark"] .brand img.logo-light{display:none}:root[data-theme="dark"] .brand img.logo-dark{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img.logo-light{display:none}:root:not([data-theme="light"]) .brand img.logo-dark{display:block}}
+@media (max-width:960px){.brand{gap:.45rem}.brand .brand-mark{height:40px}.brand .brand-word{height:24px}.is-scrolled .brand .brand-mark{height:36px}.is-scrolled .brand .brand-word{height:22px}}
+@media (max-width:360px){.brand .brand-word{height:20px}}
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav>a,.nav-dd>button{display:inline-flex;align-items:center;gap:.3rem;padding:.55rem .7rem;border-radius:999px;color:var(--fg);text-decoration:none;font:500 .95rem/1 var(--sans);background:none;border:0;cursor:pointer;min-height:40px}
 .nav>a:hover,.nav-dd>button:hover,.nav>a[aria-current="page"],.nav-dd.is-current>button{background:var(--bg-alt)}

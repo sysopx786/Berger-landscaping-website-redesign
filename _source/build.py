@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "6"
+VER = "7"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -180,10 +180,10 @@ def header(cur):
 <header class="site-header" id="top">
  <div class="wrap hdr">
   <a class="brand" href="index.html" aria-label="Berger Landscaping home">
-   <img class="brand-full logo-light" src="assets/logo-horizontal-sm.webp" width="440" height="250" alt="Berger Landscaping">
-   <img class="brand-full logo-dark" src="assets/logo-horizontal-knockout-sm.webp" width="440" height="250" alt="Berger Landscaping">
-   <img class="brand-icon logo-light" src="assets/logo-icon-sm.webp" width="140" height="235" alt="Berger Landscaping">
-   <img class="brand-icon logo-dark" src="assets/logo-icon-knockout-sm.webp" width="140" height="235" alt="Berger Landscaping">
+   <img class="brand-mark logo-light" src="assets/logo-icon-sm.webp" width="140" height="235" alt="">
+   <img class="brand-mark logo-dark" src="assets/logo-icon-knockout-sm.webp" width="140" height="235" alt="">
+   <img class="brand-word logo-light" src="assets/logo-wordmark.webp" width="488" height="157" alt="Berger Landscaping">
+   <img class="brand-word logo-dark" src="assets/logo-wordmark-knockout.webp" width="488" height="157" alt="Berger Landscaping">
   </a>
   <nav class="nav" aria-label="Main">{"".join(links)}</nav>
   <div class="hdr-actions">

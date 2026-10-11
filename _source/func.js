@@ -20,11 +20,17 @@ await p.evaluate(()=>document.getElementById('mosaic').scrollIntoView()); await 
 const imgs=await p.evaluate(()=>[...document.querySelectorAll('#mosaic img')].map(i=>i.complete&&i.naturalWidth>0)); ok('mosaic images load', imgs.every(Boolean), JSON.stringify(imgs));
 await p.click('[data-theme-toggle]'); const th=await p.evaluate(()=>[document.documentElement.dataset.theme,localStorage.getItem('berger-theme')]); ok('theme toggle sets + stores', th[0]==='dark'&&th[1]==='dark');
 await p.reload(); ok('theme persists on reload', await p.evaluate(()=>document.documentElement.dataset.theme)==='dark');
-const vis=await p.evaluate(()=>[...document.querySelectorAll('.brand img')].filter(i=>getComputedStyle(i).display!=='none').map(i=>i.className)); ok('dark: exactly one header logo', vis.length===1, vis.join());
+const vis=await p.evaluate(()=>[...document.querySelectorAll('.brand img')].filter(i=>getComputedStyle(i).display!=='none').map(i=>i.className)); ok('dark: header shows mark + wordmark (dark versions only)', vis.length===2 && vis.every(c=>c.includes('logo-dark')), vis.join());
 await p.evaluate(()=>localStorage.clear());
 // gallery
 await p.goto(U+'gallery.html');
-await p.click('[data-filter=snow]'); const n=await p.evaluate(()=>[...document.querySelectorAll('[data-gallery] button')].filter(t=>!t.hidden).length); ok('gallery filter snow = 1', n===1, n);
+await p.click('[data-filter=snow]'); const n=await p.evaluate(()=>[...document.querySelectorAll('[data-gallery] button')].filter(t=>!t.hidden).length); ok('gallery filter snow = 2', n===2, n);
+await p.click('[data-filter=all]');
+const pg1=await p.evaluate(()=>[[...document.querySelectorAll('[data-gallery] button')].filter(t=>!t.hidden).length, document.querySelector('[data-gallery-count]').textContent]); ok('gallery shows first 36 of 225', pg1[0]===36 && /36 of 225/.test(pg1[1]), pg1.join(' | '));
+await p.click('[data-gallery-more]'); const pg2=await p.evaluate(()=>[...document.querySelectorAll('[data-gallery] button')].filter(t=>!t.hidden).length); ok('Show more adds 36', pg2===72, pg2);
+const allimg=await p.evaluate(async()=>{const b=[...document.querySelectorAll('[data-gallery] button')];return b.length});
+ok('gallery has 225 tiles', allimg===225, allimg);
+await p.click('[data-filter=beds]'); const pg3=await p.evaluate(()=>document.querySelector('[data-gallery-count]').textContent); ok('filter resets paging (beds 36 of 90)', /36 of 90/.test(pg3), pg3);
 await p.click('[data-filter=all]'); await p.click('[data-gallery] button:nth-child(3)'); ok('lightbox opens', await p.isVisible('.lb'));
 const c1=await p.textContent('.lb-count'); await p.keyboard.press('ArrowRight'); const c2=await p.textContent('.lb-count'); ok('lightbox arrow next', c1!==c2, c1+'→'+c2);
 await p.waitForTimeout(500); ok('lightbox image loads', await p.evaluate(()=>{const i=document.querySelector('.lb-stage img');return i.complete&&i.naturalWidth>0}));
