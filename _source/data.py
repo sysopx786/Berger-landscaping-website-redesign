@@ -19,14 +19,14 @@ BIZ = dict(
 def parse_faqs(path):
     txt = open(path, encoding="utf-8").read()
     groups = {}
-    for m in re.finditer(r"^## (\d)\. (.+?)\n(.*?)(?=^---|\Z)", txt, re.S | re.M):
+    for m in re.finditer(r"^## (\d+)\. (.+?)\n(.*?)(?=^---|\Z)", txt, re.S | re.M):
         name = m.group(2).strip()
         items = re.findall(r"\*\*\d+\. (.+?)\*\*\n(.+?)(?=\n\n|\Z)", m.group(3), re.S)
         groups[name] = [(q.strip(), a.strip()) for q, a in items]
     return groups
 
 FAQS = parse_faqs(os.path.join(os.path.dirname(os.path.abspath(__file__)),"berger-landscaping-faqs.md"))
-assert len(FAQS) == 9 and all(len(v) == 15 for v in FAQS.values()), {k: len(v) for k, v in FAQS.items()}
+assert len(FAQS) == 10 and all(len(v) == 15 for v in FAQS.values()), {k: len(v) for k, v in FAQS.items()}
 
 # ---------- Services (description copy verbatim from notes) ----------
 SERVICES = [
@@ -40,7 +40,7 @@ SERVICES = [
   included=["Mowing at the right height for your grass type","Edging along walkways and beds","Trimming around beds, trees, fences, and other obstacles","Clippings blown off driveways and hard surfaces","Large lawns and steep hills"],
   photos=["berger-lawn-04","berger-lawn-03","berger-lawn-07"],
   tip=("After rain","If it rains on your mowing day, we move the cut to the next suitable day. Cutting very wet grass can tear it and leave ruts."),
-  related=["property-maintenance","trimming","yard-clean-up"]),
+  related=["property-maintenance","aeration-sod-seeding","yard-clean-up"]),
  dict(slug="property-maintenance", name="Property Maintenance", icon="property", season=None,
   card="Ongoing care for lawns, beds, shrubs, trees, and common areas.",
   promise="Year-round upkeep that keeps homes, businesses, and communities clean, safe, and good-looking.",
@@ -59,6 +59,28 @@ SERVICES = [
   photos=["berger-hardscape-03","berger-hardscape-06","berger-beds-22"],
   tip=("Build in phases","Larger plans can often be broken into stages, so you can build the landscape over time."),
   related=["property-maintenance","trimming","yard-clean-up"]),
+ dict(slug="aeration-sod-seeding", name="Aeration, Sod & Seeding", icon="seed", season="Spring · Fall", draft=True,
+  card="Core aeration, overseeding, seed, and sod to thicken a thin lawn or start a new one.",
+  promise="Thicker, healthier turf, whether you're patching bare spots or starting a lawn from bare soil.",
+  desc=["A strong lawn starts below the surface. Whether you're starting from bare soil or bringing back a thin, patchy yard, the results depend on how well the ground is prepared and how the new grass is cared for in its first weeks.",
+        "Seed is the budget-friendly route but needs time to fill in. Sod costs more and looks finished the day it goes down. We'll walk you through both options and handle the work either way."],
+  included=["Core aeration","Overseeding and top dressing","Grass seeding","Sod installation","Soil prep and grading for new lawns","Patching bare or damaged areas","Aftercare guidance for your new grass"],
+  sections=[
+   ("Why aerate?", ["Two things hold most lawns back: compacted soil and a thick layer of thatch. Core aeration pulls small plugs of soil out of the lawn, opening space for air, water, and roots and breaking up both problems.",
+                    "The plugs left on the surface dissolve back into the lawn within a week or two, which helps keep thatch in check. Aeration pays off most as a yearly habit rather than a one-time fix."],
+    ["Better drainage after heavy rain","Air, water, and nutrients reach the roots","Looser, less compacted soil","New root and shoot growth","Less thatch build-up","Roots reach water more easily in dry spells","An ideal seedbed for overseeding","Fertilizer that actually reaches the roots"],
+    "Fall is the top choice for aeration, with spring as a second option. Once a year is a good rule of thumb for most lawns."),
+   ("Why overseed?", ["Overseeding puts new grass where old grass has thinned out. Combined with aeration and a light top dressing, it helps a lawn come back thicker and greener.",
+                      "Right after aeration is the best moment to seed, since seed settles into the open holes and loosened soil. The pairing is an affordable way to revive a lawn worn down by a wet spring or a dry summer, and doing both in early fall gives new grass time to root before winter."], None, None),
+  ],
+  aftercare=[("Leave the plugs","Don't rake them up. They break apart on their own and fall back into the holes, often helped along by your mower within two to three weeks."),
+             ("Keep the surface damp","Water right after seeding, then keep the top of the soil damp, not soggy, for about three weeks. After that, water more deeply but less often, ideally early in the morning."),
+             ("Stay off it","Keep people and pets off seeded areas for the first few weeks so young seedlings aren't crushed."),
+             ("First mowing","Wait until new grass is about 4 inches tall. Use a sharp blade, cut no more than a third of the height at a time, and leave the clippings."),
+             ("Leaves on new grass","Raking can tear out young seedlings. Blow leaves off lightly or mulch them with the mower instead.")],
+  photos=[None, None, None],
+  tip=("Best window","Early fall is usually the best time to aerate and overseed in Southeastern PA, giving new grass time to root before winter."),
+  related=["mowing","property-maintenance","yard-clean-up"]),
  dict(slug="yard-clean-up", name="Yard Clean-Up", icon="cleanup", season="Spring · Fall",
   card="Weeds out, leaves raked, and beds tidy before the next season.",
   promise="Reset your yard: weeds pulled, leaves raked, and beds tidied before the next season.",
@@ -117,7 +139,7 @@ SERVICES = [
 SVC = {s["slug"]: s for s in SERVICES}
 # map FAQ group names -> slug
 FAQ_KEY = {"Mowing":"mowing","Property Maintenance":"property-maintenance","Custom Landscaping Solutions":"custom-landscaping",
-           "Yard Clean-Up":"yard-clean-up","Leaf Removal":"leaf-removal","Trimming":"trimming","Tree Planting":"tree-planting","Junk Removal":"junk-removal","Snow Services":"snow-services"}
+           "Yard Clean-Up":"yard-clean-up","Leaf Removal":"leaf-removal","Trimming":"trimming","Tree Planting":"tree-planting","Aeration, Sod & Seeding":"aeration-sod-seeding","Junk Removal":"junk-removal","Snow Services":"snow-services"}
 for g, items in FAQS.items():
     SVC[FAQ_KEY[g]]["faqs"] = items
 

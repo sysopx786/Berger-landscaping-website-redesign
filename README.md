@@ -23,11 +23,11 @@ Static multi-page site. No build step needed to host it; a Python generator rebu
 | Page | File | Notes |
 |---|---|---|
 | Home | `index.html` | Hero with layered SVG mist parallax, credibility strip, services bento, date-driven seasonal rail, 7-photo mosaic, Why Berger, 3 Google reviews, 5 FAQs, Meet Drew, CTA |
-| Services overview | `services.html` | All 9 services |
-| Service pages ×9 | `mowing.html`, `property-maintenance.html`, `custom-landscaping.html`, `yard-clean-up.html`, `leaf-removal.html`, `trimming.html`, `tree-planting.html` (draft, added Oct 11), `junk-removal.html`, `snow-services.html` | Verbatim copy from notes, "What's included", 3 photos, 15 FAQs, related services, seasonal tip, Service + FAQPage + BreadcrumbList JSON-LD |
+| Services overview | `services.html` | All 10 services |
+| Service pages ×10 | `mowing.html`, `aeration-sod-seeding.html` (draft, adapted from the Wolf's site copy, Oct 11), `property-maintenance.html`, `custom-landscaping.html`, `yard-clean-up.html`, `leaf-removal.html`, `trimming.html`, `tree-planting.html` (draft, added Oct 11), `junk-removal.html`, `snow-services.html` | Verbatim copy from notes, "What's included", 3 photos, 15 FAQs, related services, seasonal tip, Service + FAQPage + BreadcrumbList JSON-LD |
 | Gallery | `gallery.html` | 225 photos, 8 filters, "Show more" paging (36 at a time), keyboard/swipe lightbox, before/after slider (hidden until pairs are added), Facebook link |
 | Reviews | `reviews.html` | 4 Google reviews + owner replies, Google attribution |
-| FAQs | `faqs.html` | All 135, sticky category nav, live search, accordions |
+| FAQs | `faqs.html` | All 150, sticky category nav, live search, accordions |
 | About | `about.html` | Drew's story, stacked logo, licensed & insured, hiring |
 | Contact | `contact.html` | tel/sms/email + copy buttons, address, hours, consent-gated Google Map, quote steps, optional form (off), hiring |
 | Privacy | `privacy.html` | Matches actual site behavior |
@@ -35,7 +35,7 @@ Static multi-page site. No build step needed to host it; a Python generator rebu
 
 Also: `sitemap.xml` (16 URLs), `robots.txt`, `.nojekyll`, `site.webmanifest`, favicon set, Open Graph image (`assets/og-image.jpg`).
 
-Site-wide: ⌘/Ctrl-K (or `/`) search over pages, services, and 135 FAQs; shrinking sticky header with scroll progress; mobile Call · Text · Quote bar; back-to-top; light/dark theme (remembers choice); cross-document view transitions (Chrome/Edge; other browsers just navigate normally); `prefers-reduced-motion` respected.
+Site-wide: ⌘/Ctrl-K (or `/`) search over pages, services, and 150 FAQs; shrinking sticky header with scroll progress; mobile Call · Text · Quote bar; back-to-top; light/dark theme (remembers choice); cross-document view transitions (Chrome/Edge; other browsers just navigate normally); `prefers-reduced-motion` respected.
 
 ## Hosting (GitHub Pages)
 

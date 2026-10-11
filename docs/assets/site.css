@@ -354,6 +354,14 @@ a.card:hover .more svg{transform:translateX(3px)}
 .checklist svg{width:22px;height:22px;color:var(--moss-ink)}
 :root[data-theme="dark"] .checklist svg{color:var(--link)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .checklist svg{color:var(--link)}}
+.checklist.two-col{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.25rem}
+@media (max-width:640px){.checklist.two-col{grid-template-columns:1fr}}
+.care-steps{counter-reset:c;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
+.care-steps li{counter-increment:c;border:1px solid var(--line);border-radius:var(--r);padding:1.1rem;background:var(--surface);display:grid;gap:.35rem;align-content:start}
+.care-steps li::before{content:counter(c);font:500 1.6rem/1 var(--display);color:var(--fog)}
+.care-steps li:last-child:nth-child(odd){grid-column:1/-1}
+.care-steps h3{font-size:1.1rem}
+.care-steps p{color:var(--muted);font-size:.94rem}
 .aside-stack{display:grid;gap:12px;position:sticky;top:calc(var(--header-h) + 20px)}
 .tip{padding:1.2rem 1.3rem;border-radius:var(--r);background:var(--bg-alt);border:1px solid var(--line);display:grid;gap:.4rem}
 .tip p{font-size:.95rem;color:var(--muted)}

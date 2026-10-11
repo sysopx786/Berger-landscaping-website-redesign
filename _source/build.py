@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "4"
+VER = "5"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -20,6 +20,7 @@ ICON = {
  "trimming":'<circle cx="6.5" cy="17.5" r="2.6"/><circle cx="17.5" cy="17.5" r="2.6"/><path d="M8.3 15.6 17 3.5M15.7 15.6 7 3.5"/>',
  "junk":'<path d="M2.5 6.5h11v9.5h-11z"/><path d="M13.5 9.5h4l3 3.2V16h-7"/><circle cx="6.5" cy="17.6" r="1.9"/><circle cx="16.8" cy="17.6" r="1.9"/><path d="M5.5 9.5h5M5.5 12.5h3"/>',
  "tree":'<path d="M12 21.2v-7.5"/><path d="M12 15.5 9.2 12.8M12 16.6l2.9-2.6"/><path d="M7.6 14.2a4.6 4.6 0 0 1-1-8.6 5.2 5.2 0 0 1 10 .1 4.6 4.6 0 0 1-.2 8.5z"/><path d="M8.2 21.2h7.6"/>',
+ "seed":'<path d="M12 21v-8.5"/><path d="M12 13c0-3.6-2.6-6.2-6.8-6.4.1 4 2.7 6.5 6.8 6.4z"/><path d="M12 15.2c.2-3.3 2.6-5.6 6.4-5.8-.2 3.6-2.6 5.8-6.4 5.8z"/><path d="M4 21h16"/>',
  "snow":'<path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2 3.8 16.8"/><path d="M9.6 4 12 6.3 14.4 4M9.6 20 12 17.7l2.4 2.3M4.2 11l2.9.9-.8 2.9M19.8 13l-2.9-.9.8-2.9"/>',
  "phone":'<path d="M5 3.5h3.2l1.6 4.3-2.1 1.4a11 11 0 0 0 7.1 7.1l1.4-2.1 4.3 1.6V19a1.8 1.8 0 0 1-1.9 1.8C10.4 20.3 3.7 13.6 3.2 5.4A1.8 1.8 0 0 1 5 3.5z"/>',
  "text":'<path d="M4 5.5h16v10.5H9.5L5 19.5V16H4z"/><path d="M8 9.5h8M8 12.5h5"/>',
@@ -288,6 +289,7 @@ def crumbs_ld(items):
 def faq_ld(items):
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in items]}
 
+NUMW = {8:'Eight',9:'Nine',10:'Ten',11:'Eleven',12:'Twelve'}
 PAGES = []  # (file, title, desc) for report/sitemap
 
 def write(p, body):
@@ -306,8 +308,8 @@ def home():
         x = s[slug]; tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
         return f'<a class="card card-wide reveal" href="{slug}.html" style="view-transition-name:svc-{slug}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<h3>{E(x["name"])}</h3><p>{E(x["card"])}</p><span class="more">Learn more {ic("arrow")}</span></div><div class="card-media sk">{pic(pid,"(max-width:560px) 90vw, 25vw")}{tag}</div></a>'
     bento = (wide("mowing","berger-lawn-01") + small("property-maintenance") + small("trimming") +
-             small("yard-clean-up") + small("leaf-removal") + wide("custom-landscaping","berger-hardscape-04") +
-             wide("tree-planting","berger-trees-s592") + small("junk-removal") + small("snow-services"))
+             small("aeration-sod-seeding") + small("yard-clean-up") + small("leaf-removal") + small("tree-planting") +
+             wide("custom-landscaping","berger-hardscape-04") + small("junk-removal") + small("snow-services"))
     tabs = "".join(f'<button type="button" role="tab" id="tab-{k}" aria-controls="panel-{k}" aria-selected="{"true" if k=="fall" else "false"}" tabindex="{0 if k=="fall" else -1}">{v["label"]}</button>' for k, v in SEASONS.items())
     panels = ""
     for k, v in SEASONS.items():
@@ -349,7 +351,7 @@ def home():
 
 <section class="section" aria-labelledby="services-h">
  <div class="wrap">
-  <div class="sec-head"><div><p class="label">Services</p><h2 id="services-h">Nine ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
+  <div class="sec-head"><div><p class="label">Services</p><h2 id="services-h">{NUMW[len(SERVICES)]} ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
   <div class="bento">{bento}</div>
  </div>
 </section>
@@ -424,12 +426,12 @@ def services():
     for x in SERVICES:
         pid = next((p for p in x["photos"] if p), None)
         tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
-        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<h2 style="font-size:1.45rem">{E(x["name"])}</h2><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media sk">{pic(pid,"(max-width:560px) 90vw, 25vw")}{tag}</div></a>'
+        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<h2 style="font-size:1.45rem">{E(x["name"])}</h2><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder("Photo coming soon")}{tag}</div></a>'
     body = phero("Services", f"Mowing to snow, for homes, businesses, and multi-living communities across {BIZ['area']}. Pick a service for what's included and answers to common questions.", [("index.html","Home"),("services.html","Services")], f'<div class="phero-ctas">{btn_call()}</div>') + f'''
 <section class="section"><div class="wrap"><div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">{rows}</div></div></section>''' + cta_band()
     body = body.replace('<div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">', '<div class="bento svc-overview">')
     write(dict(file="services.html", title="Landscaping Services | Berger Landscaping, Pottstown PA",
-               desc="All nine Berger Landscaping services: mowing, property maintenance, custom landscaping, clean-ups, leaf removal, trimming, tree planting, junk removal, and snow.",
+               desc="Every Berger Landscaping service: mowing, aeration and seeding, property maintenance, landscaping, clean-ups, trimming, tree planting, junk removal, and snow.",
                ld=[crumbs_ld([("index.html","Home"),("services.html","Services")])]), body)
 
 # ================= SERVICE PAGES =================
@@ -440,6 +442,7 @@ TITLES = {
  "yard-clean-up":("Spring & Fall Yard Clean-Up | Berger Landscaping","Yard clean-ups that remove weeds, rake leaves, and tidy garden beds, with debris hauled away. One-time or part of a maintenance plan."),
  "leaf-removal":("Leaf Removal Service | Berger Landscaping, Southeastern PA","Fall leaf raking and removal from lawns, beds, and walkways to prevent mold, fungus, and pests. Residential, commercial, and HOA."),
  "trimming":("Tree & Shrub Trimming | Berger Landscaping","Tree, bush, and hedge trimming for curb appeal, plant health, and safety, plus plant and shrub removal and full clean-up."),
+ "aeration-sod-seeding":("Lawn Aeration, Overseeding & Sod | Berger Landscaping","Core aeration, overseeding, grass seeding, and sod installation to thicken a thin lawn or start a new one in Southeastern PA. Call or text (610) 420-3338."),
  "tree-planting":("Tree & Evergreen Planting | Berger Landscaping, Southeastern PA","Tree and evergreen planting with clean mulch rings, including privacy screens along fence lines. Homes and businesses. Call or text (610) 420-3338."),
  "junk-removal":("Junk Removal | Berger Landscaping, Pottstown PA","Junk removal from single items to full garage clean-outs: furniture, appliances, yard debris, and clutter, recycled or donated when possible."),
  "snow-services":("Snow Plowing, Removal & Salting | Berger Landscaping","Snow plowing and removal for driveways and commercial lots, plus salting and pet-safe ice-melt options in Southeastern PA."),
@@ -449,6 +452,16 @@ def service_pages():
         slug = x["slug"]
         desc = "".join(f"<p>{E(p)}</p>" for p in x["desc"])
         draft = '<p class="draft-note">Draft copy: this description was written for the new site and is waiting on owner review.</p>' if x.get("draft") else ""
+        if slug == "aeration-sod-seeding":
+            draft = '<p class="draft-note">Draft page: aeration, sod, and seeding aren\'t in Berger\'s original service list. Copy adapted for Berger and waiting on owner review.</p>'
+        extra = ""
+        for (h2, paras, bullets, closing) in x.get("sections", []):
+            extra += f'<div style="display:grid;gap:1rem"><h2>{E(h2)}</h2><div class="prose">' + "".join(f"<p>{E(p)}</p>" for p in paras) + '</div>'
+            if bullets: extra += '<ul class="checklist two-col">' + "".join(f'<li>{ic("check")}<span>{E(i)}</span></li>' for i in bullets) + '</ul>'
+            if closing: extra += f'<p class="prose">{E(closing)}</p>'
+            extra += '</div>'
+        if x.get("aftercare"):
+            extra += '<div style="display:grid;gap:1rem"><h2>Caring for a newly seeded lawn</h2><ol class="care-steps">' + "".join(f'<li><h3>{E(t)}</h3><p>{E(p)}</p></li>' for t, p in x["aftercare"]) + '</ol></div>'
         if slug == "tree-planting":
             draft = '<p class="draft-note">Draft page: tree planting isn\'t in the original service list. This page is based on project photos and is waiting on owner review.</p>'
         if slug == "custom-landscaping":
@@ -457,7 +470,7 @@ def service_pages():
         photos = ""
         for pid in x["photos"]:
             if pid: photos += f'<figure class="sk">{pic(pid,"(max-width:560px) 50vw, 30vw")}<figcaption>{E(PHOTOS[pid]["alt"])}</figcaption></figure>'
-            else: photos += f'<figure>{placeholder()}</figure>'
+            else: photos += f'<figure>{placeholder("Replace with aeration, seed, or sod photo" if slug=="aeration-sod-seeding" else "Replace with project photo")}</figure>'
         rel = ""
         for r in x["related"]:
             y = SVC[r]; rel += f'<a class="card" href="{r}.html">{ic(y["icon"],"svc-ic")}<h3>{E(y["name"])}</h3><p>{E(y["card"])}</p><span class="more">View {ic("arrow")}</span></a>'
@@ -472,7 +485,7 @@ def service_pages():
 <section class="section">
  <div class="wrap svc-grid">
   <div style="display:grid;gap:2rem;min-width:0">
-   <div style="display:grid;gap:1rem"><h2>About {E(x["name"].lower() if slug!="custom-landscaping" else "our custom landscaping")}</h2><div class="prose">{desc}</div>{draft}</div>
+   <div style="display:grid;gap:1rem"><h2>About {E(x["name"].lower() if slug!="custom-landscaping" else "our custom landscaping")}</h2><div class="prose">{desc}</div>{draft}</div>{extra}
    <div style="display:grid;gap:1rem"><h2 class="vh">Photos</h2><div class="photo-row">{photos}</div><a class="linkarrow" href="gallery.html">See more in the gallery {ic("arrow")}</a></div>
   </div>
   <aside class="aside-stack" aria-label="Service summary">
@@ -570,7 +583,7 @@ def faqs():
  </div>
 </div></section>'''
     write(dict(file="faqs.html", title="Landscaping FAQs | Berger Landscaping",
-               desc="Answers to 135 common questions about mowing, property care, landscaping, clean-ups, leaves, trimming, tree planting, junk removal, and snow.",
+               desc="Answers to 150 common questions about mowing, aeration and seeding, landscaping, clean-ups, trimming, tree planting, junk removal, and snow services.",
                ld=[crumbs_ld([("index.html","Home"),("faqs.html","FAQs")])]), body)
 
 # ================= ABOUT =================

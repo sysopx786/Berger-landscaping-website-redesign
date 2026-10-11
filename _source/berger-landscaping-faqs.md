@@ -465,3 +465,52 @@ Yes. Trees can be built into a custom landscape design. See our Custom Landscapi
 
 **15. How do I get a tree planting quote?**
 Call or text (610) 420-3338 or email drew@bergerlandscaping.net. Tell us how many trees, where they'll go, and any photos of the area.
+
+---
+
+## 10. Aeration, Sod & Seeding
+
+**1. How soon can I use my new lawn?**
+That depends on whether you choose seed or sod, and on the weather. We'll give you a realistic timeline before we start.
+
+**2. When is the best time to seed?**
+Early fall is usually the best window. Spring can work too. We'll recommend timing for your yard.
+
+**3. When is the best time to aerate?**
+Fall is the top choice, with spring as a second option. Once a year is a good rule of thumb, and fall lets you pair aeration with overseeding.
+
+**4. Should I pick up the soil plugs after aeration?**
+No. Leave them on the lawn. They break down within a week or two and work back into the soil.
+
+**5. Can you repair just part of my lawn?**
+Yes. Patching bare or thin areas is a common job.
+
+**6. Does the ground need work before seeding or sod?**
+Often, yes. New lawns usually need soil prep and some grading first. If water pools in your yard, tell us about it so we can plan around it.
+
+**7. Should I choose seed or sod?**
+Seed costs less but takes weeks to fill in. Sod costs more and gives you a finished-looking lawn right away. We'll walk you through the tradeoffs for your yard and budget.
+
+**8. How much does aeration, seeding, or sod cost?**
+It depends on the size of the area, its condition, and whether you choose seed or sod. Call or text (610) 420-3338 for a quote.
+
+**9. How should I water new seed?**
+Water right after seeding, then keep the soil surface damp, not soggy, for about three weeks. After that, water more deeply but less often, ideally early in the morning.
+
+**10. How should I water new sod?**
+New sod needs frequent watering at first so its roots knit into the soil below. We'll give you a watering plan when it's installed.
+
+**11. When can I mow new grass?**
+Wait until it's about 4 inches tall. Use a sharp blade and cut no more than a third of the height at a time.
+
+**12. Can you aerate and overseed in the same visit?**
+Yes. Seed takes best right after aeration, so the two are often done together.
+
+**13. Do you offer this for businesses and HOAs?**
+Ask us. We serve residential, commercial, and multi-living properties.
+
+**14. How do I handle mowing after new seed or sod?**
+Ask us how to coordinate mowing with your new lawn so young grass isn't damaged.
+
+**15. How do I get a quote?**
+Call or text (610) 420-3338 or email drew@bergerlandscaping.net. Photos of the area and a rough size help us quote it.
