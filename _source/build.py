@@ -241,7 +241,10 @@ def footer():
 </html>'''
 
 def page(p, body):
-    return head(p) + "\n" + header(p["file"]) + body + footer()
+    h = head(p) + "\n" + header(p["file"]) + body + footer()
+    if p.get("extra_head"): h = h.replace("</head>", p["extra_head"] + "\n</head>", 1)
+    if p.get("extra_js"): h = h.replace('<script src="assets/site.js', p["extra_js"] + '<script src="assets/site.js', 1)
+    return h
 
 def phero(title, lede, crumbs=None, extra="", label=None, icon_html=""):
     cr = ""
@@ -691,6 +694,80 @@ def notfound():
     body = phero("This page wandered off", "The page you're looking for isn't here. Try a service below or search the site.", None, f'<div class="phero-ctas"><a class="btn btn-primary" href="index.html">Go to the home page</a><button class="btn btn-quiet" type="button" data-cmdk>{ic("search")}Search the site</button></div>')
     write(dict(file="404.html", title="Page Not Found | Berger Landscaping", desc="This page could not be found.", noindex=True), body)
 
+# ================= 3D HOMEPAGE SAMPLE (separate concept page, noindex) =================
+def home3d():
+    caps = ""
+    for i, (k, v) in enumerate(SEASONS.items()):
+        links = " · ".join(f'<a href="{s.split("#")[0]}.html">{E(SVC[s.split("#")[0]]["name"] if "#" not in s else "Pet-safe ice melt")}</a>' for s, _ in v["items"][:2])
+        caps += f'<div class="scene-cap{" on" if i==0 else ""}" data-cap{"" if i==0 else ' aria-hidden="true" inert'}><p class="label">{v["label"]}</p><strong>{E(v["note"])}</strong><span>{links}</span></div>'
+    ring_ids = ["berger-hardscape-03","berger-lawn-04","berger-beds-22","berger-hardscape-06","berger-trimming-01","berger-seasonal-03","berger-beds-09","berger-lawn-s485","berger-trees-s592","berger-hardscape-s144","berger-beds-s249","berger-lawn-02"]
+    ring = "".join(f'<figure class="ring-item">{pic(pid,"300px")}<figcaption>{E(PHOTOS[pid]["alt"])}</figcaption></figure>' for pid in ring_ids)
+    tiles = ""
+    for x in SERVICES:
+        pid = next((p for p in x["photos"] if p), None)
+        media = pic(pid, "(max-width:600px) 92vw, 30vw") if pid else placeholder("Photo coming soon")
+        tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
+        tiles += f'<a class="tilt" data-tilt href="{x["slug"]}.html">{media}{tag}<div class="tilt-body">{ic(x["icon"],"svc-ic")}<h3>{E(x["name"])}</h3><p>{E(x["card"])}</p><span class="more">Explore {ic("arrow")}</span></div></a>'
+    rv = [REVIEWS[0], REVIEWS[2], REVIEWS[1]]
+    quotes = "".join(f'<figure class="quote">{stars()}<blockquote><p>“{E(r["text"])}”</p></blockquote><figcaption><strong>{E(r["name"])}</strong><span>Google review</span></figcaption></figure>' for r in rv)
+    prog = "".join("<i></i>" for _ in SEASONS)
+    body = f'''
+<section class="scene3d" data-scene aria-labelledby="hero-h">
+ <div class="scene-stage">
+  <p class="sample-bar">Design sample · <a href="index.html">Current homepage</a></p>
+  <canvas aria-hidden="true"></canvas>
+  <div class="scene-fallback" aria-hidden="true">{pic("berger-lawn-04","100vw",eager=True,alt="")}</div>
+  <div class="scene-shade"></div>
+  <div class="wrap scene-copy">
+   <p class="label">Berger Landscaping LLC · Pottstown, PA</p>
+   <h1 id="hero-h">Step into a yard that looks <em>cared for</em>.</h1>
+   <p class="lede">Family-owned mowing, landscaping, and property care across {BIZ["area"]}.<span class="scroll-hint"> Scroll to walk through the seasons.</span></p>
+   <div class="hero-ctas">{btn_call()}<a class="btn btn-quiet" href="gallery.html">See our work {ic("arrow")}</a></div>
+   <ul class="trust" aria-label="Highlights"><li>Family-owned</li><li>Licensed &amp; insured</li><li>Residential &amp; commercial</li><li>Southeastern PA</li></ul>
+  </div>
+  <div class="scene-progress" aria-hidden="true">{prog}</div>
+  <div class="scene-caps" aria-live="polite">{caps}</div>
+ </div>
+</section>
+
+<section class="cred" aria-label="Credentials">
+ <div class="wrap cred-row">
+  <a class="cred-item" href="reviews.html" style="text-decoration:none;color:inherit">{GLOGO.replace('class="g-logo"','class="g-logo" style="width:32px;height:32px;flex:none"')}<span><strong><span class="rating-num">5.0</span> {stars()}</strong><small>Reviews from Google · 4 reviews</small></span></a>
+  <div class="cred-item">{ic("shield")}<span><strong>Licensed &amp; insured</strong><small>Residential and commercial work</small></span></div>
+  <div class="cred-item">{ic("building")}<span><strong>Homes to communities</strong><small>Residential, commercial, and multi-living</small></span></div>
+  <div class="cred-item">{ic("pin")}<span><strong>Serving Southeastern PA</strong><small>Based in Pottstown</small></span></div>
+ </div>
+</section>
+
+<section class="section" aria-labelledby="ring-h">
+ <div class="wrap">
+  <div class="sec-head"><div><p class="label">Recent work</p><h2 id="ring-h">Turn through real Berger jobs</h2></div><a class="linkarrow" href="gallery.html">All {len(PHOTOS)} photos {ic("arrow")}</a></div>
+  <div class="ring-wrap" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Project photos, use left and right arrow keys"><div class="ring" data-ring>{ring}</div></div>
+  <div class="ring-ctl"><button class="icon-btn" type="button" data-ring-dir="-1" aria-label="Previous photo">{ic("left")}</button><button class="btn btn-quiet btn-sm" type="button" data-ring-pause aria-pressed="false">Pause</button><button class="icon-btn" type="button" data-ring-dir="1" aria-label="Next photo">{ic("right")}</button></div>
+  <p class="vh" aria-live="polite" data-ring-status></p>
+ </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="svc3d-h">
+ <div class="wrap">
+  <div class="sec-head"><div><p class="label">Services</p><h2 id="svc3d-h">{NUMW[len(SERVICES)]} ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
+  <div class="tilt-grid">{tiles}</div>
+ </div>
+</section>
+
+<section class="section" aria-labelledby="rev3d-h">
+ <div class="wrap">
+  <div class="sec-head"><div><p class="label">What customers say</p><h2 id="rev3d-h">Respectful, efficient, dependable</h2></div><div class="g-actions"><a class="g-badge" href="reviews.html">{GLOGO}<span>Reviews from Google · 5.0</span></a><a class="g-review-btn" href="{BIZ["greview"]}" target="_blank" rel="noopener">{GLOGO}<span class="g-review-txt"><strong>Leave a review</strong><small>on Google</small></span><span class="g-review-stars" aria-hidden="true">{STAR*5}</span></a></div></div>
+  <div class="fan">{quotes}</div>
+ </div>
+</section>
+''' + cta_band("One call covers mowing to snow.", "Call or text (610) 420-3338 with your address and what you need.")
+    write(dict(file="home-3d.html", title="3D Homepage Sample | Berger Landscaping",
+               desc="Design sample: a 3D homepage concept for Berger Landscaping with a scroll-driven misty forest scene.",
+               noindex=True,
+               extra_head=f'<link rel="stylesheet" href="assets/home3d.css?v={VER}">',
+               extra_js='<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" defer></script>\n<script src="assets/home3d.js?v=' + VER + '" defer></script>\n'), body)
+
 # ================= search index, sitemap, etc =================
 def extras():
     idx = [dict(k="Page", t=t, d=d, u=u) for u, t, d in [
@@ -712,5 +789,5 @@ def extras():
     open(f"{OUT}/site.webmanifest","w").write(json.dumps({"name":"Berger Landscaping","short_name":"Berger","start_url":"./","display":"standalone","background_color":"#F7F9F8","theme_color":"#2B3A42","icons":[{"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"}]}, indent=1))
     open(os.path.join(HERE, "pages.json"),"w").write(json.dumps(PAGES, indent=1))
 
-home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); notfound(); extras()
+home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); notfound(); home3d(); extras()
 print("pages:", len(PAGES))

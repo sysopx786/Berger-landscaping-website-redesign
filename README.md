@@ -7,6 +7,7 @@
 | **Public site** (GitHub Pages) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/docs/ |
 | Public site, short link (redirects to the one above) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/ |
 | **Private preview** (Claude artifact) | Only Mujtaba, until shared from the artifact's Share menu | https://claude.ai/artifact/ASZx8CCXS3LXUJDdjN9rCD |
+| 3D homepage sample (design concept, not in nav or sitemap) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/docs/home-3d.html |
 | Source code | Anyone (repo is public) | https://github.com/sysopx786/Berger-landscaping-website-redesign |
 | Google listing / reviews (used on site) | Anyone | https://maps.app.goo.gl/VcP8FdZ8u5XwiSSY7 |
 | Google "Leave a review" (used on site) | Anyone | https://maps.app.goo.gl/hmSA2zj3VKHFWFtV6 |
@@ -31,6 +32,7 @@ Static multi-page site. No build step needed to host it; a Python generator rebu
 | About | `about.html` | Drew's story, stacked logo, licensed & insured, hiring |
 | Contact | `contact.html` | tel/sms/email + copy buttons, address, hours, consent-gated Google Map, quote steps, optional form (off), hiring |
 | Privacy | `privacy.html` | Matches actual site behavior |
+| 3D homepage sample | `home-3d.html` | Separate design concept (noindex, not linked from nav): scroll-driven three.js misty-forest hero, 3D photo ring, tilt service cards, fanned reviews. Falls back to the hero photo without WebGL; static under reduced motion. Loads three.js r149 from jsDelivr |
 | 404 | `404.html` | noindex |
 
 Also: `sitemap.xml` (16 URLs), `robots.txt`, `.nojekyll`, `site.webmanifest`, favicon set, Open Graph image (`assets/og-image.jpg`).
