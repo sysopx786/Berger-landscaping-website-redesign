@@ -134,6 +134,8 @@ p{margin:0}
 .sheet-top{display:flex;justify-content:space-between;align-items:center}
 .sheet nav{display:grid;gap:.1rem}
 .sheet nav a{display:flex;justify-content:space-between;align-items:center;padding:.85rem .25rem;font:500 1.5rem/1.1 var(--display);color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+.sheet nav a svg{width:20px;height:20px;flex:none;color:var(--muted)}
+.sheet .sheet-top .icon-btn{flex:none}
 .sheet .sheet-svcs{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .sheet .sheet-svcs a{font:500 .98rem var(--sans);border:1px solid var(--line);border-radius:var(--r-sm);padding:.75rem;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:.5rem;min-height:48px}
 .sheet .sheet-svcs svg{width:20px;height:20px;color:var(--pine);flex:none}
@@ -403,6 +405,7 @@ a.card:hover .more svg{transform:translateX(3px)}
 @media (max-width:820px){.split{grid-template-columns:1fr}}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:1.5rem}
 .facts>div{border:1px solid var(--line);border-radius:var(--r);padding:1.1rem;background:var(--surface);display:grid;gap:.3rem}
+.facts svg{width:28px;height:28px;color:var(--pine)}
 .facts strong{font:500 1.15rem var(--display)}
 .facts span{color:var(--muted);font-size:.92rem}
 @media (max-width:700px){.facts{grid-template-columns:1fr}}

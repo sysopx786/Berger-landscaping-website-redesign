@@ -118,6 +118,7 @@
       if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, results.length - 1); render(); scrollSel(); }
       else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, 0); render(); scrollSel(); }
       else if (e.key === "Enter" && results[sel]) { e.preventDefault(); go(results[sel].u); }
+      else if (e.key === "Escape") { e.preventDefault(); cmdk.close(); }
     });
     list.addEventListener("click", function (e) { var a = e.target.closest("a"); if (a) { e.preventDefault(); go(a.getAttribute("href")); } });
     cmdk.addEventListener("click", function (e) { if (e.target === cmdk) cmdk.close(); });
