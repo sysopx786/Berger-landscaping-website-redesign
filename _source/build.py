@@ -390,7 +390,7 @@ def home():
  <div class="wrap">
   <div class="sec-head"><div><p class="label">What customers say</p><h2 id="rev-h">Respectful, efficient, dependable</h2></div><a class="g-badge" href="reviews.html">{GLOGO}<span>Reviews from Google · 5.0</span></a></div>
   <div class="quotes" tabindex="0" role="region" aria-label="Customer reviews">{quotes}</div>
-  <p style="margin-top:1.5rem"><a class="linkarrow" href="reviews.html">Read all reviews and Drew's replies {ic("arrow")}</a></p>
+  <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem"><a class="linkarrow" href="reviews.html">Read all reviews and Drew's replies {ic("arrow")}</a><a class="linkarrow" href="{BIZ["greview"]}" target="_blank" rel="noopener">Leave a Google review {ic("arrow")}</a></p>
  </div>
 </section>
 
@@ -537,9 +537,10 @@ def reviews():
  <div class="rating-summary">
   <div class="rating-big" aria-hidden="true">5.0</div>
   <div style="display:grid;gap:.3rem"><span role="img" aria-label="5.0 out of 5 stars, based on 4 Google reviews">{stars()}</span><span style="color:var(--muted);font-size:.92rem">Based on 4 reviews</span></div>
-  <a class="g-badge" href="{BIZ["gmaps"]}" target="_blank" rel="noopener" style="margin-left:auto">{GLOGO}<span>Reviews from Google</span></a>
+  <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-left:auto"><a class="g-badge" href="{BIZ["gmaps"]}" target="_blank" rel="noopener">{GLOGO}<span>Read all reviews on Google</span></a><a class="btn btn-primary btn-sm" href="{BIZ["greview"]}" target="_blank" rel="noopener">{STAR.replace('<svg ','<svg style="width:1.1em;height:1.1em" ')}Leave a review</a></div>
  </div>
  <div class="review-list">{items}</div>
+ <div class="help-panel" style="max-width:820px"><div style="display:grid;gap:.4rem"><h2>Worked with Berger?</h2><p>A short Google review helps neighbors find a crew they can trust. It takes about a minute.</p></div><div class="btns"><a class="btn btn-primary" href="{BIZ["greview"]}" target="_blank" rel="noopener">Leave a Google review</a></div></div>
  <p class="attr">Reviews are shown as posted on Google and are not edited. Google is a trademark of Google LLC; display here does not mean Google endorses Berger Landscaping. <a href="{BIZ["gmaps"]}" target="_blank" rel="noopener">See the listing and all reviews on Google Maps</a>.</p>
 </div></section>''' + cta_band("Join the happy customers.", "Call or text to get on the schedule.")
     write(dict(file="reviews.html", title="Customer Reviews | Berger Landscaping",
@@ -675,7 +676,7 @@ def extras():
         ("gallery.html","Gallery","50 photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
         ("faqs.html","FAQs","120 answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
         ("contact.html","Contact & hours","Phone, email, address, map, hours"),("contact.html#quote","Get a quote","Call, text, or email with details"),
-        ("contact.html#hiring","We're hiring","Join the crew"),("privacy.html","Privacy Policy","What this site collects")]]
+        ("contact.html#hiring","We're hiring","Join the crew"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
     for s in SERVICES:
         idx.append(dict(k="Service", t=s["name"], d=s["promise"], u=s["slug"]+".html"))
     for g, v in FAQS.items():

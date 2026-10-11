@@ -37,7 +37,7 @@ Site uses neutral wording for each until confirmed.
 8. **Hardscape photos.** 10 of 50 photos show patios, stone steps, and walls, but no hardscape installation service is listed. Either Drew does this (add it to Custom Landscaping copy) or these photos overstate the offer.
 9. **Street address.** 110 Holby Lane is published (as in the notes). If it's a residence, Google lets service-area businesses hide it; consider removing it from the site and schema.
 10. **Crew faces.** Three crew photos show identifiable people. Get their OK.
-11. **Google listing URL.** Review links use a Google Maps search URL. Replace with the exact place URL (and add a "Write a review" link with the Place ID).
+11. **Google listing URL.** Done (Oct 11): owner-supplied listing and "Leave a review" links are in place. Not click-tested from the build environment.
 12. **Review dates.** Relative dates ("3 months ago") were dropped because they go stale.
 
 ## Deliberate deviations from the prompt (and why)
@@ -84,7 +84,7 @@ Limited. Confirmed facts come from your notes only. A web search returned no lis
 
 ## Outstanding tasks
 
-- [ ] Owner confirmations 1–12 above
+- [ ] Owner confirmations above (item 11 done)
 - [ ] Vector/high-res logo files
 - [ ] Junk removal and snow photos (4 labeled placeholders remain)
 - [ ] Before/after pairs, if Drew has them

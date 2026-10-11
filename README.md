@@ -8,6 +8,8 @@
 | Public site, short link (redirects to the one above) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/ |
 | **Private preview** (Claude artifact) | Only Mujtaba, until shared from the artifact's Share menu | https://claude.ai/artifact/ASZx8CCXS3LXUJDdjN9rCD |
 | Source code | Anyone (repo is public) | https://github.com/sysopx786/Berger-landscaping-website-redesign |
+| Google listing / reviews (used on site) | Anyone | https://maps.app.goo.gl/VcP8FdZ8u5XwiSSY7 |
+| Google "Leave a review" (used on site) | Anyone | https://maps.app.goo.gl/hmSA2zj3VKHFWFtV6 |
 
 Notes:
 - GitHub Pages currently serves from `main` / root, so the site sits under `/docs/`. Switching Settings → Pages to `main` / `/docs` puts the site at the root URL instead (the short link then shows the site directly).
