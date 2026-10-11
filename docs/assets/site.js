@@ -251,7 +251,7 @@
         });
         g.hidden = n === 0; total += n;
       });
-      count.textContent = t ? total + (total === 1 ? " question matches" : " questions match") : "Showing all 120 questions";
+      count.textContent = t ? total + (total === 1 ? " question matches" : " questions match") : (count.getAttribute("data-all-text") || "");
       empty.hidden = total !== 0;
     });
     var links = $$("[data-faq-link]");

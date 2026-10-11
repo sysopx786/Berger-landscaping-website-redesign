@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "3"
+VER = "4"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -19,6 +19,7 @@ ICON = {
  "leaf":'<path d="M4.5 19.5C4.2 10.5 10 4.6 20 4c.3 9.8-5.6 15.6-15.5 15.5z"/><path d="M4.5 19.5 14 10"/><path d="M9 15h4.5M11.5 12.5v-3"/>',
  "trimming":'<circle cx="6.5" cy="17.5" r="2.6"/><circle cx="17.5" cy="17.5" r="2.6"/><path d="M8.3 15.6 17 3.5M15.7 15.6 7 3.5"/>',
  "junk":'<path d="M2.5 6.5h11v9.5h-11z"/><path d="M13.5 9.5h4l3 3.2V16h-7"/><circle cx="6.5" cy="17.6" r="1.9"/><circle cx="16.8" cy="17.6" r="1.9"/><path d="M5.5 9.5h5M5.5 12.5h3"/>',
+ "tree":'<path d="M12 21.2v-7.5"/><path d="M12 15.5 9.2 12.8M12 16.6l2.9-2.6"/><path d="M7.6 14.2a4.6 4.6 0 0 1-1-8.6 5.2 5.2 0 0 1 10 .1 4.6 4.6 0 0 1-.2 8.5z"/><path d="M8.2 21.2h7.6"/>',
  "snow":'<path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2 3.8 16.8"/><path d="M9.6 4 12 6.3 14.4 4M9.6 20 12 17.7l2.4 2.3M4.2 11l2.9.9-.8 2.9M19.8 13l-2.9-.9.8-2.9"/>',
  "phone":'<path d="M5 3.5h3.2l1.6 4.3-2.1 1.4a11 11 0 0 0 7.1 7.1l1.4-2.1 4.3 1.6V19a1.8 1.8 0 0 1-1.9 1.8C10.4 20.3 3.7 13.6 3.2 5.4A1.8 1.8 0 0 1 5 3.5z"/>',
  "text":'<path d="M4 5.5h16v10.5H9.5L5 19.5V16H4z"/><path d="M8 9.5h8M8 12.5h5"/>',
@@ -268,7 +269,7 @@ def acc(items, idprefix=""):
     for i, (q, a) in enumerate(items):
         a_html = E(a)
         a_html = a_html.replace("(610) 420-3338", f'<a href="tel:{BIZ["tel"]}">(610) 420-3338</a>').replace(BIZ["email"], f'<a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a>')
-        a_html = a_html.replace("See our Trimming service.", 'See our <a href="trimming.html">Trimming service</a>.')
+        a_html = a_html.replace("See our Trimming service.", 'See our <a href="trimming.html">Trimming service</a>.').replace("See our Custom Landscaping Solutions service.", 'See our <a href="custom-landscaping.html">Custom Landscaping Solutions</a> service.')
         pid = f' id="{idprefix}{i+1}"' if idprefix else ""
         out.append(f'<details{pid}><summary><span class="q">{E(q)}</span><span class="pm" aria-hidden="true">{ic("plus")}</span></summary><div class="ans"><p>{a_html}</p></div></details>')
     return '<div class="acc">' + "".join(out) + "</div>"
@@ -306,7 +307,7 @@ def home():
         return f'<a class="card card-wide reveal" href="{slug}.html" style="view-transition-name:svc-{slug}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<h3>{E(x["name"])}</h3><p>{E(x["card"])}</p><span class="more">Learn more {ic("arrow")}</span></div><div class="card-media sk">{pic(pid,"(max-width:560px) 90vw, 25vw")}{tag}</div></a>'
     bento = (wide("mowing","berger-lawn-01") + small("property-maintenance") + small("trimming") +
              small("yard-clean-up") + small("leaf-removal") + wide("custom-landscaping","berger-hardscape-04") +
-             wide("junk-removal","berger-crew-01") + wide("snow-services","berger-snow-01"))
+             wide("tree-planting","berger-trees-s592") + small("junk-removal") + small("snow-services"))
     tabs = "".join(f'<button type="button" role="tab" id="tab-{k}" aria-controls="panel-{k}" aria-selected="{"true" if k=="fall" else "false"}" tabindex="{0 if k=="fall" else -1}">{v["label"]}</button>' for k, v in SEASONS.items())
     panels = ""
     for k, v in SEASONS.items():
@@ -348,7 +349,7 @@ def home():
 
 <section class="section" aria-labelledby="services-h">
  <div class="wrap">
-  <div class="sec-head"><div><p class="label">Services</p><h2 id="services-h">Eight ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
+  <div class="sec-head"><div><p class="label">Services</p><h2 id="services-h">Nine ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
   <div class="bento">{bento}</div>
  </div>
 </section>
@@ -396,7 +397,7 @@ def home():
 
 <section class="section section-alt" aria-labelledby="faq-h">
  <div class="wrap svc-grid">
-  <div class="sticky-col" style="display:grid;gap:1rem;align-content:start"><p class="label">Common questions</p><h2 id="faq-h">Quick answers before you call</h2><p class="lede">We've answered 120 questions across all eight services.</p><a class="linkarrow" href="faqs.html">Browse every FAQ {ic("arrow")}</a></div>
+  <div class="sticky-col" style="display:grid;gap:1rem;align-content:start"><p class="label">Common questions</p><h2 id="faq-h">Quick answers before you call</h2><p class="lede">We've answered {sum(len(v) for v in FAQS.values())} questions across all {len(SERVICES)} services.</p><a class="linkarrow" href="faqs.html">Browse every FAQ {ic("arrow")}</a></div>
   {acc(fq)}
  </div>
 </section>
@@ -428,7 +429,7 @@ def services():
 <section class="section"><div class="wrap"><div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">{rows}</div></div></section>''' + cta_band()
     body = body.replace('<div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">', '<div class="bento svc-overview">')
     write(dict(file="services.html", title="Landscaping Services | Berger Landscaping, Pottstown PA",
-               desc="All eight Berger Landscaping services: mowing, property maintenance, custom landscaping, yard clean-up, leaf removal, trimming, junk removal, and snow services.",
+               desc="All nine Berger Landscaping services: mowing, property maintenance, custom landscaping, clean-ups, leaf removal, trimming, tree planting, junk removal, and snow.",
                ld=[crumbs_ld([("index.html","Home"),("services.html","Services")])]), body)
 
 # ================= SERVICE PAGES =================
@@ -439,6 +440,7 @@ TITLES = {
  "yard-clean-up":("Spring & Fall Yard Clean-Up | Berger Landscaping","Yard clean-ups that remove weeds, rake leaves, and tidy garden beds, with debris hauled away. One-time or part of a maintenance plan."),
  "leaf-removal":("Leaf Removal Service | Berger Landscaping, Southeastern PA","Fall leaf raking and removal from lawns, beds, and walkways to prevent mold, fungus, and pests. Residential, commercial, and HOA."),
  "trimming":("Tree & Shrub Trimming | Berger Landscaping","Tree, bush, and hedge trimming for curb appeal, plant health, and safety, plus plant and shrub removal and full clean-up."),
+ "tree-planting":("Tree & Evergreen Planting | Berger Landscaping, Southeastern PA","Tree and evergreen planting with clean mulch rings, including privacy screens along fence lines. Homes and businesses. Call or text (610) 420-3338."),
  "junk-removal":("Junk Removal | Berger Landscaping, Pottstown PA","Junk removal from single items to full garage clean-outs: furniture, appliances, yard debris, and clutter, recycled or donated when possible."),
  "snow-services":("Snow Plowing, Removal & Salting | Berger Landscaping","Snow plowing and removal for driveways and commercial lots, plus salting and pet-safe ice-melt options in Southeastern PA."),
 }
@@ -447,6 +449,8 @@ def service_pages():
         slug = x["slug"]
         desc = "".join(f"<p>{E(p)}</p>" for p in x["desc"])
         draft = '<p class="draft-note">Draft copy: this description was written for the new site and is waiting on owner review.</p>' if x.get("draft") else ""
+        if slug == "tree-planting":
+            draft = '<p class="draft-note">Draft page: tree planting isn\'t in the original service list. This page is based on project photos and is waiting on owner review.</p>'
         if slug == "custom-landscaping":
             draft = '<p class="draft-note">Owner to confirm: the source for the “up to 12%” home-value figure.</p>'
         inc = "".join(f'<li>{ic("check")}<span>{E(i)}</span></li>' for i in x["included"])
@@ -550,13 +554,14 @@ def reviews():
 
 # ================= FAQS =================
 def faqs():
+    nq = sum(len(v) for v in FAQS.values())
     nav = "".join(f'<a href="#{FAQ_KEY[g]}" data-faq-link="{FAQ_KEY[g]}">{E(g.replace(" Solutions",""))}<span>{len(v)}</span></a>' for g, v in FAQS.items())
     groups = ""
     for g, v in FAQS.items():
         slug = FAQ_KEY[g]
         groups += f'<section class="faq-group" id="{slug}" data-faq-group aria-labelledby="h-{slug}"><h2 id="h-{slug}">{ic(SVC[slug]["icon"])}{E(g)}</h2>{acc(v)}<a class="linkarrow grp-link" href="{slug}.html">{E(g)} service details {ic("arrow")}</a></section>'
-    body = phero("Frequently asked questions", "120 answers across all eight services. Search, or jump to a service.", [("index.html","Home"),("faqs.html","FAQs")],
-                 f'<div class="searchbox" style="margin-top:.5rem">{ic("search")}<label class="vh" for="faq-q">Search the FAQs</label><input id="faq-q" type="search" placeholder="Try “steep hill”, “pet-safe”, or “contract”" autocomplete="off"></div><p class="faq-count" aria-live="polite" data-faq-count>Showing all 120 questions</p>') + f'''
+    body = phero("Frequently asked questions", f"{sum(len(v) for v in FAQS.values())} answers across all {len(SERVICES)} services. Search, or jump to a service.", [("index.html","Home"),("faqs.html","FAQs")],
+                 f'<div class="searchbox" style="margin-top:.5rem">{ic("search")}<label class="vh" for="faq-q">Search the FAQs</label><input id="faq-q" type="search" placeholder="Try “steep hill”, “pet-safe”, or “contract”" autocomplete="off"></div><p class="faq-count" aria-live="polite" data-faq-count data-all-text="Showing all {nq} questions">Showing all {nq} questions</p>') + f'''
 <section class="section"><div class="wrap faq-layout">
  <nav class="faq-nav" aria-label="FAQ categories">{nav}</nav>
  <div style="min-width:0">{groups}
@@ -565,7 +570,7 @@ def faqs():
  </div>
 </div></section>'''
     write(dict(file="faqs.html", title="Landscaping FAQs | Berger Landscaping",
-               desc="Answers to 120 common questions about mowing, property maintenance, custom landscaping, clean-ups, leaf removal, trimming, junk removal, and snow services.",
+               desc="Answers to 135 common questions about mowing, property care, landscaping, clean-ups, leaves, trimming, tree planting, junk removal, and snow.",
                ld=[crumbs_ld([("index.html","Home"),("faqs.html","FAQs")])]), body)
 
 # ================= ABOUT =================
@@ -673,9 +678,9 @@ def notfound():
 # ================= search index, sitemap, etc =================
 def extras():
     idx = [dict(k="Page", t=t, d=d, u=u) for u, t, d in [
-        ("index.html","Home","Landscaping that looks cared for, all year."),("services.html","All services","Compare all eight services"),
+        ("index.html","Home","Landscaping that looks cared for, all year."),("services.html","All services",f"Compare all {len(SERVICES)} services"),
         ("gallery.html","Gallery",f"{len(PHOTOS)} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
-        ("faqs.html","FAQs","120 answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
+        ("faqs.html","FAQs",f"{sum(len(v) for v in FAQS.values())} answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
         ("contact.html","Contact & hours","Phone, email, address, map, hours"),("contact.html#quote","Get a quote","Call, text, or email with details"),
         ("contact.html#hiring","We're hiring","Join the crew"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
     for s in SERVICES:

@@ -26,7 +26,7 @@ def parse_faqs(path):
     return groups
 
 FAQS = parse_faqs(os.path.join(os.path.dirname(os.path.abspath(__file__)),"berger-landscaping-faqs.md"))
-assert len(FAQS) == 8 and all(len(v) == 15 for v in FAQS.values()), {k: len(v) for k, v in FAQS.items()}
+assert len(FAQS) == 9 and all(len(v) == 15 for v in FAQS.values()), {k: len(v) for k, v in FAQS.items()}
 
 # ---------- Services (description copy verbatim from notes) ----------
 SERVICES = [
@@ -84,7 +84,16 @@ SERVICES = [
   included=["Tree and bush trimming","Hedge shaping to the height and form you want","Plant and shrub removal","Clean-up and haul-away of trimmings"],
   photos=["berger-trimming-01","berger-trimming-02","berger-trimming-s228"],
   tip=("Right time, right plant","The best time to trim varies by plant. We'll recommend timing that won't hurt flowering or growth."),
-  related=["yard-clean-up","property-maintenance","custom-landscaping"]),
+  related=["tree-planting","yard-clean-up","property-maintenance"]),
+ dict(slug="tree-planting", name="Tree Planting", icon="tree", season="Spring · Fall", draft=True,
+  card="Shade trees, ornamentals, and evergreen screens, planted with clean mulch rings.",
+  promise="New trees and evergreen screens, planted and finished with a clean mulch ring.",
+  desc=["New trees add shade, privacy, and structure to a property for years to come. We plant shade and ornamental trees and evergreens, then finish each one with a clean mulch ring that holds moisture and keeps mowers and trimmers away from the trunk.",
+        "From a single specimen tree by the front walk to a row of evergreens along a fence line for privacy, we'll talk through placement with you before we dig, including how large each tree will grow."],
+  included=["Planting shade trees, ornamental trees, and evergreens","Mulch rings around each new tree","Evergreen rows for privacy along fences and property lines","Decorative stone ring borders where you want them","Ongoing care through Property Maintenance"],
+  photos=["berger-trees-s592","berger-cleanup-s610","berger-trees-s590","berger-trees-s237","berger-cleanup-s609","berger-trimming-s354"],
+  tip=("Planting season","Spring and fall are generally the best times to plant in Pennsylvania. Give new trees regular, deep watering through their first season."),
+  related=["trimming","custom-landscaping","property-maintenance"]),
  dict(slug="junk-removal", name="Junk Removal", icon="junk", season=None,
   card="One item or a full garage. We lift, haul, recycle, and donate.",
   promise="From a single old appliance to a full garage clean-out, we do the heavy lifting.",
@@ -108,7 +117,7 @@ SERVICES = [
 SVC = {s["slug"]: s for s in SERVICES}
 # map FAQ group names -> slug
 FAQ_KEY = {"Mowing":"mowing","Property Maintenance":"property-maintenance","Custom Landscaping Solutions":"custom-landscaping",
-           "Yard Clean-Up":"yard-clean-up","Leaf Removal":"leaf-removal","Trimming":"trimming","Junk Removal":"junk-removal","Snow Services":"snow-services"}
+           "Yard Clean-Up":"yard-clean-up","Leaf Removal":"leaf-removal","Trimming":"trimming","Tree Planting":"tree-planting","Junk Removal":"junk-removal","Snow Services":"snow-services"}
 for g, items in FAQS.items():
     SVC[FAQ_KEY[g]]["faqs"] = items
 

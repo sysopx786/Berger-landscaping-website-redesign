@@ -416,3 +416,52 @@ Ice melt choices vary. Ask us about the options and what's best for your surface
 - Where the business's real policy is unknown, I wrote "ask us" or "call for a quote". Replace these with real answers (pricing method, contract terms, scheduling, accepted and refused junk items, snow trigger depth).
 - Details taken from the source notes: licensed and insured, residential/commercial/multi-living, Southeastern PA, eco-friendly junk removal (recycle/donate), pet-safe ice melt, up to 12% home-value claim, hiring notice, phone and email.
 - Items that are general landscaping knowledge, not from the source, should be confirmed by Drew: best timing for trimming and clean-ups, mowing height, mulch and hardscape coverage.
+
+---
+
+## 9. Tree Planting
+
+**1. What kinds of trees do you plant?**
+Shade and ornamental trees and evergreens, like the ones in our gallery. Ask us about specific varieties for your property.
+
+**2. Do you supply the trees, or can I buy my own?**
+Please ask. Call or text (610) 420-3338 and we'll explain how we handle sourcing.
+
+**3. When is the best time to plant a tree?**
+In Pennsylvania, spring and fall are generally the best planting windows, when temperatures are mild. We'll recommend timing for your trees.
+
+**4. Why do you put a mulch ring around new trees?**
+A mulch ring holds moisture, keeps weeds down, moderates soil temperature, and keeps mowers and string trimmers away from the trunk.
+
+**5. Can mulch be piled up against the trunk?**
+No. Mulch piled against the bark (sometimes called a "mulch volcano") holds moisture on the trunk and can cause rot. Mulch should be spread wide and kept back from the bark.
+
+**6. Can you plant evergreens for privacy?**
+Yes. We plant rows of evergreens along fence lines and property edges to create a screen.
+
+**7. How far apart should privacy evergreens be planted?**
+It depends on the variety and how quickly you want a full screen. We'll recommend spacing based on the trees you choose.
+
+**8. How often should I water a new tree?**
+New trees need regular, deep watering through their first growing season, and more during dry spells. Ask us for guidance on your specific trees.
+
+**9. Do you guarantee the trees you plant?**
+Ask us about our current terms.
+
+**10. Can you remove a dead or unwanted tree?**
+We remove plants and shrubbery as part of our trimming service. For large trees, tell us about the situation and we'll let you know what we can handle or whether a specialist is needed.
+
+**11. Can you trim my existing trees?**
+Yes. See our Trimming service.
+
+**12. Do you need to check for buried utilities before digging?**
+Pennsylvania requires a PA One Call (811) request before digging. Ask us how this is handled for your project.
+
+**13. Do you plant trees for both homes and businesses?**
+Yes. We serve residential and commercial properties.
+
+**14. Can tree planting be part of a bigger landscape plan?**
+Yes. Trees can be built into a custom landscape design. See our Custom Landscaping Solutions service.
+
+**15. How do I get a tree planting quote?**
+Call or text (610) 420-3338 or email drew@bergerlandscaping.net. Tell us how many trees, where they'll go, and any photos of the area.
