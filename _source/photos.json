@@ -1,0 +1,402 @@
+[
+ {
+  "id": "berger-lawn-01",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Freshly striped lawn in front of a two-story home",
+  "orig": "berger-landscaping-019.jpg"
+ },
+ {
+  "id": "berger-lawn-02",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Large manicured lawn with mowing stripes and a distant estate home",
+  "orig": "berger-landscaping-129.jpg"
+ },
+ {
+  "id": "berger-lawn-03",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Crisp mowing stripes across a sloped lawn beside a deck",
+  "orig": "berger-landscaping-490.jpg"
+ },
+ {
+  "id": "berger-lawn-04",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn leading to a stone-front home",
+  "orig": "berger-landscaping-518.jpg"
+ },
+ {
+  "id": "berger-lawn-05",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Neatly striped front lawn at a colonial home",
+  "orig": "berger-landscaping-482.jpg"
+ },
+ {
+  "id": "berger-lawn-06",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Wide striped lawn at a large home",
+  "orig": "berger-landscaping-704.jpg"
+ },
+ {
+  "id": "berger-lawn-07",
+  "cat": "lawn",
+  "w": 960,
+  "h": 1280,
+  "alt": "Curved concrete sidewalk with crisp lawn edging",
+  "orig": "berger-landscaping-404.jpg"
+ },
+ {
+  "id": "berger-lawn-08",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Front lawn and walkway of a two-story home under blue sky",
+  "orig": "berger-landscaping-128.jpg"
+ },
+ {
+  "id": "berger-beds-01",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Fresh black mulch bed with flowering shrubs along a front walk",
+  "orig": "berger-landscaping-114.jpg"
+ },
+ {
+  "id": "berger-beds-02",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Red azaleas and stepping stones in a freshly mulched porch bed",
+  "orig": "berger-landscaping-180.jpg"
+ },
+ {
+  "id": "berger-beds-03",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with boulders and perennials beside a brick walkway",
+  "orig": "berger-landscaping-225.jpg"
+ },
+ {
+  "id": "berger-beds-04",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Landscape bed with boulders and mixed plantings",
+  "orig": "berger-landscaping-331.jpg"
+ },
+ {
+  "id": "berger-beds-05",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Colorful perennial bed with ornamental grasses and fresh mulch",
+  "orig": "berger-landscaping-333.jpg"
+ },
+ {
+  "id": "berger-beds-06",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Stacked-stone retaining wall with a planted mulch bed",
+  "orig": "berger-landscaping-341.jpg"
+ },
+ {
+  "id": "berger-beds-07",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Curved paver-edged bed with flowering shrubs at a front porch",
+  "orig": "berger-landscaping-454.jpg"
+ },
+ {
+  "id": "berger-beds-08",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Front-entry planting bed with hostas, stone and river rock",
+  "orig": "berger-landscaping-462.jpg"
+ },
+ {
+  "id": "berger-beds-09",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Japanese maple bed with river-rock edging by a driveway",
+  "orig": "berger-landscaping-465.jpg"
+ },
+ {
+  "id": "berger-beds-10",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Large boulder accent bed in front of a porch",
+  "orig": "berger-landscaping-470.jpg"
+ },
+ {
+  "id": "berger-beds-11",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Sweeping mulch bed with natural stone edging",
+  "orig": "berger-landscaping-580.jpg"
+ },
+ {
+  "id": "berger-beds-12",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Landscaped island bed with mixed shrubs on a striped lawn",
+  "orig": "berger-landscaping-560.jpg"
+ },
+ {
+  "id": "berger-beds-13",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Stepping-stone path through mulch beside a stone-front home",
+  "orig": "berger-landscaping-177.jpg"
+ },
+ {
+  "id": "berger-beds-14",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Flower bed with stone edging and fresh mulch",
+  "orig": "berger-landscaping-110.jpg"
+ },
+ {
+  "id": "berger-beds-15",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "River-rock and mulch ring around a multi-stem tree",
+  "orig": "berger-landscaping-087.jpg"
+ },
+ {
+  "id": "berger-beds-16",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Mulch bed with rock edging along a sloped driveway",
+  "orig": "berger-landscaping-024.jpg"
+ },
+ {
+  "id": "berger-beds-17",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with shrubs along a wood fence",
+  "orig": "berger-landscaping-054.jpg"
+ },
+ {
+  "id": "berger-beds-18",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Curved mulch bed with a golden shrub along a sidewalk",
+  "orig": "berger-landscaping-191.jpg"
+ },
+ {
+  "id": "berger-beds-19",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Stepping-stone walkway through a mulched planting bed",
+  "orig": "berger-landscaping-236.jpg"
+ },
+ {
+  "id": "berger-beds-20",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Home with a freshly mulched foundation bed and lawn",
+  "orig": "berger-landscaping-559.jpg"
+ },
+ {
+  "id": "berger-beds-21",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Newly installed mulch bed with boulders and young plantings",
+  "orig": "berger-landscaping-439.jpg"
+ },
+ {
+  "id": "berger-beds-22",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Paver walkway with layered plantings and mulch",
+  "orig": "berger-landscaping-457.jpg"
+ },
+ {
+  "id": "berger-beds-23",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Porch planting beds with hostas and an American flag",
+  "orig": "berger-landscaping-561.jpg"
+ },
+ {
+  "id": "berger-hardscape-01",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Natural stone steps with river-rock drainage on a hillside",
+  "orig": "berger-landscaping-040.jpg"
+ },
+ {
+  "id": "berger-hardscape-02",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Finished brick paver patio with a seat wall",
+  "orig": "berger-landscaping-156.jpg"
+ },
+ {
+  "id": "berger-hardscape-03",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Natural stone steps and paver walkway with spring flowers",
+  "orig": "berger-landscaping-253.jpg"
+ },
+ {
+  "id": "berger-hardscape-04",
+  "cat": "hardscape",
+  "w": 960,
+  "h": 1280,
+  "alt": "Wide natural stone steps through a groundcover slope",
+  "orig": "berger-landscaping-307.jpg"
+ },
+ {
+  "id": "berger-hardscape-05",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Paver walkway edging a curved mulch bed",
+  "orig": "berger-landscaping-599.jpg"
+ },
+ {
+  "id": "berger-hardscape-06",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Stone seat wall patio with arborvitae and mulch bed",
+  "orig": "berger-landscaping-619.jpg"
+ },
+ {
+  "id": "berger-hardscape-07",
+  "cat": "hardscape",
+  "w": 960,
+  "h": 1280,
+  "alt": "Decorative stone path with a Japanese maple",
+  "orig": "berger-landscaping-429.jpg"
+ },
+ {
+  "id": "berger-hardscape-08",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Gravel bed with accent boulders and a fieldstone wall",
+  "orig": "berger-landscaping-012.jpg"
+ },
+ {
+  "id": "berger-hardscape-09",
+  "cat": "hardscape",
+  "w": 960,
+  "h": 1280,
+  "alt": "Paver patio beside a pool with shrubs and mulch",
+  "orig": "berger-landscaping-431.jpg"
+ },
+ {
+  "id": "berger-hardscape-10",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Paver driveway apron beside a home",
+  "orig": "berger-landscaping-046.jpg"
+ },
+ {
+  "id": "berger-trimming-01",
+  "cat": "trimming",
+  "w": 1280,
+  "h": 960,
+  "alt": "Neatly shaped shrubs along a fence line",
+  "orig": "berger-landscaping-437.jpg"
+ },
+ {
+  "id": "berger-trimming-02",
+  "cat": "trimming",
+  "w": 1179,
+  "h": 768,
+  "alt": "Sculpted hedge in front of a home",
+  "orig": "berger-landscaping-033.jpg"
+ },
+ {
+  "id": "berger-seasonal-01",
+  "cat": "seasonal",
+  "w": 960,
+  "h": 1280,
+  "alt": "Autumn lawn with fresh mowing stripes and fall color",
+  "orig": "berger-landscaping-301.jpg"
+ },
+ {
+  "id": "berger-seasonal-02",
+  "cat": "seasonal",
+  "w": 1280,
+  "h": 960,
+  "alt": "Home with a clean autumn lawn and young tree",
+  "orig": "berger-landscaping-303.jpg"
+ },
+ {
+  "id": "berger-seasonal-03",
+  "cat": "seasonal",
+  "w": 960,
+  "h": 1280,
+  "alt": "Crew loading fall leaves into a dump trailer",
+  "orig": "berger-landscaping-534.jpg"
+ },
+ {
+  "id": "berger-snow-01",
+  "cat": "snow",
+  "w": 1280,
+  "h": 960,
+  "alt": "Plow truck clearing a snowy road",
+  "orig": "berger-landscaping-496.jpg"
+ },
+ {
+  "id": "berger-crew-01",
+  "cat": "crew",
+  "w": 1280,
+  "h": 960,
+  "alt": "Crew unloading material at a job site",
+  "orig": "berger-landscaping-531.jpg"
+ },
+ {
+  "id": "berger-crew-02",
+  "cat": "crew",
+  "w": 960,
+  "h": 1280,
+  "alt": "Crew member leveling a base for a paver patio",
+  "orig": "berger-landscaping-153.jpg"
+ },
+ {
+  "id": "berger-crew-03",
+  "cat": "crew",
+  "w": 960,
+  "h": 1280,
+  "alt": "Crew member placing a boulder in a landscape bed",
+  "orig": "berger-landscaping-533.jpg"
+ }
+]
