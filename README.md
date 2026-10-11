@@ -1,5 +1,19 @@
 # Berger Landscaping website — handover
 
+## Links
+
+| Link | Who can open it | URL |
+|---|---|---|
+| **Public site** (GitHub Pages) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/docs/ |
+| Public site, short link (redirects to the one above) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/ |
+| **Private preview** (Claude artifact) | Only Mujtaba, until shared from the artifact's Share menu | https://claude.ai/artifact/ASZx8CCXS3LXUJDdjN9rCD |
+| Source code | Anyone (repo is public) | https://github.com/sysopx786/Berger-landscaping-website-redesign |
+
+Notes:
+- GitHub Pages currently serves from `main` / root, so the site sits under `/docs/`. Switching Settings → Pages to `main` / `/docs` puts the site at the root URL instead (the short link then shows the site directly).
+- The private preview is a snapshot of v1. The Google Map and call/text buttons don't work inside it; they work on the public site.
+- Final home: `https://www.bergerlandscaping.net/` once Drew approves and DNS is pointed at GitHub Pages.
+
 Static multi-page site. No build step needed to host it; a Python generator rebuilds pages from content data.
 
 ## What's built
