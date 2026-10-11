@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "5"
+VER = "6"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -352,7 +352,7 @@ def home():
 <section class="section" aria-labelledby="services-h">
  <div class="wrap">
   <div class="sec-head"><div><p class="label">Services</p><h2 id="services-h">{NUMW[len(SERVICES)]} ways we look after your property</h2></div><a class="linkarrow" href="services.html">Compare all services {ic("arrow")}</a></div>
-  <div class="bento">{bento}</div>
+  {svc_cards("h3")}
  </div>
 </section>
 
@@ -421,15 +421,18 @@ def home():
                preload="berger-lawn-04", ld=[LOCALBIZ, {"@context":"https://schema.org","@type":"WebSite","name":"Berger Landscaping","url":SITE}]), body)
 
 # ================= SERVICES OVERVIEW =================
-def services():
+def svc_cards(hl="h2"):
     rows = ""
     for x in SERVICES:
         pid = next((p for p in x["photos"] if p), None)
         tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
-        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<h2 style="font-size:1.45rem">{E(x["name"])}</h2><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder("Photo coming soon")}{tag}</div></a>'
+        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<{hl} style="font-size:1.45rem">{E(x["name"])}</{hl}><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder("Photo coming soon")}{tag}</div></a>'
+    return f'<div class="bento svc-overview">{rows}</div>'
+
+def services():
+    rows = svc_cards("h2")
     body = phero("Services", f"Mowing to snow, for homes, businesses, and multi-living communities across {BIZ['area']}. Pick a service for what's included and answers to common questions.", [("index.html","Home"),("services.html","Services")], f'<div class="phero-ctas">{btn_call()}</div>') + f'''
-<section class="section"><div class="wrap"><div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">{rows}</div></div></section>''' + cta_band()
-    body = body.replace('<div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">', '<div class="bento svc-overview">')
+<section class="section"><div class="wrap">{rows}</div></section>''' + cta_band()
     write(dict(file="services.html", title="Landscaping Services | Berger Landscaping, Pottstown PA",
                desc="Every Berger Landscaping service: mowing, aeration and seeding, property maintenance, landscaping, clean-ups, trimming, tree planting, junk removal, and snow.",
                ld=[crumbs_ld([("index.html","Home"),("services.html","Services")])]), body)

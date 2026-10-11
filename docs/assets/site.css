@@ -529,3 +529,6 @@ a.card:hover .more svg{transform:translateX(3px)}
 }
 @media print{.site-header,.actionbar,.totop,.site-footer,.hiring{display:none}}
 .svc-overview .card-wide{grid-column:auto}
+.card-media .placeholder{position:absolute;inset:0}
+.card-wide .card-media .placeholder img{position:static;width:44px;height:auto;inset:auto}
+@media (max-width:560px){.svc-overview .card-wide .card-media{min-height:150px}}
