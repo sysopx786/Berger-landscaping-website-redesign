@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "13"
+VER = "14"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -131,7 +131,7 @@ def placeholder(label="Replace with project photo"):
 
 # ---------------- head / chrome ----------------
 FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..650;1,9..144,300..500&display=swap"
-NAV = [("services.html","Services"),("gallery.html","Gallery"),("reviews.html","Reviews"),("faqs.html","FAQs"),("about.html","About"),("contact.html","Contact")]
+NAV = [("services.html","Services"),("service-area.html","Service Area"),("gallery.html","Gallery"),("reviews.html","Reviews"),("faqs.html","FAQs"),("about.html","About"),("contact.html","Contact")]
 
 def head(p):
     canon = SITE + ("" if p["file"] == "index.html" else p["file"])
@@ -172,7 +172,7 @@ def header(cur):
             links.append(f'''<div class="nav-dd{' is-current' if is_svc else ''}"><button type="button" aria-expanded="false" aria-controls="dd-services">Services {ic("down")}</button><div class="dd-panel" id="dd-services" hidden>{svc_links}<a class="dd-all" href="services.html">All services overview</a></div></div>''')
         else:
             links.append(f'<a href="{href}"{" aria-current=\"page\"" if href == cur else ""}>{label}</a>')
-    sheet_nav = "".join(f'<a href="{h}">{l}{ic("right")}</a>' for h, l in [("index.html","Home")] + NAV)
+    sheet_nav = "".join(f'<a href="{h}">{l}{ic("right")}</a>' for h, l in [("index.html","Home")] + NAV + [("contact.html#quote","Get a Quote")])
     sheet_svcs = "".join(f'<a href="{s["slug"]}.html">{ic(s["icon"])}{E(s["name"].replace(" Solutions",""))}</a>' for s in SERVICES)
     return f'''<body>
 <a class="skip" href="#main">Skip to content</a>
@@ -189,7 +189,8 @@ def header(cur):
   <div class="hdr-actions">
    <button class="search-btn" type="button" data-cmdk aria-label="Search the site">{ic("search")}<span>Search</span><kbd>⌘K</kbd></button>
    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">{ic("moon")}</button>
-   <a class="btn btn-primary btn-sm hdr-call magnetic" href="tel:{BIZ["tel"]}">{ic("phone")}{BIZ["phone"]}</a>
+   <a class="btn btn-quiet btn-sm hdr-quote" href="contact.html#quote">{ic("mail")}<span class="hl">Get a quote</span><span class="hs">Quote</span></a>
+   <a class="btn btn-primary btn-sm hdr-call magnetic" href="tel:{BIZ["tel"]}" aria-label="Call {BIZ["phone"]}">{ic("phone")}<span class="hl">{BIZ["phone"]}</span><span class="hs">Call</span></a>
    <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">{ic("menu")}</button>
   </div>
  </div>
@@ -199,7 +200,7 @@ def header(cur):
  <div class="sheet-top"><img src="assets/logo-icon-sm.webp" width="140" height="235" alt="" style="height:44px;width:auto" class="logo-light"><button class="icon-btn" type="button" data-close-sheet aria-label="Close menu">{ic("close")}</button></div>
  <nav aria-label="Mobile">{sheet_nav}</nav>
  <div><p class="label" style="margin-bottom:.6rem">Services</p><div class="sheet-svcs">{sheet_svcs}</div></div>
- <a class="btn btn-primary" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a>
+ <div style="display:grid;gap:.6rem"><a class="btn btn-primary" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a><a class="btn btn-quiet" href="contact.html#quote">{ic("mail")}Get a quote</a></div>
 </div>
 <main id="main" tabindex="-1">'''
 
