@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "10"
+VER = "11"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -334,9 +334,10 @@ def home():
  <div class="wrap hero-inner">
   <p class="label eyebrow">Berger Landscaping LLC · Pottstown, PA</p>
   <h1 id="hero-h">Landscaping that looks <em>cared for</em>, all year.</h1>
-  <p class="lede">Family-owned mowing, landscaping, and property care for homes, businesses, and communities across {BIZ["area"]}, from spring clean-ups to winter plowing.</p>
+  <p class="lede">Family-owned mowing, landscaping, and property care for homes, businesses, and communities, from spring clean-ups to winter plowing.</p>
+  <p class="hero-area">Serving Pottstown, Royersford, Spring City, and <a href="service-area.html">nearby towns</a>.</p>
   <div class="hero-ctas">{btn_call()}<a class="btn btn-ghost" href="gallery.html">See our work {ic("arrow")}</a></div>
-  <ul class="trust" aria-label="Highlights"><li>Family-owned</li><li>Licensed &amp; insured</li><li>Residential &amp; commercial</li><li>Southeastern PA</li></ul>
+  <ul class="trust" aria-label="Highlights"><li>Family-owned</li><li>Licensed &amp; insured</li><li>Residential &amp; commercial</li><li>Pottstown area</li></ul>
  </div>
  <a class="scroll-cue" href="#services-h" aria-label="Skip to services">{DEER_ICON}<span class="tick"></span></a>
 </section>
@@ -625,7 +626,7 @@ def contact():
   <div class="cblock"><p class="label">Email</p><span class="big" style="font-size:1.25rem">{BIZ["email"]}</span><div class="row"><a class="btn btn-sm btn-quiet" href="mailto:{BIZ["email"]}">{ic("mail")}Send email</a><button class="copy-btn" type="button" data-copy="{BIZ["email"]}">Copy email</button></div></div>
   <div class="cblock"><p class="label">Address</p><address style="font-style:normal">{BIZ["street"]}<br>{BIZ["city"]}, {BIZ["region"]} {BIZ["zip"]}</address></div>
   <div class="cblock"><p class="label">Hours</p><table class="hours"><caption class="vh">Business hours</caption><tbody><tr><td>Sunday – Saturday</td><td>9:00 AM – 5:00 PM</td></tr></tbody></table><p style="font-size:.88rem;color:var(--muted);margin-top:.5rem">For snow service timing during storms, ask us when you sign up.</p></div>
-  <div class="cblock" style="border-bottom:0"><p class="label">Service area</p><p>We serve communities across <strong>Southeastern Pennsylvania</strong> from our base in Pottstown. Not sure we reach you? Call or text with your address.</p></div>
+  <div class="cblock" style="border-bottom:0"><p class="label">Service area</p><p>Serving <strong>Pottstown, Royersford, Spring City</strong>, and nearby towns. <a href="service-area.html">See all the towns we serve</a>. Not sure we reach you? Call or text with your address.</p></div>
  </div>
  <div>
   <div class="map" data-map data-src="{BIZ["gembed"]}">

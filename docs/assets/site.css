@@ -555,3 +555,5 @@ a.card:hover .more svg{transform:translateX(3px)}
 .towns{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem}
 .towns li{padding:.85rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-weight:600}
 @media (max-width:420px){.towns{grid-template-columns:1fr 1fr}}
+.hero-area{font-weight:600;margin-top:.6rem}
+.hero-area a{color:inherit;text-decoration:underline;text-underline-offset:3px}

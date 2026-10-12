@@ -174,7 +174,7 @@ ALT_FIX = {
 }
 
 # Service area towns (from the Oct 12 driving-time list; Pottstown added as home base). Alphabetical.
-# Owner (Drew) to confirm before launch.
+# Confirmed by Drew Oct 12, 2026.
 TOWNS = sorted(["Pottstown","Stowe","Kenilworth","Pottsgrove","Halfway House","Sanatoga","Douglassville","Amity Gardens",
   "Gilbertsville","Boyertown","Linfield","Parker Ford","Spring City","Royersford","Limerick","Trappe","Phoenixville",
   "Kimberton","Mont Clare","Collegeville","Oaks"])
