@@ -113,7 +113,7 @@ Call or text (610) 420-3338 or email drew@bergerlandscaping.net for a quote.
 Yes. Your needs change with the seasons, and we can adjust the plan as they do.
 
 **15. What areas do you serve?**
-We proudly serve communities across Southeastern Pennsylvania.
+We serve Pottstown, PA and nearby towns, including Royersford, Spring City, Phoenixville, Boyertown, and Gilbertsville. See the full list on our Service Area page.
 
 ---
 

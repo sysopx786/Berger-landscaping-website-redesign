@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "11"
+VER = "12"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -347,7 +347,7 @@ def home():
   <a class="cred-item" href="reviews.html" style="text-decoration:none;color:inherit">{GLOGO.replace('class="g-logo"','class="g-logo" style="width:32px;height:32px;flex:none"')}<span><strong><span class="rating-num">5.0</span> {stars()}</strong><small>Reviews from Google · 4 reviews</small></span></a>
   <div class="cred-item">{ic("shield")}<span><strong>Licensed &amp; insured</strong><small>Fully covered for residential and commercial work</small></span></div>
   <div class="cred-item">{ic("building")}<span><strong>Homes to communities</strong><small>Residential, commercial, and multi-living</small></span></div>
-  <div class="cred-item">{ic("pin")}<span><strong>Serving Southeastern PA</strong><small>Based in Pottstown</small></span></div>
+  <div class="cred-item">{ic("pin")}<span><strong>Serving the Pottstown area</strong><small>Royersford, Spring City &amp; more</small></span></div>
  </div>
 </section>
 
@@ -383,7 +383,7 @@ def home():
  <div class="wrap">
   <div class="sec-head"><div><p class="label">Why Berger</p><h2 id="why-h">A business-management mindset with a craftsman's eye</h2></div></div>
   <div class="why">
-   <div>{ic("family")}<h3>Family-owned</h3><p>Drew Berger runs the company with his family's name on every job, serving communities across Southeastern PA.</p></div>
+   <div>{ic("family")}<h3>Family-owned</h3><p>Drew Berger runs the company with his family's name on every job, serving Pottstown and nearby towns.</p></div>
    <div>{ic("chart")}<h3>Run like a business</h3><p>Drew built the company on experience in business management: clear communication and crews that show up.</p></div>
    <div>{ic("drop")}<h3>Designs that work</h3><p>Detail-oriented landscapes planned to reduce rainwater runoff and support natural weed and pest control.</p></div>
    <div>{ic("recycle")}<h3>Eco-minded hauling</h3><p>On junk removal jobs, items are recycled or donated whenever possible instead of going straight to the landfill.</p></div>
@@ -418,7 +418,7 @@ def home():
  </div>
 </section>
 ''' + cta_band("One call covers mowing to snow.", "Call or text (610) 420-3338 with your address and what you need. We're also hiring: ask about joining the crew.")
-    write(dict(file="index.html", title="Berger Landscaping | Lawn Care & Landscaping in Southeastern PA",
+    write(dict(file="index.html", title="Berger Landscaping | Lawn Care & Landscaping, Pottstown PA",
                desc="Family-owned landscaping in Pottstown, PA: mowing, property care, custom landscaping, clean-ups, junk removal, and snow services. Call or text (610) 420-3338.",
                preload="berger-lawn-04", ld=[LOCALBIZ, {"@context":"https://schema.org","@type":"WebSite","name":"Berger Landscaping","url":SITE}]), body)
 
@@ -441,16 +441,16 @@ def services():
 
 # ================= SERVICE PAGES =================
 TITLES = {
- "mowing":("Lawn Mowing Service in Southeastern PA | Berger Landscaping","Weekly lawn mowing with edging, trimming, and clean-up for homes, businesses, and HOAs, including large lawns and steep hills. Call or text (610) 420-3338."),
+ "mowing":("Lawn Mowing Service in Pottstown, PA | Berger Landscaping","Weekly lawn mowing with edging, trimming, and clean-up for homes, businesses, and HOAs, including large lawns and steep hills. Call or text (610) 420-3338."),
  "property-maintenance":("Property Maintenance | Berger Landscaping, Pottstown PA","Ongoing care of lawns, beds, shrubs, trees, hardscapes, and common areas: mowing, trimming, mulch, seasonal clean-ups, and debris removal."),
  "custom-landscaping":("Custom Landscaping Design | Berger Landscaping","Personalized landscape designs planned to reduce rainwater runoff and support natural weed and pest control. Residential and commercial."),
  "yard-clean-up":("Spring & Fall Yard Clean-Up | Berger Landscaping","Yard clean-ups that remove weeds, rake leaves, and tidy garden beds, with debris hauled away. One-time or part of a maintenance plan."),
- "leaf-removal":("Leaf Removal Service | Berger Landscaping, Southeastern PA","Fall leaf raking and removal from lawns, beds, and walkways to prevent mold, fungus, and pests. Residential, commercial, and HOA."),
+ "leaf-removal":("Leaf Removal Service | Berger Landscaping, Pottstown PA","Fall leaf raking and removal from lawns, beds, and walkways to prevent mold, fungus, and pests. Residential, commercial, and HOA."),
  "trimming":("Tree & Shrub Trimming | Berger Landscaping","Tree, bush, and hedge trimming for curb appeal, plant health, and safety, plus plant and shrub removal and full clean-up."),
- "aeration-sod-seeding":("Lawn Aeration, Overseeding & Sod | Berger Landscaping","Core aeration, overseeding, grass seeding, and sod installation to thicken a thin lawn or start a new one in Southeastern PA. Call or text (610) 420-3338."),
- "tree-planting":("Tree & Evergreen Planting | Berger Landscaping, Southeastern PA","Tree and evergreen planting with clean mulch rings, including privacy screens along fence lines. Homes and businesses. Call or text (610) 420-3338."),
+ "aeration-sod-seeding":("Lawn Aeration, Overseeding & Sod | Berger Landscaping","Core aeration, overseeding, grass seeding, and sod installation to thicken a thin lawn or start a new one around Pottstown, PA. Call or text (610) 420-3338."),
+ "tree-planting":("Tree & Evergreen Planting | Berger Landscaping, Pottstown PA","Tree and evergreen planting with clean mulch rings, including privacy screens along fence lines. Homes and businesses. Call or text (610) 420-3338."),
  "junk-removal":("Junk Removal | Berger Landscaping, Pottstown PA","Junk removal from single items to full garage clean-outs: furniture, appliances, yard debris, and clutter, recycled or donated when possible."),
- "snow-services":("Snow Plowing, Removal & Salting | Berger Landscaping","Snow plowing and removal for driveways and commercial lots, plus salting and pet-safe ice-melt options in Southeastern PA."),
+ "snow-services":("Snow Plowing, Removal & Salting | Berger Landscaping","Snow plowing and removal for driveways and commercial lots, plus salting and pet-safe ice-melt options around Pottstown, PA."),
 }
 def service_pages():
     for x in SERVICES:
@@ -544,7 +544,7 @@ def gallery():
   <p class="lb-cap"></p>
  </div>
 </dialog>''' + cta_band("Like what you see?", "Call or text to talk through your property.")
-    write(dict(file="gallery.html", title="Project Gallery | Berger Landscaping, Southeastern PA",
+    write(dict(file="gallery.html", title="Project Gallery | Berger Landscaping, Pottstown PA",
                desc="Photos of Berger Landscaping work: striped lawns, mulch and planting beds, stone steps and patios, trimming, fall leaf clean-ups, and snow plowing.",
                ld=[crumbs_ld([("index.html","Home"),("gallery.html","Gallery")])]), body)
 
@@ -593,7 +593,7 @@ def faqs():
 
 # ================= ABOUT =================
 def about():
-    body = phero("Family-owned, rooted in Southeastern PA", "Berger Landscaping is a family-owned landscaping business proudly serving the communities of Southeastern Pennsylvania.", [("index.html","Home"),("about.html","About")], label="About us") + f'''
+    body = phero("Family-owned, rooted in Pottstown", "Berger Landscaping is a family-owned landscaping business proudly serving Pottstown and the surrounding communities.", [("index.html","Home"),("about.html","About")], label="About us") + f'''
 <section class="section"><div class="wrap split">
  <div class="logo-frame"><img class="logo-light" src="assets/logo-stacked-sm.webp" width="419" height="535" alt="Berger Landscaping logo: misty pines with a standing deer"><img class="logo-dark" src="assets/logo-stacked-knockout-sm.webp" width="419" height="535" alt="Berger Landscaping logo: misty pines with a standing deer"></div>
  <div style="display:grid;gap:1.1rem">
@@ -608,12 +608,12 @@ def about():
 <div class="wrap"><div class="facts">
  <div>{ic("shield")}<strong>Licensed &amp; insured</strong><span>Fully licensed and insured for residential and commercial landscaping.</span></div>
  <div>{ic("building")}<strong>Every kind of property</strong><span>Homes, commercial businesses, and multi-living communities.</span></div>
- <div>{ic("pin")}<strong>Southeastern Pennsylvania</strong><span>Based in Pottstown. Call to confirm we cover your town.</span></div>
+ <div>{ic("pin")}<strong>Pottstown &amp; nearby towns</strong><span>Based in Pottstown. <a href="service-area.html">See the towns we serve</a>.</span></div>
 </div></div></section>
 {mist_divider()}
 <section class="section" style="padding-top:1rem" aria-labelledby="hire-h"><div class="wrap"><div class="help-panel" style="margin-top:0"><div style="display:grid;gap:.4rem"><p class="label">Careers</p><h2 id="hire-h">We're currently hiring</h2><p>Want to work outside with a family-run crew? Call or text {BIZ["phone"]} if you're interested.</p></div><div class="btns"><a class="btn btn-primary" href="sms:{BIZ["tel"]}">{ic("text")}Text about a job</a><a class="btn btn-quiet" href="contact.html#hiring">Details</a></div></div></div></section>''' + cta_band()
-    write(dict(file="about.html", title="About Drew Berger & Our Family-Owned Company | Berger Landscaping",
-               desc="Meet Drew Berger, Penn State alumnus and founder of family-owned Berger Landscaping LLC, licensed and insured and serving Southeastern Pennsylvania.",
+    write(dict(file="about.html", title="About Drew Berger | Berger Landscaping, Pottstown PA",
+               desc="Meet Drew Berger, Penn State alumnus and founder of family-owned Berger Landscaping LLC, licensed and insured and serving Pottstown, PA and nearby towns.",
                ld=[crumbs_ld([("index.html","Home"),("about.html","About")]), {"@context":"https://schema.org","@type":"AboutPage","name":"About Berger Landscaping","about":{"@id":BIZ_ID}}]), body)
 
 # ================= CONTACT =================
@@ -702,7 +702,7 @@ def privacy():
 <p>Email <a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a> or call {BIZ["phone"]}.</p>
 </div></section>'''
     write(dict(file="privacy.html", title="Privacy Policy | Berger Landscaping",
-               desc="How the Berger Landscaping website handles your information: no analytics or tracking cookies, consent-gated Google Map, and contact details used only to respond.",
+               desc="How the Berger Landscaping site handles your information: no analytics or tracking cookies, consent-gated Google Map, and contact details used only to respond.",
                ld=[crumbs_ld([("index.html","Home"),("privacy.html","Privacy Policy")])]), body)
 
 def notfound():
@@ -714,7 +714,7 @@ def service_area():
     body = phero("Towns we serve", "Pottstown, PA and the surrounding area.", [("index.html","Home"),("service-area.html","Service Area")]) + f'''
 <section class="section"><div class="wrap"><ul class="towns" aria-label="Towns we serve">{items}</ul></div></section>'''
     write(dict(file="service-area.html", title="Service Area | Berger Landscaping, Pottstown PA",
-               desc="Towns Berger Landscaping serves around Pottstown, PA, including " + ", ".join(t for t in TOWNS if t in ("Boyertown","Collegeville","Gilbertsville","Limerick","Phoenixville","Royersford","Spring City")) + ", and more.",
+               desc="Towns Berger Landscaping serves around Pottstown, PA, including " + ", ".join(t for t in TOWNS if t in ("Boyertown","Collegeville","Limerick","Phoenixville","Royersford","Spring City")) + ", and more.",
                ld=[LOCALBIZ, crumbs_ld([("index.html","Home"),("service-area.html","Service Area")])]), body)
 
 def thanks():

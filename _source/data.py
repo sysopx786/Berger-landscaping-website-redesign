@@ -16,7 +16,7 @@ BIZ = dict(
     greview="https://maps.app.goo.gl/hmSA2zj3VKHFWFtV6",  # Google "write a review" (owner-supplied)
     gdir="https://www.google.com/maps/dir/?api=1&destination=110+Holby+Lane+Pottstown+PA+19465",
     gembed="https://www.google.com/maps?q=110+Holby+Lane,+Pottstown,+PA+19465&output=embed",
-    area="Southeastern Pennsylvania",
+    area="Pottstown, PA and nearby towns",
 )
 
 # ---------- FAQs parsed from the source file ----------
