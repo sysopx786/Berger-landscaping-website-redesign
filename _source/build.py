@@ -236,7 +236,7 @@ def footer():
  </div>
 </dialog>
 <script src="assets/search-index.js?v={VER}" defer></script>
-<script>window.BERGER_CONFIG={{quoteForm:true,formEndpoint:"{FORM_ENDPOINT}",beforeAfter:[]}};</script>
+<script>window.BERGER_CONFIG={{quoteForm:{"true" if FORM_ENDPOINT else "false"},formEndpoint:"{FORM_ENDPOINT}",beforeAfter:[]}};</script>
 <script src="assets/site.js?v={VER}" defer></script>
 </body>
 </html>'''
@@ -680,6 +680,7 @@ def contact():
 
 # ================= PRIVACY / 404 =================
 def privacy():
+    FORM_PRIVACY = '<p>Our Contact page has an optional quote form. When you press “Send request,” the details you enter (name, phone, email, service, address, message, and any photos you attach) are sent through <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form-to-email service, which delivers them to us by email. We use them only to respond and quote your job, keep the email only as long as we need it for that work, and do not sell or share it. Please don\'t include payment details or other sensitive information.</p>' if FORM_ENDPOINT else '<p>This site does not currently offer an online form. If one is added, this policy will be updated to say where submissions are sent and how long they are kept.</p>'
     body = phero("Privacy Policy", "What this website collects, and what it doesn't.", [("index.html","Home"),("privacy.html","Privacy Policy")], f'<p style="color:var(--muted);font-size:.9rem">Last updated October 12, 2026</p>') + f'''
 <section class="section"><div class="wrap prose">
 <h2>Summary</h2>
@@ -693,7 +694,7 @@ def privacy():
 <h2>Phone, text, and email</h2>
 <p>Call, text, and email buttons open apps on your own device. When you contact us, we use the details you send (such as your name, number, address, and photos) only to respond, quote, and do the work you ask for. We do not sell your information.</p>
 <h2>Online quote form</h2>
-<p>Our Contact page has an optional quote form. When you press “Send request,” the details you enter (name, phone, email, service, address, message, and any photos you attach) are sent through <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form-to-email service, which delivers them to us by email. We use them only to respond and quote your job, keep the email only as long as we need it for that work, and do not sell or share it. Please don't include payment details or other sensitive information.</p>
+{FORM_PRIVACY}
 <h2>Fonts</h2>
 <p>Typefaces are served by Google Fonts, which receives your IP address when your browser requests them.</p>
 <h2>Questions</h2>
