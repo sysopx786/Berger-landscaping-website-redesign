@@ -12,8 +12,9 @@ BIZ = dict(
     street="110 Holby Lane", city="Pottstown", region="PA", zip="19465",
     fb="https://www.facebook.com/profile.php?id=100094171704575",
     fb_photos="https://www.facebook.com/profile.php?id=100094171704575&sk=photos",
-    gmaps="https://maps.app.goo.gl/VcP8FdZ8u5XwiSSY7",  # Google listing / reviews (owner-supplied)
-    greview="https://maps.app.goo.gl/hmSA2zj3VKHFWFtV6",  # Google "write a review" (owner-supplied)
+    # Google Place ID for "Berger Landscaping LLC" (verified Oct 12, 2026: opens the listing, 5.0, 4 reviews)
+    gmaps="https://www.google.com/maps/place/?q=place_id:ChIJr_SAVzWdPI8RdY2P9Uzbv8w",  # Google listing / reviews
+    greview="https://search.google.com/local/writereview?placeid=ChIJr_SAVzWdPI8RdY2P9Uzbv8w",  # opens the "write a review" box
     gdir="https://www.google.com/maps/dir/?api=1&destination=110+Holby+Lane+Pottstown+PA+19465",
     gembed="https://www.google.com/maps?q=110+Holby+Lane,+Pottstown,+PA+19465&output=embed",
     area="Pottstown, PA and nearby towns",
