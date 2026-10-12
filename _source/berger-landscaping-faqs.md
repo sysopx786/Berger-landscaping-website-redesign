@@ -52,7 +52,7 @@ Regular, properly timed mowing helps crowd out weeds. For heavy weed problems, a
 Ask us about our current terms. Call or text (610) 420-3338 and we'll explain how service works.
 
 **11. How do I get a mowing quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net with your address and a bit about your lawn.
+Call or text (610) 420-3338, or use the quote form on our Contact page with your address and a bit about your lawn.
 
 **12. Can you start mid-season?**
 Usually yes. Contact us with your address and we'll let you know when we can add you to the schedule.
@@ -107,7 +107,7 @@ We aim for consistency so the crew knows your property. Ask us about specifics w
 Yes. Consistent upkeep protects your investment and supports lawn, plant, and tree health over the years.
 
 **13. How do I get started?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net for a quote.
+Call or text (610) 420-3338, or use the quote form on our Contact page for a quote.
 
 **14. Can I add or change services later?**
 Yes. Your needs change with the seasons, and we can adjust the plan as they do.
@@ -132,7 +132,7 @@ Studies have shown that well-done landscaping can increase home value by up to 1
 Yes. Attractive outdoor spaces have been shown to have a positive impact on mental well-being.
 
 **5. How do I start a custom project?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net. We'll discuss your goals and what you'd like to see.
+Call or text (610) 420-3338, or use the quote form on our Contact page. We'll discuss your goals and what you'd like to see.
 
 **6. Do you offer free estimates?**
 Please call or text to ask about estimates for your project.
@@ -257,7 +257,7 @@ Yes.
 Yes. It fits into seasonal property maintenance.
 
 **14. How do I get a quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net.
+Call or text (610) 420-3338, or use the quote form on our Contact page.
 
 **15. Do I need to be home?**
 No, as long as we have access.
@@ -309,7 +309,7 @@ Yes.
 Yes. Many customers pair trimming with spring or fall clean-ups.
 
 **15. How do I get a quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net.
+Call or text (610) 420-3338, or use the quote form on our Contact page.
 
 ---
 
@@ -398,7 +398,7 @@ Yes. We offer both plowing and removal.
 We'll do our best. Please let us know your parking situation so we can plan.
 
 **12. How do I get a snow service quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net.
+Call or text (610) 420-3338, or use the quote form on our Contact page.
 
 **13. Are you insured for snow work?**
 Yes. We are fully licensed and insured.
@@ -464,7 +464,7 @@ Yes. We serve residential and commercial properties.
 Yes. Trees can be built into a custom landscape design. See our Custom Landscaping Solutions service.
 
 **15. How do I get a tree planting quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net. Tell us how many trees, where they'll go, and any photos of the area.
+Call or text (610) 420-3338, or use the quote form on our Contact page. Tell us how many trees, where they'll go, and any photos of the area.
 
 ---
 
@@ -513,4 +513,4 @@ Ask us. We serve residential, commercial, and multi-living properties.
 Ask us how to coordinate mowing with your new lawn so young grass isn't damaged.
 
 **15. How do I get a quote?**
-Call or text (610) 420-3338 or email drew@bergerlandscaping.net. Photos of the area and a rough size help us quote it.
+Call or text (610) 420-3338, or use the quote form on our Contact page. Photos of the area and a rough size help us quote it.

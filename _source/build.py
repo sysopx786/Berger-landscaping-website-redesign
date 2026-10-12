@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "12"
+VER = "13"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -217,7 +217,7 @@ def footer():
    </div>
    <div><h2>Services</h2><ul>{svc}</ul></div>
    <div><h2>Company</h2><ul><li><a href="about.html">About Drew &amp; the crew</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="service-area.html">Service area</a></li><li><a href="contact.html#hiring">We're hiring</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
-   <div><h2>Contact</h2><ul><li><a href="tel:{BIZ["tel"]}">{BIZ["phone"]}</a> <span style="color:var(--band-muted)">call or text</span></li><li><a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a></li><li style="color:var(--band-muted)">{BIZ["street"]}<br>{BIZ["city"]}, {BIZ["region"]} {BIZ["zip"]}</li><li style="color:var(--band-muted)">Every day, 9 AM – 5 PM</li></ul></div>
+   <div><h2>Contact</h2><ul><li><a href="tel:{BIZ["tel"]}">{BIZ["phone"]}</a> <span style="color:var(--band-muted)">call or text</span></li><li><a href="contact.html#quote">Request a quote online</a></li><li style="color:var(--band-muted)">{BIZ["street"]}<br>{BIZ["city"]}, {BIZ["region"]} {BIZ["zip"]}</li><li style="color:var(--band-muted)">Every day, 9 AM – 5 PM</li></ul></div>
   </div>
   <div class="foot-bottom"><span>© <span data-year>2026</span> Berger Landscaping LLC</span><span><a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></span></div>
  </div>
@@ -279,7 +279,7 @@ def acc(items, idprefix=""):
 # ---------------- structured data ----------------
 BIZ_ID = SITE + "#business"
 LOCALBIZ = {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":BIZ_ID,"name":BIZ["name"],
-  "url":SITE,"telephone":"+1-610-420-3338","email":BIZ["email"],"image":SITE+"assets/og-image.jpg","logo":SITE+"assets/icon-512.png",
+  "url":SITE,"telephone":"+1-610-420-3338","image":SITE+"assets/og-image.jpg","logo":SITE+"assets/icon-512.png",
   "address":{"@type":"PostalAddress","streetAddress":BIZ["street"],"addressLocality":BIZ["city"],"addressRegion":BIZ["region"],"postalCode":BIZ["zip"],"addressCountry":"US"},
   "areaServed":[{"@type":"Place","name":t+", PA"} for t in TOWNS],
   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"17:00"}],
@@ -619,11 +619,11 @@ def about():
 # ================= CONTACT =================
 def contact():
     opts = "".join(f'<option>{E(s["name"])}</option>' for s in SERVICES)
-    body = phero("Contact Berger Landscaping", "Call or text for the fastest answer. Tell us your address, the service you need, and any photos.", [("index.html","Home"),("contact.html","Contact")], f'<div class="phero-ctas"><a class="btn btn-primary magnetic" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a><a class="btn btn-quiet" href="sms:{BIZ["tel"]}">{ic("text")}Text</a><a class="btn btn-quiet" href="mailto:{BIZ["email"]}">{ic("mail")}Email</a></div>') + f'''
+    body = phero("Contact Berger Landscaping", "Call or text for the fastest answer, or send a quote request with photos online.", [("index.html","Home"),("contact.html","Contact")], f'<div class="phero-ctas"><a class="btn btn-primary magnetic" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a><a class="btn btn-quiet" href="sms:{BIZ["tel"]}">{ic("text")}Text</a><a class="btn btn-quiet" href="#quote">{ic("mail")}Request a quote</a></div>') + f'''
 <section class="section"><div class="wrap contact-grid">
  <div>
   <div class="cblock"><p class="label">Phone · call or text</p><span class="big">{BIZ["phone"]}</span><div class="row"><a class="btn btn-sm btn-quiet" href="tel:{BIZ["tel"]}">{ic("phone")}Call</a><a class="btn btn-sm btn-quiet" href="sms:{BIZ["tel"]}">{ic("text")}Text</a><button class="copy-btn" type="button" data-copy="{BIZ["phone"]}">Copy number</button></div></div>
-  <div class="cblock"><p class="label">Email</p><span class="big" style="font-size:1.25rem">{BIZ["email"]}</span><div class="row"><a class="btn btn-sm btn-quiet" href="mailto:{BIZ["email"]}">{ic("mail")}Send email</a><button class="copy-btn" type="button" data-copy="{BIZ["email"]}">Copy email</button></div></div>
+  <div class="cblock"><p class="label">Online quote</p><p>Send your address, the service you need, and photos. Drew follows up by phone.</p><div class="row"><a class="btn btn-sm btn-quiet" href="#quote">{ic("mail")}Go to the quote form</a></div></div>
   <div class="cblock"><p class="label">Address</p><address style="font-style:normal">{BIZ["street"]}<br>{BIZ["city"]}, {BIZ["region"]} {BIZ["zip"]}</address></div>
   <div class="cblock"><p class="label">Hours</p><table class="hours"><caption class="vh">Business hours</caption><tbody><tr><td>Sunday – Saturday</td><td>9:00 AM – 5:00 PM</td></tr></tbody></table><p style="font-size:.88rem;color:var(--muted);margin-top:.5rem">For snow service timing during storms, ask us when you sign up.</p></div>
   <div class="cblock" style="border-bottom:0"><p class="label">Service area</p><p>Serving <strong>Pottstown, Royersford, Spring City</strong>, and nearby towns. <a href="service-area.html">See all the towns we serve</a>. Not sure we reach you? Call or text with your address.</p></div>
@@ -640,11 +640,11 @@ def contact():
  </div>
 </div></section>
 <section class="section section-alt" id="quote" aria-labelledby="quote-h"><div class="wrap">
- <div class="sec-head"><div><p class="label">Get a quote</p><h2 id="quote-h">Three steps to a quote</h2></div></div>
+ <div class="sec-head"><div><p class="label">Get a quote</p><h2 id="quote-h">Request a quote</h2></div></div>
  <ol class="quote-steps">
-  <li><h3>Call or text</h3><p>Reach Drew at <a href="tel:{BIZ["tel"]}">{BIZ["phone"]}</a>, or email <a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a>.</p></li>
-  <li><h3>Share the details</h3><p>Your address, the service you need, and anything unusual: a steep hill, locked gates, pets.</p></li>
-  <li><h3>Send photos</h3><p>A few photos of the lawn, beds, or items for removal help us quote it accurately.</p></li>
+  <li><h3>Fill out the form</h3><p>Your name, phone, address, and the service you need.</p></li>
+  <li><h3>Attach photos</h3><p>A few photos of the lawn, beds, or items for removal help Drew quote it accurately.</p></li>
+  <li><h3>Drew follows up</h3><p>He'll call or text to confirm the details and give you a quote.</p></li>
  </ol>
  <form class="form" data-quote-form hidden novalidate aria-labelledby="form-h" method="post" action="{FORM_ENDPOINT}" enctype="multipart/form-data">
   <h3 id="form-h" class="full">Request a quote online</h3>
@@ -661,7 +661,7 @@ def contact():
    <label>State<select id="qf-state" name="state" autocomplete="address-level1" required><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA" selected>Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></label>
    <label>ZIP code<input id="qf-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></label>
   </div>
-  <label class="full">What do you need?<textarea id="qf-message" name="message" required></textarea></label>
+  <label class="full">What do you need?<textarea id="qf-message" name="message" required placeholder="Anything we should know: a steep hill, locked gates, pets, lot size."></textarea></label>
   <div class="full file-field">
    <span class="file-label" id="qf-files-label">Photos <span class="opt">(optional, up to 5 files, 10 MB total)</span></span>
    <label class="btn btn-quiet file-btn" for="qf-files">{ic("camera")}Attach photos</label>
@@ -676,7 +676,7 @@ def contact():
 </div></section>
 <section class="section" id="hiring" aria-labelledby="hiring-h"><div class="wrap"><div class="help-panel" style="margin-top:0"><div style="display:grid;gap:.4rem"><p class="label">Careers</p><h2 id="hiring-h">We're currently hiring</h2><p>Interested in joining the crew? Call or text {BIZ["phone"]}.</p></div><div class="btns"><a class="btn btn-primary" href="tel:{BIZ["tel"]}">{ic("phone")}Call</a><a class="btn btn-quiet" href="sms:{BIZ["tel"]}">{ic("text")}Text</a></div></div></div></section>'''
     write(dict(file="contact.html", title="Contact & Quotes | Berger Landscaping, Pottstown PA",
-               desc="Call or text Berger Landscaping at (610) 420-3338, email drew@bergerlandscaping.net, or find us at 110 Holby Lane, Pottstown, PA. Open 9 AM to 5 PM daily.",
+               desc="Call or text Berger Landscaping at (610) 420-3338 or request a quote online with photos. 110 Holby Lane, Pottstown, PA. Open 9 AM to 5 PM daily.",
                ld=[LOCALBIZ, crumbs_ld([("index.html","Home"),("contact.html","Contact")])]), body)
 
 # ================= PRIVACY / 404 =================
@@ -699,7 +699,7 @@ def privacy():
 <h2>Fonts</h2>
 <p>Typefaces are served by Google Fonts, which receives your IP address when your browser requests them.</p>
 <h2>Questions</h2>
-<p>Email <a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a> or call {BIZ["phone"]}.</p>
+<p>Call or text {BIZ["phone"]}, or use the <a href="contact.html#quote">quote form</a>.</p>
 </div></section>'''
     write(dict(file="privacy.html", title="Privacy Policy | Berger Landscaping",
                desc="How the Berger Landscaping site handles your information: no analytics or tracking cookies, consent-gated Google Map, and contact details used only to respond.",
@@ -727,7 +727,7 @@ def extras():
         ("index.html","Home","Landscaping that looks cared for, all year."),("services.html","All services",f"Compare all {len(SERVICES)} services"),
         ("gallery.html","Gallery",f"{len(PHOTOS)} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
         ("faqs.html","FAQs",f"{sum(len(v) for v in FAQS.values())} answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
-        ("contact.html","Contact & hours","Phone, email, address, map, hours"),("contact.html#quote","Get a quote","Call, text, or email with details"),
+        ("contact.html","Contact & hours","Phone, address, map, hours"),("contact.html#quote","Get a quote","Online form with photos, or call or text"),
         ("contact.html#hiring","We're hiring","Join the crew"),("service-area.html","Service area","Towns we serve around Pottstown"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
     for s in SERVICES:
         idx.append(dict(k="Service", t=s["name"], d=s["promise"], u=s["slug"]+".html"))
