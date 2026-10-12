@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "7"
+VER = "8"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
