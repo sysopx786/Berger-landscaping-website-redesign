@@ -8,7 +8,6 @@
 | Public site, short link (redirects to the one above) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/ |
 | **Private preview** (Claude artifact) | Only Mujtaba, until shared from the artifact's Share menu | https://claude.ai/artifact/ASZx8CCXS3LXUJDdjN9rCD |
 | 3D homepage sample (design concept, not in nav or sitemap) | Anyone | https://sysopx786.github.io/Berger-landscaping-website-redesign/docs/home-3d.html |
-| 3D homepage sample, private preview (Claude artifact) | Only Mujtaba, until shared | https://claude.ai/artifact/JhrCZLGDvkBzazE2kn8dDd |
 | Source code | Anyone (repo is public) | https://github.com/sysopx786/Berger-landscaping-website-redesign |
 | Google listing / reviews (used on site) | Anyone | https://maps.app.goo.gl/VcP8FdZ8u5XwiSSY7 |
 | Google "Leave a review" (used on site) | Anyone | https://maps.app.goo.gl/hmSA2zj3VKHFWFtV6 |
