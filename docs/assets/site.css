@@ -550,3 +550,8 @@ a.card:hover .more svg{transform:translateX(3px)}
 .card-media .placeholder{position:absolute;inset:0}
 .card-wide .card-media .placeholder img{position:static;width:44px;height:auto;inset:auto}
 @media (max-width:560px){.svc-overview .card-wide .card-media{min-height:150px}}
+
+/* service area */
+.towns{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem}
+.towns li{padding:.85rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-weight:600}
+@media (max-width:420px){.towns{grid-template-columns:1fr 1fr}}

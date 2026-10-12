@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "9"
+VER = "10"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -216,7 +216,7 @@ def footer():
     <a class="fb-link" href="{BIZ["fb"]}" rel="noopener" target="_blank">{FBLOGO}Berger Landscaping on Facebook</a>
    </div>
    <div><h2>Services</h2><ul>{svc}</ul></div>
-   <div><h2>Company</h2><ul><li><a href="about.html">About Drew &amp; the crew</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="contact.html#hiring">We're hiring</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+   <div><h2>Company</h2><ul><li><a href="about.html">About Drew &amp; the crew</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="service-area.html">Service area</a></li><li><a href="contact.html#hiring">We're hiring</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
    <div><h2>Contact</h2><ul><li><a href="tel:{BIZ["tel"]}">{BIZ["phone"]}</a> <span style="color:var(--band-muted)">call or text</span></li><li><a href="mailto:{BIZ["email"]}">{BIZ["email"]}</a></li><li style="color:var(--band-muted)">{BIZ["street"]}<br>{BIZ["city"]}, {BIZ["region"]} {BIZ["zip"]}</li><li style="color:var(--band-muted)">Every day, 9 AM – 5 PM</li></ul></div>
   </div>
   <div class="foot-bottom"><span>© <span data-year>2026</span> Berger Landscaping LLC</span><span><a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></span></div>
@@ -281,7 +281,7 @@ BIZ_ID = SITE + "#business"
 LOCALBIZ = {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":BIZ_ID,"name":BIZ["name"],
   "url":SITE,"telephone":"+1-610-420-3338","email":BIZ["email"],"image":SITE+"assets/og-image.jpg","logo":SITE+"assets/icon-512.png",
   "address":{"@type":"PostalAddress","streetAddress":BIZ["street"],"addressLocality":BIZ["city"],"addressRegion":BIZ["region"],"postalCode":BIZ["zip"],"addressCountry":"US"},
-  "areaServed":{"@type":"AdministrativeArea","name":"Southeastern Pennsylvania"},
+  "areaServed":[{"@type":"Place","name":t+", PA"} for t in TOWNS],
   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"17:00"}],
   "founder":{"@type":"Person","name":"Drew Berger"},"sameAs":[BIZ["fb"]],
   "makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":s["name"],"url":SITE+s["slug"]+".html"}} for s in SERVICES]}
@@ -508,7 +508,7 @@ def service_pages():
 ''' + cta_band(f"Get a quote for {x['name'].lower()}.", "Call or text with your address and a short description. Photos help.")
         svc_ld = {"@context":"https://schema.org","@type":"Service","name":x["name"],"serviceType":x["name"],"description":" ".join(x["desc"])[:500],
                   "provider":{"@id":BIZ_ID,"@type":"HomeAndConstructionBusiness","name":BIZ["name"],"telephone":"+1-610-420-3338"},
-                  "areaServed":{"@type":"AdministrativeArea","name":"Southeastern Pennsylvania"},"url":SITE+slug+".html"}
+                  "areaServed":[{"@type":"Place","name":t+", PA"} for t in TOWNS],"url":SITE+slug+".html"}
         t, d = TITLES[slug]
         write(dict(file=slug+".html", title=t, desc=d, ld=[svc_ld, faq_ld(faq_items), crumbs_ld(crumbs)]), body)
 
@@ -708,6 +708,14 @@ def notfound():
     body = phero("This page wandered off", "The page you're looking for isn't here. Try a service below or search the site.", None, f'<div class="phero-ctas"><a class="btn btn-primary" href="index.html">Go to the home page</a><button class="btn btn-quiet" type="button" data-cmdk>{ic("search")}Search the site</button></div>')
     write(dict(file="404.html", title="Page Not Found | Berger Landscaping", desc="This page could not be found.", noindex=True), body)
 
+def service_area():
+    items = "".join(f"<li>{E(t)}</li>" for t in TOWNS)
+    body = phero("Towns we serve", "Pottstown, PA and the surrounding area.", [("index.html","Home"),("service-area.html","Service Area")]) + f'''
+<section class="section"><div class="wrap"><ul class="towns" aria-label="Towns we serve">{items}</ul></div></section>'''
+    write(dict(file="service-area.html", title="Service Area | Berger Landscaping, Pottstown PA",
+               desc="Towns Berger Landscaping serves around Pottstown, PA, including " + ", ".join(t for t in TOWNS if t in ("Boyertown","Collegeville","Gilbertsville","Limerick","Phoenixville","Royersford","Spring City")) + ", and more.",
+               ld=[LOCALBIZ, crumbs_ld([("index.html","Home"),("service-area.html","Service Area")])]), body)
+
 def thanks():
     body = phero("Thanks, your request is in", f"We got your request. Drew will get back to you. Need us sooner? Call or text {BIZ['phone']}.", None, f'<div class="phero-ctas"><a class="btn btn-primary" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a><a class="btn btn-quiet" href="index.html">Back to the home page</a></div>')
     write(dict(file="thanks.html", title="Request Received | Berger Landscaping", desc="Your quote request was received.", noindex=True), body)
@@ -719,7 +727,7 @@ def extras():
         ("gallery.html","Gallery",f"{len(PHOTOS)} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
         ("faqs.html","FAQs",f"{sum(len(v) for v in FAQS.values())} answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
         ("contact.html","Contact & hours","Phone, email, address, map, hours"),("contact.html#quote","Get a quote","Call, text, or email with details"),
-        ("contact.html#hiring","We're hiring","Join the crew"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
+        ("contact.html#hiring","We're hiring","Join the crew"),("service-area.html","Service area","Towns we serve around Pottstown"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
     for s in SERVICES:
         idx.append(dict(k="Service", t=s["name"], d=s["promise"], u=s["slug"]+".html"))
     for g, v in FAQS.items():
@@ -733,5 +741,5 @@ def extras():
     open(f"{OUT}/site.webmanifest","w").write(json.dumps({"name":"Berger Landscaping","short_name":"Berger","start_url":"./","display":"standalone","background_color":"#F7F9F8","theme_color":"#2B3A42","icons":[{"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"}]}, indent=1))
     open(os.path.join(HERE, "pages.json"),"w").write(json.dumps(PAGES, indent=1))
 
-home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); notfound(); thanks(); extras()
+home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); service_area(); notfound(); thanks(); extras()
 print("pages:", len(PAGES))
