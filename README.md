@@ -55,11 +55,11 @@ python3 build.py      # rewrites every .html, search index, and sitemap in ../do
 
 Small text fixes can also be made directly in the HTML, but they'll be overwritten by the next rebuild.
 
-## Quote form (OFF until an inbox is set)
+## Quote form (ON)
 
 The quote form on `contact.html` is live. It does a standard multipart POST to FormSubmit (not the `/ajax/` endpoint, which silently drops file attachments), then FormSubmit redirects to `thanks.html` (noindex). The endpoint is set once in `_source/data.py` (`FORM_ENDPOINT`) and injected on every page as `window.BERGER_CONFIG`.
 
-- Current inbox: none. `FORM_ENDPOINT` is blank, so the form is hidden and the Privacy page says there is no online form. To turn it on, set `FORM_ENDPOINT = "https://formsubmit.co/<inbox email>"` and rebuild; FormSubmit sends a one-time activation email to that inbox.
+- Current inbox: sysopx784@gmail.com, set in `FORM_ENDPOINT` (`_source/data.py`). To change it, edit that line and rebuild; FormSubmit sends a one-time activation email to the new inbox. Blank = form hidden.
 - First submission sends FormSubmit's activation email to the inbox. Until it's activated, the form shows the "didn't go through, call or text" fallback.
 - After activation, FormSubmit can issue a random alias for the endpoint so the email address isn't in the page source; swap it into `FORM_ENDPOINT`.
 - Fields: first/last name, phone (10 digits), email, service, address line 1, line 2 (optional), city, state (defaults to PA), ZIP (5 digits), message. All required except line 2 and photos; checked in `site.js` before sending.

@@ -3,7 +3,8 @@ import re, json, os
 SITE = "https://www.bergerlandscaping.net/"
 # Quote form: FormSubmit standard endpoint (not /ajax/, which drops file attachments).
 # Pitch/testing inbox; switch to drew@bergerlandscaping.net after approval.
-FORM_ENDPOINT = ""  # blank = quote form hidden. To turn on: "https://formsubmit.co/<inbox email>"
+# Quote form inbox (FormSubmit standard endpoint; /ajax/ drops attachments).
+FORM_ENDPOINT = "https://formsubmit.co/sysopx784@gmail.com"
 BIZ = dict(
     name="Berger Landscaping LLC", short="Berger Landscaping",
     phone="(610) 420-3338", tel="+16104203338",
