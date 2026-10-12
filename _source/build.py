@@ -645,14 +645,28 @@ def contact():
   <li><h3>Share the details</h3><p>Your address, the service you need, and anything unusual: a steep hill, locked gates, pets.</p></li>
   <li><h3>Send photos</h3><p>A few photos of the lawn, beds, or items for removal help us quote it accurately.</p></li>
  </ol>
- <form class="form" data-quote-form hidden novalidate aria-labelledby="form-h">
+ <form class="form" data-quote-form hidden novalidate aria-labelledby="form-h" enctype="multipart/form-data">
   <h3 id="form-h" class="full">Request a quote online</h3>
-  <label>Name<input id="qf-name" name="name" autocomplete="name" required></label>
-  <label>Phone<input id="qf-phone" name="phone" type="tel" autocomplete="tel" required></label>
-  <label>Email<input id="qf-email" name="email" type="email" autocomplete="email"></label>
-  <label>Service<select id="qf-service" name="service"><option value="">Choose a service</option>{opts}</select></label>
-  <label class="full">Property address<input id="qf-address" name="address" autocomplete="street-address"></label>
-  <label class="full">What do you need?<textarea id="qf-message" name="message"></textarea></label>
+  <p class="full form-note">All fields are required unless marked optional.</p>
+  <label>First name<input id="qf-first" name="first_name" autocomplete="given-name" required></label>
+  <label>Last name<input id="qf-last" name="last_name" autocomplete="family-name" required></label>
+  <label>Phone<input id="qf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+  <label>Email<input id="qf-email" name="email" type="email" autocomplete="email" required></label>
+  <label class="full">Service<select id="qf-service" name="service" required><option value="">Choose a service</option>{opts}</select></label>
+  <label class="full">Address line 1<input id="qf-addr1" name="address_line_1" autocomplete="address-line1" placeholder="Street address" required></label>
+  <label class="full"><span>Address line 2 <span class="opt">(optional)</span></span><input id="qf-addr2" name="address_line_2" autocomplete="address-line2" placeholder="Apt, suite, unit"></label>
+  <div class="full addr-row">
+   <label>City<input id="qf-city" name="city" autocomplete="address-level2" required></label>
+   <label>State<select id="qf-state" name="state" autocomplete="address-level1" required><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA" selected>Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></label>
+   <label>ZIP code<input id="qf-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></label>
+  </div>
+  <label class="full">What do you need?<textarea id="qf-message" name="message" required></textarea></label>
+  <div class="full file-field">
+   <span class="file-label" id="qf-files-label">Photos <span class="opt">(optional, up to 5 files, 10 MB total)</span></span>
+   <label class="btn btn-quiet file-btn" for="qf-files">{ic("camera")}Attach photos</label>
+   <input id="qf-files" class="file-input" name="attachments" type="file" multiple accept="image/*,.heic,.heif,.pdf" aria-labelledby="qf-files-label">
+   <ul class="file-list" aria-live="polite"></ul>
+  </div>
   <input type="hidden" name="_subject" value="New quote request: Berger Landscaping website"><input type="hidden" name="_template" value="table">
   <label class="hp" aria-hidden="true">Leave this empty<input id="qf-website" name="website" tabindex="-1" autocomplete="off"></label>
   <div class="full" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center"><button class="btn btn-primary" type="submit">Send request</button><p class="form-status" role="status"></p></div>
@@ -679,7 +693,7 @@ def privacy():
 <h2>Phone, text, and email</h2>
 <p>Call, text, and email buttons open apps on your own device. When you contact us, we use the details you send (such as your name, number, address, and photos) only to respond, quote, and do the work you ask for. We do not sell your information.</p>
 <h2>Online quote form</h2>
-<p>Our Contact page has an optional quote form. When you press “Send request,” the details you enter (name, phone, email, service, address, and message) are sent through <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form-to-email service, which delivers them to us by email. We use them only to respond and quote your job, keep the email only as long as we need it for that work, and do not sell or share it. Please don't include payment details or other sensitive information.</p>
+<p>Our Contact page has an optional quote form. When you press “Send request,” the details you enter (name, phone, email, service, address, message, and any photos you attach) are sent through <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form-to-email service, which delivers them to us by email. We use them only to respond and quote your job, keep the email only as long as we need it for that work, and do not sell or share it. Please don't include payment details or other sensitive information.</p>
 <h2>Fonts</h2>
 <p>Typefaces are served by Google Fonts, which receives your IP address when your browser requests them.</p>
 <h2>Questions</h2>

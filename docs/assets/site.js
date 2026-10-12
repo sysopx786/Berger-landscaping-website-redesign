@@ -291,16 +291,79 @@
   var form = $("[data-quote-form]");
   if (form && CONFIG.quoteForm && CONFIG.formEndpoint) {
     form.hidden = false;
+    var MAX_FILES = 5, MAX_BYTES = 10 * 1024 * 1024;
+    var fileInput = $("#qf-files", form), fileList = $(".file-list", form), files = [];
+    var st = $(".form-status", form);
+    function fmt(n) { return n < 1048576 ? Math.max(1, Math.round(n / 1024)) + " KB" : (n / 1048576).toFixed(1) + " MB"; }
+    function total() { return files.reduce(function (a, f) { return a + f.size; }, 0); }
+    function renderFiles() {
+      fileList.innerHTML = "";
+      files.forEach(function (f, i) {
+        var li = d.createElement("li"), sp = d.createElement("span"), rm = d.createElement("button");
+        sp.textContent = f.name + " (" + fmt(f.size) + ")";
+        rm.type = "button"; rm.textContent = "Remove"; rm.setAttribute("aria-label", "Remove " + f.name);
+        rm.addEventListener("click", function () { files.splice(i, 1); renderFiles(); fileInput.focus(); });
+        li.appendChild(sp); li.appendChild(rm); fileList.appendChild(li);
+      });
+    }
+    if (fileInput) fileInput.addEventListener("change", function () {
+      var msg = "";
+      Array.prototype.forEach.call(fileInput.files, function (f) {
+        if (!/^image\//.test(f.type) && !/\.(heic|heif|pdf|jpe?g|png|webp)$/i.test(f.name)) { msg = f.name + " isn't a photo or PDF."; return; }
+        if (files.length >= MAX_FILES) { msg = "Up to " + MAX_FILES + " files."; return; }
+        if (total() + f.size > MAX_BYTES) { msg = f.name + " would go over the 10 MB total. Text us larger photos at (610) 420-3338."; return; }
+        files.push(f);
+      });
+      fileInput.value = "";
+      renderFiles();
+      setStatus(msg, !!msg);
+    });
+    function setStatus(t, err) { st.textContent = t; st.classList.toggle("is-err", !!err); }
+    function fieldErr(el, msg) {
+      var lab = el.closest("label"), e = lab && lab.querySelector(".field-err");
+      if (msg) {
+        el.setAttribute("aria-invalid", "true");
+        if (lab && !e) { e = d.createElement("span"); e.className = "field-err"; e.id = el.id + "-err"; lab.appendChild(e); el.setAttribute("aria-describedby", e.id); }
+        if (e) e.textContent = msg;
+      } else {
+        el.removeAttribute("aria-invalid"); el.removeAttribute("aria-describedby");
+        if (e) e.remove();
+      }
+    }
+    function check(el) {
+      var v = (el.value || "").trim(), msg = "";
+      if (el.required && !v) msg = "Required";
+      else if (el.type === "email" && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = "Enter a valid email";
+      else if (el.name === "phone" && v && v.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "").length !== 10) msg = "Enter a 10-digit phone number";
+      else if (el.name === "zip" && v && !/^\d{5}(-\d{4})?$/.test(v)) msg = "Enter a 5-digit ZIP code";
+      fieldErr(el, msg);
+      return !msg;
+    }
+    var fields = Array.prototype.slice.call(form.querySelectorAll("input:not([type=hidden]):not([type=file]):not(#qf-website), select, textarea"));
+    fields.forEach(function (el) {
+      el.addEventListener("blur", function () { if (el.value || el.hasAttribute("aria-invalid")) check(el); });
+      el.addEventListener("input", function () { if (el.hasAttribute("aria-invalid")) check(el); });
+    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var st = $(".form-status", form), data = new FormData(form);
-      if (data.get("website")) return; // honeypot
-      if (!data.get("name") || !data.get("phone")) { st.textContent = "Add your name and phone number so we can reach you."; return; }
-      st.textContent = "Sending…";
+      if ($("#qf-website", form).value) return; // honeypot
+      var bad = fields.filter(function (el) { return !check(el); });
+      if (bad.length) { setStatus("Please fix the " + (bad.length === 1 ? "highlighted field" : bad.length + " highlighted fields") + ".", true); bad[0].focus(); return; }
+      var data = new FormData(form);
+      data.delete("attachments");
+      files.forEach(function (f, i) { data.append("attachment_" + (i + 1), f, f.name); });
+      data.set("name", data.get("first_name") + " " + data.get("last_name"));
+      var btn = form.querySelector("button[type=submit]"); btn.disabled = true;
+      setStatus(files.length ? "Sending… (uploading photos can take a moment)" : "Sending…");
       fetch(CONFIG.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
         .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return {}; }); })
-        .then(function (j) { if (j && (j.success === false || j.success === "false" || j.ok === false)) throw 0; form.reset(); st.textContent = "Request received. We'll be in touch soon."; })
-        .catch(function () { st.textContent = "That didn't go through. Please call or text (610) 420-3338."; });
+        .then(function (j) {
+          if (j && (j.success === false || j.success === "false" || j.ok === false)) throw 0;
+          form.reset(); files = []; renderFiles();
+          setStatus("Request received. We'll be in touch soon.");
+        })
+        .catch(function () { setStatus("That didn't go through. Please call or text (610) 420-3338.", true); })
+        .then(function () { btn.disabled = false; });
     });
   }
 })();

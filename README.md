@@ -62,6 +62,8 @@ The quote form on `contact.html` is live, posting to FormSubmit's AJAX endpoint.
 - Current inbox: mujtaba.valli@gmail.com (pitch/testing). After Drew approves, change `FORM_ENDPOINT` to `https://formsubmit.co/ajax/drew@bergerlandscaping.net` and rebuild.
 - First submission sends FormSubmit's activation email to the inbox. Until it's activated, the form shows the "didn't go through, call or text" fallback.
 - After activation, FormSubmit can issue a random alias for the endpoint so the email address isn't in the page source; swap it into `FORM_ENDPOINT`.
+- Fields: first/last name, phone (10 digits), email, service, address line 1, line 2 (optional), city, state (defaults to PA), ZIP (5 digits), message. All required except line 2 and photos; checked in `site.js` before sending.
+- Photos: optional, up to 5 files, 10 MB total (FormSubmit's limit), images or PDF. Sent as `attachment_1`…`attachment_5`.
 - Spam: honeypot field (`website`) blocks basic bots before anything is sent.
 - Privacy page names FormSubmit. If you switch services (Formspree, Basin), update `privacy()` in `build.py`.
 
