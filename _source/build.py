@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "8"
+VER = "9"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -645,7 +645,7 @@ def contact():
   <li><h3>Share the details</h3><p>Your address, the service you need, and anything unusual: a steep hill, locked gates, pets.</p></li>
   <li><h3>Send photos</h3><p>A few photos of the lawn, beds, or items for removal help us quote it accurately.</p></li>
  </ol>
- <form class="form" data-quote-form hidden novalidate aria-labelledby="form-h" enctype="multipart/form-data">
+ <form class="form" data-quote-form hidden novalidate aria-labelledby="form-h" method="post" action="{FORM_ENDPOINT}" enctype="multipart/form-data">
   <h3 id="form-h" class="full">Request a quote online</h3>
   <p class="full form-note">All fields are required unless marked optional.</p>
   <label>First name<input id="qf-first" name="first_name" autocomplete="given-name" required></label>
@@ -667,8 +667,8 @@ def contact():
    <input id="qf-files" class="file-input" name="attachments" type="file" multiple accept="image/*,.heic,.heif,.pdf" aria-labelledby="qf-files-label">
    <ul class="file-list" aria-live="polite"></ul>
   </div>
-  <input type="hidden" name="_subject" value="New quote request: Berger Landscaping website"><input type="hidden" name="_template" value="table">
-  <label class="hp" aria-hidden="true">Leave this empty<input id="qf-website" name="website" tabindex="-1" autocomplete="off"></label>
+  <input type="hidden" name="_subject" value="New quote request: Berger Landscaping website"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="">
+  <label class="hp" aria-hidden="true">Leave this empty<input id="qf-website" name="_honey" tabindex="-1" autocomplete="off"></label>
   <div class="full" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center"><button class="btn btn-primary" type="submit">Send request</button><p class="form-status" role="status"></p></div>
   <p class="full" style="font-size:.84rem;color:var(--muted)">Please don't include payment details or other sensitive information.</p>
  </form>
@@ -707,6 +707,10 @@ def notfound():
     body = phero("This page wandered off", "The page you're looking for isn't here. Try a service below or search the site.", None, f'<div class="phero-ctas"><a class="btn btn-primary" href="index.html">Go to the home page</a><button class="btn btn-quiet" type="button" data-cmdk>{ic("search")}Search the site</button></div>')
     write(dict(file="404.html", title="Page Not Found | Berger Landscaping", desc="This page could not be found.", noindex=True), body)
 
+def thanks():
+    body = phero("Thanks, your request is in", f"We got your request. Drew will get back to you. Need us sooner? Call or text {BIZ['phone']}.", None, f'<div class="phero-ctas"><a class="btn btn-primary" href="tel:{BIZ["tel"]}">{ic("phone")}Call {BIZ["phone"]}</a><a class="btn btn-quiet" href="index.html">Back to the home page</a></div>')
+    write(dict(file="thanks.html", title="Request Received | Berger Landscaping", desc="Your quote request was received.", noindex=True), body)
+
 # ================= search index, sitemap, etc =================
 def extras():
     idx = [dict(k="Page", t=t, d=d, u=u) for u, t, d in [
@@ -728,5 +732,5 @@ def extras():
     open(f"{OUT}/site.webmanifest","w").write(json.dumps({"name":"Berger Landscaping","short_name":"Berger","start_url":"./","display":"standalone","background_color":"#F7F9F8","theme_color":"#2B3A42","icons":[{"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"}]}, indent=1))
     open(os.path.join(HERE, "pages.json"),"w").write(json.dumps(PAGES, indent=1))
 
-home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); notfound(); extras()
+home(); services(); service_pages(); gallery(); reviews(); faqs(); about(); contact(); privacy(); notfound(); thanks(); extras()
 print("pages:", len(PAGES))

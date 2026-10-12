@@ -57,14 +57,14 @@ Small text fixes can also be made directly in the HTML, but they'll be overwritt
 
 ## Quote form (ON)
 
-The quote form on `contact.html` is live, posting to FormSubmit's AJAX endpoint. The endpoint is set once in `_source/data.py` (`FORM_ENDPOINT`) and injected on every page as `window.BERGER_CONFIG`.
+The quote form on `contact.html` is live. It does a standard multipart POST to FormSubmit (not the `/ajax/` endpoint, which silently drops file attachments), then FormSubmit redirects to `thanks.html` (noindex). The endpoint is set once in `_source/data.py` (`FORM_ENDPOINT`) and injected on every page as `window.BERGER_CONFIG`.
 
-- Current inbox: mujtaba.valli@gmail.com (pitch/testing). After Drew approves, change `FORM_ENDPOINT` to `https://formsubmit.co/ajax/drew@bergerlandscaping.net` and rebuild.
+- Current inbox: mujtaba.valli@gmail.com (pitch/testing). After Drew approves, change `FORM_ENDPOINT` to `https://formsubmit.co/drew@bergerlandscaping.net` and rebuild.
 - First submission sends FormSubmit's activation email to the inbox. Until it's activated, the form shows the "didn't go through, call or text" fallback.
 - After activation, FormSubmit can issue a random alias for the endpoint so the email address isn't in the page source; swap it into `FORM_ENDPOINT`.
 - Fields: first/last name, phone (10 digits), email, service, address line 1, line 2 (optional), city, state (defaults to PA), ZIP (5 digits), message. All required except line 2 and photos; checked in `site.js` before sending.
 - Photos: optional, up to 5 files, 10 MB total (FormSubmit's limit), images or PDF. Sent as `attachment_1`…`attachment_5`.
-- Spam: honeypot field (`website`) blocks basic bots before anything is sent.
+- Spam: FormSubmit's `_honey` honeypot (also checked in `site.js`). FormSubmit's CAPTCHA page is turned off (`_captcha=false`) to keep the flow to one step; turn it back on if spam shows up.
 - Privacy page names FormSubmit. If you switch services (Formspree, Basin), update `privacy()` in `build.py`.
 
 ## Add before/after pairs

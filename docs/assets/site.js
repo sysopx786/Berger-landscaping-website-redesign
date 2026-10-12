@@ -318,6 +318,7 @@
       renderFiles();
       setStatus(msg, !!msg);
     });
+    window.addEventListener("pageshow", function () { fileInput.disabled = false; var bt = form.querySelector("button[type=submit]"); if (bt) bt.disabled = false; setStatus(""); });
     function setStatus(t, err) { st.textContent = t; st.classList.toggle("is-err", !!err); }
     function fieldErr(el, msg) {
       var lab = el.closest("label"), e = lab && lab.querySelector(".field-err");
@@ -349,21 +350,27 @@
       if ($("#qf-website", form).value) return; // honeypot
       var bad = fields.filter(function (el) { return !check(el); });
       if (bad.length) { setStatus("Please fix the " + (bad.length === 1 ? "highlighted field" : bad.length + " highlighted fields") + ".", true); bad[0].focus(); return; }
-      var data = new FormData(form);
-      data.delete("attachments");
-      files.forEach(function (f, i) { data.append("attachment_" + (i + 1), f, f.name); });
-      data.set("name", data.get("first_name") + " " + data.get("last_name"));
-      var btn = form.querySelector("button[type=submit]"); btn.disabled = true;
+      // Standard (non-AJAX) multipart POST: FormSubmit's /ajax/ endpoint drops file attachments.
+      Array.prototype.forEach.call(form.querySelectorAll(".file-gen"), function (n) { n.remove(); });
+      if (files.length) {
+        var dtOk = typeof DataTransfer === "function";
+        if (dtOk) {
+          try {
+            files.forEach(function (f, i) {
+              var dt = new DataTransfer(); dt.items.add(f);
+              var inp = d.createElement("input"); inp.type = "file"; inp.name = "attachment_" + (i + 1); inp.className = "file-gen"; inp.hidden = true;
+              inp.files = dt.files; form.appendChild(inp);
+            });
+          } catch (err) { dtOk = false; }
+        }
+        if (!dtOk) { setStatus("Your browser can't attach photos here. Remove them and text photos to (610) 420-3338.", true); return; }
+      }
+      fileInput.disabled = true; // its own (empty) value isn't sent
+      $("[name=_next]", form).value = new URL("thanks.html", location.href).href;
+      form.action = CONFIG.formEndpoint;
+      form.querySelector("button[type=submit]").disabled = true;
       setStatus(files.length ? "Sending… (uploading photos can take a moment)" : "Sending…");
-      fetch(CONFIG.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return {}; }); })
-        .then(function (j) {
-          if (j && (j.success === false || j.success === "false" || j.ok === false)) throw 0;
-          form.reset(); files = []; renderFiles();
-          setStatus("Request received. We'll be in touch soon.");
-        })
-        .catch(function () { setStatus("That didn't go through. Please call or text (610) 420-3338.", true); })
-        .then(function () { btn.disabled = false; });
+      HTMLFormElement.prototype.submit.call(form);
     });
   }
 })();
