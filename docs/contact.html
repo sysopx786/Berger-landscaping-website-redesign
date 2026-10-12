@@ -85,6 +85,7 @@
   <label>Service<select id="qf-service" name="service"><option value="">Choose a service</option><option>Mowing</option><option>Property Maintenance</option><option>Custom Landscaping Solutions</option><option>Aeration, Sod &amp; Seeding</option><option>Yard Clean-Up</option><option>Leaf Removal</option><option>Trimming</option><option>Tree Planting</option><option>Junk Removal</option><option>Snow Services</option></select></label>
   <label class="full">Property address<input id="qf-address" name="address" autocomplete="street-address"></label>
   <label class="full">What do you need?<textarea id="qf-message" name="message"></textarea></label>
+  <input type="hidden" name="_subject" value="New quote request: Berger Landscaping website"><input type="hidden" name="_template" value="table">
   <label class="hp" aria-hidden="true">Leave this empty<input id="qf-website" name="website" tabindex="-1" autocomplete="off"></label>
   <div class="full" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center"><button class="btn btn-primary" type="submit">Send request</button><p class="form-status" role="status"></p></div>
   <p class="full" style="font-size:.84rem;color:var(--muted)">Please don't include payment details or other sensitive information.</p>
@@ -121,6 +122,7 @@
  </div>
 </dialog>
 <script src="assets/search-index.js?v=7" defer></script>
+<script>window.BERGER_CONFIG={quoteForm:true,formEndpoint:"https://formsubmit.co/ajax/mujtaba.valli@gmail.com",beforeAfter:[]};</script>
 <script src="assets/site.js?v=7" defer></script>
 </body>
 </html>

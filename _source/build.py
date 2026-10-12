@@ -236,6 +236,7 @@ def footer():
  </div>
 </dialog>
 <script src="assets/search-index.js?v={VER}" defer></script>
+<script>window.BERGER_CONFIG={{quoteForm:true,formEndpoint:"{FORM_ENDPOINT}",beforeAfter:[]}};</script>
 <script src="assets/site.js?v={VER}" defer></script>
 </body>
 </html>'''
@@ -652,6 +653,7 @@ def contact():
   <label>Service<select id="qf-service" name="service"><option value="">Choose a service</option>{opts}</select></label>
   <label class="full">Property address<input id="qf-address" name="address" autocomplete="street-address"></label>
   <label class="full">What do you need?<textarea id="qf-message" name="message"></textarea></label>
+  <input type="hidden" name="_subject" value="New quote request: Berger Landscaping website"><input type="hidden" name="_template" value="table">
   <label class="hp" aria-hidden="true">Leave this empty<input id="qf-website" name="website" tabindex="-1" autocomplete="off"></label>
   <div class="full" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center"><button class="btn btn-primary" type="submit">Send request</button><p class="form-status" role="status"></p></div>
   <p class="full" style="font-size:.84rem;color:var(--muted)">Please don't include payment details or other sensitive information.</p>
@@ -664,7 +666,7 @@ def contact():
 
 # ================= PRIVACY / 404 =================
 def privacy():
-    body = phero("Privacy Policy", "What this website collects, and what it doesn't.", [("index.html","Home"),("privacy.html","Privacy Policy")], f'<p style="color:var(--muted);font-size:.9rem">Last updated October 11, 2026</p>') + f'''
+    body = phero("Privacy Policy", "What this website collects, and what it doesn't.", [("index.html","Home"),("privacy.html","Privacy Policy")], f'<p style="color:var(--muted);font-size:.9rem">Last updated October 12, 2026</p>') + f'''
 <section class="section"><div class="wrap prose">
 <h2>Summary</h2>
 <p>This site does not use analytics, advertising trackers, or cookies. It does not ask you for an account, and it does not collect personal information unless you choose to contact us.</p>
@@ -677,7 +679,7 @@ def privacy():
 <h2>Phone, text, and email</h2>
 <p>Call, text, and email buttons open apps on your own device. When you contact us, we use the details you send (such as your name, number, address, and photos) only to respond, quote, and do the work you ask for. We do not sell your information.</p>
 <h2>Online quote form</h2>
-<p>This site does not currently offer an online form. If one is added, this policy will be updated to say where submissions are sent and how long they are kept.</p>
+<p>Our Contact page has an optional quote form. When you press “Send request,” the details you enter (name, phone, email, service, address, and message) are sent through <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form-to-email service, which delivers them to us by email. We use them only to respond and quote your job, keep the email only as long as we need it for that work, and do not sell or share it. Please don't include payment details or other sensitive information.</p>
 <h2>Fonts</h2>
 <p>Typefaces are served by Google Fonts, which receives your IP address when your browser requests them.</p>
 <h2>Questions</h2>

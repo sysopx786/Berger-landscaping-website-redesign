@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   // ---- Owner-editable config -------------------------------------------
-  // quoteForm: set to true AND set formEndpoint (e.g. a Formspree URL) to show the online quote form.
+  // quoteForm: set to true AND set formEndpoint (FormSubmit AJAX or Formspree URL; set in _source/data.py FORM_ENDPOINT) to show the online quote form.
   // beforeAfter: add pairs like {before:"img/x-before.webp", after:"img/x-after.webp", caption:"Front bed refresh"}.
   var CONFIG = window.BERGER_CONFIG || { quoteForm: false, formEndpoint: "", beforeAfter: [] };
   // ----------------------------------------------------------------------
@@ -298,7 +298,8 @@
       if (!data.get("name") || !data.get("phone")) { st.textContent = "Add your name and phone number so we can reach you."; return; }
       st.textContent = "Sending…";
       fetch(CONFIG.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (r) { if (!r.ok) throw 0; form.reset(); st.textContent = "Request received. We'll be in touch soon."; })
+        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return {}; }); })
+        .then(function (j) { if (j && (j.success === false || j.success === "false" || j.ok === false)) throw 0; form.reset(); st.textContent = "Request received. We'll be in touch soon."; })
         .catch(function () { st.textContent = "That didn't go through. Please call or text (610) 420-3338."; });
     });
   }

@@ -55,15 +55,15 @@ python3 build.py      # rewrites every .html, search index, and sitemap in ../do
 
 Small text fixes can also be made directly in the HTML, but they'll be overwritten by the next rebuild.
 
-## Enable the quote form
+## Quote form (ON)
 
-The form is built but hidden (MWDS 106: no forms without approval). To turn it on, add this before `site.js` on `contact.html` (or in `build.py`'s footer):
+The quote form on `contact.html` is live, posting to FormSubmit's AJAX endpoint. The endpoint is set once in `_source/data.py` (`FORM_ENDPOINT`) and injected on every page as `window.BERGER_CONFIG`.
 
-```html
-<script>window.BERGER_CONFIG={quoteForm:true,formEndpoint:"https://formspree.io/f/XXXXXXX",beforeAfter:[]};</script>
-```
-
-Use any service that accepts a POST with `Accept: application/json` (Formspree, Basin, Getform). A honeypot field blocks basic bots. Then update the "Online quote form" paragraph in `privacy.html` to name the service and retention period.
+- Current inbox: mujtaba.valli@gmail.com (pitch/testing). After Drew approves, change `FORM_ENDPOINT` to `https://formsubmit.co/ajax/drew@bergerlandscaping.net` and rebuild.
+- First submission sends FormSubmit's activation email to the inbox. Until it's activated, the form shows the "didn't go through, call or text" fallback.
+- After activation, FormSubmit can issue a random alias for the endpoint so the email address isn't in the page source; swap it into `FORM_ENDPOINT`.
+- Spam: honeypot field (`website`) blocks basic bots before anything is sent.
+- Privacy page names FormSubmit. If you switch services (Formspree, Basin), update `privacy()` in `build.py`.
 
 ## Add before/after pairs
 

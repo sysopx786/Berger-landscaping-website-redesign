@@ -1,6 +1,8 @@
 import re, json, os
 
 SITE = "https://www.bergerlandscaping.net/"
+# Quote form: FormSubmit AJAX endpoint. Pitch/testing inbox; switch to drew@bergerlandscaping.net after approval.
+FORM_ENDPOINT = "https://formsubmit.co/ajax/mujtaba.valli@gmail.com"
 BIZ = dict(
     name="Berger Landscaping LLC", short="Berger Landscaping",
     phone="(610) 420-3338", tel="+16104203338",
