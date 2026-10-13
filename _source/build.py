@@ -409,7 +409,7 @@ def home():
 
 <section class="section" aria-labelledby="drew-h">
  <div class="wrap split">
-  <div class="logo-frame"><img class="logo-light" src="assets/logo-stacked-sm.webp" width="419" height="535" alt="Berger Landscaping stacked logo" loading="lazy"><img class="logo-dark" src="assets/logo-stacked-knockout-sm.webp" width="419" height="535" alt="Berger Landscaping stacked logo" loading="lazy"></div>
+  <figure class="drew-photo">{pic("berger-drew-01","(max-width:820px) 90vw, 40vw")}</figure>
   <div style="display:grid;gap:1rem">
    <p class="label">Meet Drew</p>
    <h2 id="drew-h">A Penn State alum who'd rather be outside</h2>
