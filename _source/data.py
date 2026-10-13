@@ -128,7 +128,7 @@ SERVICES = [
         "We are committed to eco-friendly practices, ensuring that items are recycled or donated whenever possible, reducing waste and benefiting the community. Whether it's a single item or a full garage cleanout, we make the process easy and stress-free.",
         "Trust us to do the heavy lifting, so you can enjoy your clean and organized space! We can also provide references to professional cleaning and organizing companies."],
   included=["Old furniture, appliances, and household clutter","Yard debris, brush, and branches","Single items through full garage clean-outs","Items recycled or donated whenever possible","References to cleaning and organizing companies"],
-  photos=["berger-crew-01", None, None],
+  photos=["berger-crew-01","berger-junkpage-01","berger-junkpage-02"],
   tip=("Faster quotes","Photos or a short description of what you need removed help us quote it."),
   related=["yard-clean-up","property-maintenance","trimming"]),
  dict(slug="snow-services", name="Snow Services", icon="snow", season="Winter",
