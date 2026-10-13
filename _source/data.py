@@ -137,7 +137,7 @@ SERVICES = [
   desc=["At Berger Landscaping LLC, we prioritize keeping your property safe in winter. Our snow plowing and removal services efficiently clear snow from driveways and commercial lots, ensuring safe surfaces.",
         "We also offer salting services to reduce slips and falls using effective salt treatments. Ask about our pet-safe ice-melt options that protect your pets while ensuring traction for walkways."],
   included=["Snow plowing for driveways and commercial lots","Snow removal","Salting to reduce slips and falls","Pet-safe ice-melt options (ask us)"],
-  photos=["berger-snow-01", None, None],
+  photos=["berger-snow-01","berger-snowpage-01","berger-snowpage-02"],
   tip=("Early openers","If your business opens early, ask us about plow timing when you sign up."),
   related=["junk-removal","property-maintenance","leaf-removal"]),
 ]
