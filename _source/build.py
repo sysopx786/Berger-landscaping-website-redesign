@@ -458,8 +458,6 @@ def service_pages():
         slug = x["slug"]
         desc = "".join(f"<p>{E(p)}</p>" for p in x["desc"])
         draft = '<p class="draft-note">Draft copy: this description was written for the new site and is waiting on owner review.</p>' if x.get("draft") else ""
-        if slug == "aeration-sod-seeding":
-            draft = '<p class="draft-note">Draft page: aeration, sod, and seeding aren\'t in Berger\'s original service list. Copy adapted for Berger and waiting on owner review.</p>'
         extra = ""
         for (h2, paras, bullets, closing) in x.get("sections", []):
             extra += f'<div style="display:grid;gap:1rem"><h2>{E(h2)}</h2><div class="prose">' + "".join(f"<p>{E(p)}</p>" for p in paras) + '</div>'

@@ -64,7 +64,7 @@ SERVICES = [
   photos=["berger-hardscape-03","berger-hardscape-06","berger-beds-22"],
   tip=("Build in phases","Larger plans can often be broken into stages, so you can build the landscape over time."),
   related=["property-maintenance","trimming","yard-clean-up"]),
- dict(slug="aeration-sod-seeding", name="Aeration, Sod & Seeding", icon="seed", season="Spring · Fall", draft=True,
+ dict(slug="aeration-sod-seeding", name="Aeration, Sod & Seeding", icon="seed", season="Spring · Fall",
   card="Core aeration, overseeding, seed, and sod to thicken a thin lawn or start a new one.",
   promise="Thicker, healthier turf, whether you're patching bare spots or starting a lawn from bare soil.",
   desc=["A strong lawn starts below the surface. Whether you're starting from bare soil or bringing back a thin, patchy yard, the results depend on how well the ground is prepared and how the new grass is cared for in its first weeks.",
