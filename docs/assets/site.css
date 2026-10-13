@@ -560,3 +560,4 @@ a.card:hover .more svg{transform:translateX(3px)}
 @media (max-width:420px){.towns{grid-template-columns:1fr 1fr}}
 .hero-area{font-weight:600;margin-top:.6rem}
 .hero-area a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.card-media img[src*="berger-snowpage-03"]{object-position:38% 50%}

@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "14"
+VER = "15"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -427,7 +427,7 @@ def home():
 def svc_cards(hl="h2"):
     rows = ""
     for x in SERVICES:
-        pid = next((p for p in x["photos"] if p), None)
+        pid = x.get("card_photo") or next((p for p in x["photos"] if p), None)
         tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
         rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<{hl} style="font-size:1.45rem">{E(x["name"])}</{hl}><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder()}{tag}</div></a>'
     return f'<div class="bento svc-overview">{rows}</div>'
