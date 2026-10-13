@@ -163,7 +163,7 @@ REVIEWS = [
  dict(name="Cindy Homol", meta="6 reviews", text="Drew and his crew are a pleasure to work with, knowledgeable, and dependable.", reply=None),
 ]
 
-CATS = [("lawn","Lawns & mowing"),("beds","Beds & mulch"),("hardscape","Stonework & patios"),("trimming","Trimming & shrubs"),("trees","Trees"),("seasonal","Fall work"),("snow","Snow"),("crew","Crew & equipment")]
+CATS = [("lawn","Lawns & mowing"),("aeration","Aeration, sod & seeding"),("beds","Beds & mulch"),("hardscape","Stonework & patios"),("trimming","Trimming & shrubs"),("trees","Trees"),("seasonal","Fall work"),("junk","Junk removal"),("plowing","Snow plowing"),("snow","Snow & salting"),("crew","Crew & equipment")]
 
 ALT_FIX = {
  "berger-hardscape-01":"Timber-framed gravel steps edged with river rock on a hillside",

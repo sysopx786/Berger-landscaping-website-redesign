@@ -518,7 +518,7 @@ def gallery():
     for i, p in enumerate(ph):
         tall = " tall" if p["h"] > p["w"] else ""
         tiles += f'<button type="button" class="sk{tall}" data-cat="{p["cat"]}" data-full="img/{p["id"]}-1280.webp" data-fallback="img/{p["id"]}-1024.jpg" data-cap="{E(p["alt"])}" aria-label="Open photo: {E(p["alt"])}">{pic(p["id"],"(max-width:600px) 92vw, (max-width:1100px) 45vw, 25vw")}<span class="gcap" aria-hidden="true">{E(p["alt"])}</span></button>'
-    body = phero("Our work", f"{len(ph)} photos from Berger Landscaping jobs: lawns, beds, stonework, trimming, trees, fall clean-ups, and snow. Filter by type, then tap any photo to view it larger.", [("index.html","Home"),("gallery.html","Gallery")]) + f'''
+    body = phero("Our work", f"{len(ph)} photos from Berger Landscaping jobs: lawns, aeration and sod, beds, stonework, trimming, trees, fall clean-ups, junk removal, and snow. Filter by type, then tap any photo to view it larger.", [("index.html","Home"),("gallery.html","Gallery")]) + f'''
 <section class="section" aria-label="Photo gallery">
  <div class="wrap">
   <div class="sec-head" style="margin-bottom:0;align-items:center"><div role="group" aria-label="Filter photos" class="chips">{chips}</div><a class="linkarrow fb-link" href="{BIZ["fb_photos"]}" target="_blank" rel="noopener">{FBLOGO.replace("<svg ","<svg style=\"width:20px;height:20px\" ")}Full photo archive on Facebook {ic("arrow")}</a></div>
@@ -540,7 +540,7 @@ def gallery():
  </div>
 </dialog>''' + cta_band("Like what you see?", "Call or text to talk through your property.")
     write(dict(file="gallery.html", title="Project Gallery | Berger Landscaping, Pottstown PA",
-               desc="Photos of Berger Landscaping work: striped lawns, mulch and planting beds, stone steps and patios, trimming, fall leaf clean-ups, and snow plowing.",
+               desc="Photos of Berger Landscaping work: striped lawns, mulch and planting beds, stonework, trimming, fall clean-ups, junk removal, and snow plowing.",
                ld=[crumbs_ld([("index.html","Home"),("gallery.html","Gallery")])]), body)
 
 # ================= REVIEWS =================

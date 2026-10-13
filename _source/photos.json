@@ -369,7 +369,7 @@
  },
  {
   "id": "berger-snow-01",
-  "cat": "snow",
+  "cat": "plowing",
   "w": 1280,
   "h": 960,
   "alt": "Plow truck clearing a snowy road",
@@ -1801,7 +1801,7 @@
  },
  {
   "id": "berger-aeration-01",
-  "cat": "service-only",
+  "cat": "aeration",
   "w": 1280,
   "h": 859,
   "alt": "Core-aerated lawn with soil plugs and an aerator in the background",
@@ -1809,7 +1809,7 @@
  },
  {
   "id": "berger-aeration-02",
-  "cat": "service-only",
+  "cat": "aeration",
   "w": 1280,
   "h": 859,
   "alt": "New grass seedlings coming up in a lawn after overseeding",
@@ -1817,7 +1817,7 @@
  },
  {
   "id": "berger-aeration-03",
-  "cat": "service-only",
+  "cat": "aeration",
   "w": 1280,
   "h": 859,
   "alt": "Fresh sod laid in a backyard beside a pallet of sod rolls",
@@ -1825,7 +1825,7 @@
  },
  {
   "id": "berger-junkpage-01",
-  "cat": "service-only",
+  "cat": "junk",
   "w": 1280,
   "h": 859,
   "alt": "Old washer, dresser, office chair, tires, and brush piled at the curb for pickup",
@@ -1833,7 +1833,7 @@
  },
  {
   "id": "berger-junkpage-02",
-  "cat": "service-only",
+  "cat": "junk",
   "w": 1280,
   "h": 859,
   "alt": "Dump trailer loaded with an old couch, mattress, boxes, and yard debris",
@@ -1841,7 +1841,7 @@
  },
  {
   "id": "berger-snowpage-01",
-  "cat": "service-only",
+  "cat": "plowing",
   "w": 1280,
   "h": 859,
   "alt": "Plow truck clearing a snow-covered residential driveway",
@@ -1849,7 +1849,7 @@
  },
  {
   "id": "berger-snowpage-02",
-  "cat": "service-only",
+  "cat": "snow",
   "w": 1280,
   "h": 859,
   "alt": "Shoveled and salted front walkway and steps after a snowstorm",
@@ -1857,7 +1857,7 @@
  },
  {
   "id": "berger-snowpage-03",
-  "cat": "service-only",
+  "cat": "plowing",
   "w": 1280,
   "h": 859,
   "alt": "Berger Landscaping plow truck clearing a snowy parking lot",
