@@ -83,7 +83,7 @@ SERVICES = [
              ("Stay off it","Keep people and pets off seeded areas for the first few weeks so young seedlings aren't crushed."),
              ("First mowing","Wait until new grass is about 4 inches tall. Use a sharp blade, cut no more than a third of the height at a time, and leave the clippings."),
              ("Leaves on new grass","Raking can tear out young seedlings. Blow leaves off lightly or mulch them with the mower instead.")],
-  photos=[None, None, None],
+  photos=["berger-aeration-01","berger-aeration-02","berger-aeration-03"],
   tip=("Best window","Early fall is usually the best time to aerate and overseed in Southeastern PA, giving new grass time to root before winter."),
   related=["mowing","property-maintenance","yard-clean-up"]),
  dict(slug="yard-clean-up", name="Yard Clean-Up", icon="cleanup", season="Spring · Fall",

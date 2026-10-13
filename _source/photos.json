@@ -1798,5 +1798,29 @@
   "h": 960,
   "alt": "Fresh mulch bed with boulders and a loaded trailer behind",
   "orig": "berger-landscaping-440.jpg"
+ },
+ {
+  "id": "berger-aeration-01",
+  "cat": "service-only",
+  "w": 1280,
+  "h": 859,
+  "alt": "Core-aerated lawn with soil plugs and an aerator in the background",
+  "orig": "a889cca8-image.webp"
+ },
+ {
+  "id": "berger-aeration-02",
+  "cat": "service-only",
+  "w": 1280,
+  "h": 859,
+  "alt": "New grass seedlings coming up in a lawn after overseeding",
+  "orig": "d110916a-image.webp"
+ },
+ {
+  "id": "berger-aeration-03",
+  "cat": "service-only",
+  "w": 1280,
+  "h": 859,
+  "alt": "Fresh sod laid in a backyard beside a pallet of sod rolls",
+  "orig": "b5cf75e8-image.webp"
  }
 ]

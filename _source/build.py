@@ -517,7 +517,7 @@ def service_pages():
 # ================= GALLERY =================
 def gallery():
     order = [c for c, _ in CATS]
-    ph = sorted(PHOTOS.values(), key=lambda p: (order.index(p["cat"]), p["id"]))
+    ph = sorted((p for p in PHOTOS.values() if p["cat"] in order), key=lambda p: (order.index(p["cat"]), p["id"]))
     counts = {c: sum(1 for p in ph if p["cat"] == c) for c in order}
     chips = f'<button class="chip" type="button" aria-pressed="true" data-filter="all">All <span>{len(ph)}</span></button>' + "".join(f'<button class="chip" type="button" aria-pressed="false" data-filter="{c}">{E(l)} <span>{counts[c]}</span></button>' for c, l in CATS)
     tiles = ""
@@ -726,7 +726,7 @@ def thanks():
 def extras():
     idx = [dict(k="Page", t=t, d=d, u=u) for u, t, d in [
         ("index.html","Home","Landscaping that looks cared for, all year."),("services.html","All services",f"Compare all {len(SERVICES)} services"),
-        ("gallery.html","Gallery",f"{len(PHOTOS)} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
+        ("gallery.html","Gallery",f"{sum(1 for p in PHOTOS.values() if p['cat'] != 'service-only')} photos of recent work"),("reviews.html","Reviews","Google reviews and owner replies"),
         ("faqs.html","FAQs",f"{sum(len(v) for v in FAQS.values())} answers by service"),("about.html","About Drew Berger","Family-owned, Penn State alumnus"),
         ("contact.html","Contact & hours","Phone, address, map, hours"),("contact.html#quote","Get a quote","Online form with photos, or call or text"),
         ("contact.html#hiring","We're hiring","Join the crew"),("service-area.html","Service area","Towns we serve around Pottstown"),("reviews.html","Leave a review","Review Berger Landscaping on Google"),("privacy.html","Privacy Policy","What this site collects")]]
