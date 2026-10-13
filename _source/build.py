@@ -324,8 +324,8 @@ def home():
     mos_ids = ["berger-hardscape-03","berger-lawn-02","berger-beds-22","berger-hardscape-04","berger-beds-09","berger-beds-18","berger-lawn-06"]
     areas = "abcdefg"
     mosaic = "".join(f'<figure class="sk" style="grid-area:{areas[i]}">{pic(pid,"(max-width:760px) 78vw, 50vw")}<figcaption>{E(PHOTOS[pid]["alt"])}</figcaption></figure>' for i, pid in enumerate(mos_ids))
-    rv = [REVIEWS[0], REVIEWS[2], REVIEWS[1]]
-    quotes = "".join(f'<figure class="quote reveal">{stars()}<blockquote><p>“{E(r["text"])}”</p></blockquote><figcaption><strong>{E(r["name"])}</strong><span>Google review</span></figcaption></figure>' for r in rv)
+    rv = [REVIEWS[0], REVIEWS[1], REVIEWS[3], REVIEWS[2]]
+    quotes = "".join(f'<figure class="quote reveal">{stars()}<blockquote><p>“{E(r.get("short", r["text"]))}{"…" if r.get("short") else ""}”</p></blockquote><figcaption><strong>{E(r["name"])}</strong><span>Google review</span></figcaption></figure>' for r in rv)
     fq = [FAQS["Mowing"][14], FAQS["Property Maintenance"][14], FAQS["Custom Landscaping Solutions"][9], FAQS["Property Maintenance"][12], FAQS["Mowing"][4]]
     body = f'''
 <section class="hero" aria-labelledby="hero-h">
@@ -345,7 +345,7 @@ def home():
 
 <section class="cred" aria-label="Credentials">
  <div class="wrap cred-row">
-  <a class="cred-item" href="reviews.html" style="text-decoration:none;color:inherit">{GLOGO.replace('class="g-logo"','class="g-logo" style="width:32px;height:32px;flex:none"')}<span><strong><span class="rating-num">5.0</span> {stars()}</strong><small>Reviews from Google · 4 reviews</small></span></a>
+  <a class="cred-item" href="reviews.html" style="text-decoration:none;color:inherit">{GLOGO.replace('class="g-logo"','class="g-logo" style="width:32px;height:32px;flex:none"')}<span><strong><span class="rating-num">5.0</span> {stars()}</strong><small>Reviews from Google · 5 reviews</small></span></a>
   <div class="cred-item">{ic("shield")}<span><strong>Licensed &amp; insured</strong><small>Fully covered for residential and commercial work</small></span></div>
   <div class="cred-item">{ic("building")}<span><strong>Homes to communities</strong><small>Residential, commercial, and multi-living</small></span></div>
   <div class="cred-item">{ic("pin")}<span><strong>Serving the Pottstown area</strong><small>Royersford, Spring City &amp; more</small></span></div>
@@ -549,12 +549,12 @@ def reviews():
     for r in REVIEWS:
         ini = "".join(w[0] for w in r["name"].split()[:2])
         reply = f'<div class="owner"><b>Response from the owner</b>{E(r["reply"])}</div>' if r["reply"] else ""
-        items += f'<article class="review"><div class="review-head"><div class="review-who"><span class="avatar" aria-hidden="true">{ini}</span><div><strong>{E(r["name"])}</strong><small>{E(r["meta"])}</small></div></div><span role="img" aria-label="Rated 5 out of 5">{stars()}</span></div><p>{E(r["text"])}</p>{reply}</article>'
+        items += f'<article class="review"><div class="review-head"><div class="review-who"><span class="avatar" aria-hidden="true">{ini}</span><div><strong>{E(r["name"])}</strong><small>{E(r["meta"])}</small></div></div><span role="img" aria-label="Rated 5 out of 5">{stars()}</span></div>{"".join(f"<p>{E(x)}</p>" for x in r["text"].split(chr(10)*2))}{reply}</article>'
     body = phero("Reviews", "What Berger Landscaping customers say on Google, with Drew's replies.", [("index.html","Home"),("reviews.html","Reviews")]) + f'''
 <section class="section"><div class="wrap">
  <div class="rating-summary">
   <div class="rating-big" aria-hidden="true">5.0</div>
-  <div style="display:grid;gap:.3rem"><span role="img" aria-label="5.0 out of 5 stars, based on 4 Google reviews">{stars()}</span><span style="color:var(--muted);font-size:.92rem">Based on 4 reviews</span></div>
+  <div style="display:grid;gap:.3rem"><span role="img" aria-label="5.0 out of 5 stars, based on 5 Google reviews">{stars()}</span><span style="color:var(--muted);font-size:.92rem">Based on 5 reviews</span></div>
   <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-left:auto"><a class="g-badge" href="{BIZ["gmaps"]}" target="_blank" rel="noopener">{GLOGO}<span>Read all reviews on Google</span></a><a class="btn btn-primary btn-sm" href="{BIZ["greview"]}" target="_blank" rel="noopener">{STAR.replace('<svg ','<svg style="width:1.1em;height:1.1em" ')}Leave a review</a></div>
  </div>
  <div class="review-list">{items}</div>

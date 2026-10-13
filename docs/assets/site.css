@@ -287,7 +287,7 @@ a.card:hover .more svg{transform:translateX(3px)}
 @media (max-width:520px){.why{grid-template-columns:1fr}.why>div,.why>div+div{padding:1.2rem 0;border-left:0}.why>div+div{border-top:1px solid var(--line)}}
 
 /* reviews */
-.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 .quote{margin:0;padding:1.4rem;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);display:flex;flex-direction:column;gap:.85rem}
 .quote blockquote{margin:0;font:400 1.12rem/1.45 var(--display);letter-spacing:-.005em}
 .quote figcaption{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.88rem;color:var(--muted)}

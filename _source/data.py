@@ -12,7 +12,7 @@ BIZ = dict(
     street="110 Holby Lane", city="Pottstown", region="PA", zip="19465",
     fb="https://www.facebook.com/profile.php?id=100094171704575",
     fb_photos="https://www.facebook.com/profile.php?id=100094171704575&sk=photos",
-    # Google Place ID for "Berger Landscaping LLC" (verified Oct 12, 2026: opens the listing, 5.0, 4 reviews)
+    # Google Place ID for "Berger Landscaping LLC" (verified Oct 12, 2026: opens the listing, 5.0, 4 reviews; 5 as of Oct 13)
     gmaps="https://www.google.com/maps/place/?q=place_id:ChIJr_SAVzWdPI8RdY2P9Uzbv8w",  # Google listing / reviews
     greview="https://search.google.com/local/writereview?placeid=ChIJr_SAVzWdPI8RdY2P9Uzbv8w",  # opens the "write a review" box
     gdir="https://www.google.com/maps/dir/?api=1&destination=110+Holby+Lane+Pottstown+PA+19465",
@@ -157,6 +157,7 @@ SEASONS = {
 }
 
 REVIEWS = [
+ dict(name="Valli", meta="1 review", short="He's hardworking, dependable, honest, and takes real pride in everything he does. He doesn't cut corners, pays attention to the little things, and treats your property with the same care he'd give his own", text="We've had Drew from Berger Landscaping Services do a lot of work for us, and I can't recommend him enough. He's one of those people you feel good about hiring because you know he's going to put in the effort and do the job right. He's hardworking, dependable, honest, and takes real pride in everything he does.\n\nWhat really sets Drew apart is how much he cares about his work and the people he works for. He doesn't cut corners, pays attention to the little things, and treats your property with the same care he'd give his own. Every time we've had him out, he's given us another reason to trust him.\n\nFinding someone who does quality work is one thing, but finding someone you can genuinely count on time and time again is another. That's why I recommend Drew without hesitation. He's earned our trust and our business, and I'd gladly recommend him to family, friends, or anyone who needs landscaping work done right.", reply=None),
  dict(name="Nancy LaPella", meta="16 reviews · 1 photo", text="Highly recommend Berger - their team is respectful, efficient, knowledgeable, fairly priced and overall they did a fantastic job for us.", reply="Thank you so much for the kind words, it is a pleasure working for you!"),
  dict(name="Christina Erbicella", meta="Local Guide · 17 reviews · 6 photos", text="Drew and his team did an amazing job with our landscaping. Highly recommend.", reply="Thank you so much! Looking forward to future jobs for you!"),
  dict(name="Ashley D", meta="Local Guide · 21 reviews · 6 photos", text="The team has been cutting my yard this year all so far and doing a wonderful job keeping my grass maintained. We hate cutting our grass with our very large hill in our yard and it has looked nothing short of amazing all year. Thanks! We are very happy.", reply=None),
