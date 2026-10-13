@@ -126,8 +126,8 @@ def pic(pid, sizes="(max-width:760px) 90vw, 40vw", eager=False, cls="", alt=None
     ld = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
     return (f'<picture><source type="image/webp" srcset="img/{pid}-640.webp 640w, img/{pid}-1280.webp 1280w" sizes="{sizes}">'
             f'<img src="img/{pid}-1024.jpg" width="{p["w"]}" height="{p["h"]}" alt="{a}" {ld} decoding="async"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}></picture>')
-def placeholder(label="Replace with project photo"):
-    return f'<div class="placeholder" role="img" aria-label="Placeholder: {E(label)}" style="width:100%;height:100%"><div><img src="assets/logo-icon-sm.webp" alt="" width="140" height="235">{E(label)}</div></div>'
+def placeholder(label=""):
+    return '<div class="placeholder" aria-hidden="true" style="width:100%;height:100%"><div><img src="assets/logo-icon-sm.webp" alt="" width="140" height="235"></div></div>'
 
 # ---------------- head / chrome ----------------
 FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..650;1,9..144,300..500&display=swap"
@@ -429,7 +429,7 @@ def svc_cards(hl="h2"):
     for x in SERVICES:
         pid = next((p for p in x["photos"] if p), None)
         tag = f'<span class="tag">{x["season"]}</span>' if x["season"] else ""
-        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<{hl} style="font-size:1.45rem">{E(x["name"])}</{hl}><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder("Photo coming soon")}{tag}</div></a>'
+        rows += f'<a class="card card-wide reveal" href="{x["slug"]}.html" style="view-transition-name:svc-{x["slug"]}-card"><div class="card-body">{ic(x["icon"],"svc-ic")}<{hl} style="font-size:1.45rem">{E(x["name"])}</{hl}><p>{E(x["promise"])}</p><span class="more">{len(x["faqs"])} FAQs · Details {ic("arrow")}</span></div><div class="card-media{' sk' if pid else ''}">{pic(pid,"(max-width:560px) 90vw, 25vw") if pid else placeholder()}{tag}</div></a>'
     return f'<div class="bento svc-overview">{rows}</div>'
 
 def services():
@@ -457,7 +457,7 @@ def service_pages():
     for x in SERVICES:
         slug = x["slug"]
         desc = "".join(f"<p>{E(p)}</p>" for p in x["desc"])
-        draft = '<p class="draft-note">Draft copy: this description was written for the new site and is waiting on owner review.</p>' if x.get("draft") else ""
+        draft = ""
         extra = ""
         for (h2, paras, bullets, closing) in x.get("sections", []):
             extra += f'<div style="display:grid;gap:1rem"><h2>{E(h2)}</h2><div class="prose">' + "".join(f"<p>{E(p)}</p>" for p in paras) + '</div>'
@@ -466,15 +466,11 @@ def service_pages():
             extra += '</div>'
         if x.get("aftercare"):
             extra += '<div style="display:grid;gap:1rem"><h2>Caring for a newly seeded lawn</h2><ol class="care-steps">' + "".join(f'<li><h3>{E(t)}</h3><p>{E(p)}</p></li>' for t, p in x["aftercare"]) + '</ol></div>'
-        if slug == "tree-planting":
-            draft = '<p class="draft-note">Draft page: tree planting isn\'t in the original service list. This page is based on project photos and is waiting on owner review.</p>'
-        if slug == "custom-landscaping":
-            draft = '<p class="draft-note">Owner to confirm: the source for the “up to 12%” home-value figure.</p>'
         inc = "".join(f'<li>{ic("check")}<span>{E(i)}</span></li>' for i in x["included"])
         photos = ""
         for pid in x["photos"]:
             if pid: photos += f'<figure class="sk">{pic(pid,"(max-width:560px) 50vw, 30vw")}<figcaption>{E(PHOTOS[pid]["alt"])}</figcaption></figure>'
-            else: photos += f'<figure>{placeholder("Replace with aeration, seed, or sod photo" if slug=="aeration-sod-seeding" else "Replace with project photo")}</figure>'
+            else: photos += f'<figure>{placeholder()}</figure>'
         rel = ""
         for r in x["related"]:
             y = SVC[r]; rel += f'<a class="card" href="{r}.html">{ic(y["icon"],"svc-ic")}<h3>{E(y["name"])}</h3><p>{E(y["card"])}</p><span class="more">View {ic("arrow")}</span></a>'
