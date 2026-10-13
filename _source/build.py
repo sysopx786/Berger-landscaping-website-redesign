@@ -7,7 +7,7 @@ PHOTOS = {p["id"]: p for p in json.load(open(os.path.join(HERE, "photos.json")))
 for k, v in ALT_FIX.items(): PHOTOS[k]["alt"] = v
 E = html.escape
 TODAY = "2026-10-11"
-VER = "15"
+VER = "16"
 
 # ---------------- icons ----------------
 SVG = lambda inner, vb="0 0 24 24", cls="": f'<svg viewBox="{vb}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"{(" class=%s" % chr(34)+cls+chr(34)) if cls else ""}>{inner}</svg>'
@@ -590,7 +590,7 @@ def faqs():
 def about():
     body = phero("Family-owned, rooted in Pottstown", "Berger Landscaping is a family-owned landscaping business proudly serving Pottstown and the surrounding communities.", [("index.html","Home"),("about.html","About")], label="About us") + f'''
 <section class="section"><div class="wrap split">
- <div class="logo-frame"><img class="logo-light" src="assets/logo-stacked-sm.webp" width="419" height="535" alt="Berger Landscaping logo: misty pines with a standing deer"><img class="logo-dark" src="assets/logo-stacked-knockout-sm.webp" width="419" height="535" alt="Berger Landscaping logo: misty pines with a standing deer"></div>
+ <figure class="drew-photo">{pic("berger-drew-01","(max-width:820px) 90vw, 40vw")}</figure>
  <div style="display:grid;gap:1.1rem">
   <h2>Meet Drew Berger</h2>
   <div class="prose">
