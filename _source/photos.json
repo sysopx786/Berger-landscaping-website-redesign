@@ -1870,5 +1870,349 @@
   "h": 1280,
   "alt": "Drew Berger, owner of Berger Landscaping, with a backpack leaf blower",
   "orig": "951f2c77-image.jpg"
+ },
+ {
+  "id": "berger-lawn-s351",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mowed lawn and sidewalk at a white two-story home",
+  "orig": "berger-landscaping-351.jpg"
+ },
+ {
+  "id": "berger-lawn-s362",
+  "cat": "lawn",
+  "w": 1170,
+  "h": 879,
+  "alt": "Mowed lawn and walkway at a brick-front home",
+  "orig": "berger-landscaping-362.jpg"
+ },
+ {
+  "id": "berger-lawn-s376",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mowed lawn with a center walkway at a Cape Cod home",
+  "orig": "berger-landscaping-376.jpg"
+ },
+ {
+  "id": "berger-lawn-s402",
+  "cat": "lawn",
+  "w": 960,
+  "h": 1280,
+  "alt": "Striped lawn behind a white two-story home",
+  "orig": "berger-landscaping-402.jpg"
+ },
+ {
+  "id": "berger-lawn-s411",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn along a driveway at a white home",
+  "orig": "berger-landscaping-411.jpg"
+ },
+ {
+  "id": "berger-lawn-s493",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn with a mailbox at a gabled home",
+  "orig": "berger-landscaping-493.jpg"
+ },
+ {
+  "id": "berger-lawn-s549",
+  "cat": "lawn",
+  "w": 960,
+  "h": 1280,
+  "alt": "Freshly mowed lawn with an American flag",
+  "orig": "berger-landscaping-549.jpg"
+ },
+ {
+  "id": "berger-lawn-s563",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped front lawn at a brick two-story home",
+  "orig": "berger-landscaping-563.jpg"
+ },
+ {
+  "id": "berger-lawn-s564",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn beside a split-rail fence",
+  "orig": "berger-landscaping-564.jpg"
+ },
+ {
+  "id": "berger-lawn-s586",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Shaded lawn with stripes behind a home",
+  "orig": "berger-landscaping-586.jpg"
+ },
+ {
+  "id": "berger-lawn-s630",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn with trees beyond",
+  "orig": "berger-landscaping-630.jpg"
+ },
+ {
+  "id": "berger-lawn-s631",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mowed lawn and sidewalk at a lakeside home at dusk",
+  "orig": "berger-landscaping-631.jpg"
+ },
+ {
+  "id": "berger-lawn-s706",
+  "cat": "lawn",
+  "w": 1280,
+  "h": 960,
+  "alt": "Striped lawn with evergreens beyond",
+  "orig": "berger-landscaping-706.jpg"
+ },
+ {
+  "id": "berger-beds-s085",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Rounded shrub in a mulched bed beside a brick church wall",
+  "orig": "berger-landscaping-085.jpg"
+ },
+ {
+  "id": "berger-beds-s133",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Black mulch bed along a siding wall with a gravel edge",
+  "orig": "berger-landscaping-133.jpg"
+ },
+ {
+  "id": "berger-beds-s196",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Curved mulch bed along a sidewalk at a home",
+  "orig": "berger-landscaping-196.jpg"
+ },
+ {
+  "id": "berger-beds-s199",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Shrubs along a stamped-concrete walk beside a black fence",
+  "orig": "berger-landscaping-199.jpg"
+ },
+ {
+  "id": "berger-beds-s284",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Mulch bed with a stone edge along a shed wall",
+  "orig": "berger-landscaping-284.jpg"
+ },
+ {
+  "id": "berger-beds-s384",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Stone-edged shrub bed beside a brick wall with a small pond",
+  "orig": "berger-landscaping-384.jpg"
+ },
+ {
+  "id": "berger-beds-s449",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulched foundation bed at a porch home",
+  "orig": "berger-landscaping-449.jpg"
+ },
+ {
+  "id": "berger-beds-s450",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Mulch bed under a deck with shrubs",
+  "orig": "berger-landscaping-450.jpg"
+ },
+ {
+  "id": "berger-beds-s455",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed under a shade tree on a lawn",
+  "orig": "berger-landscaping-455.jpg"
+ },
+ {
+  "id": "berger-beds-s464",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Front-entry beds with shrubs and hostas",
+  "orig": "berger-landscaping-464.jpg"
+ },
+ {
+  "id": "berger-beds-s522",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with flowers around a tree",
+  "orig": "berger-landscaping-522.jpg"
+ },
+ {
+  "id": "berger-beds-s527",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with potted flowers by a porch",
+  "orig": "berger-landscaping-527.jpg"
+ },
+ {
+  "id": "berger-beds-s528",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with hostas and a front walkway",
+  "orig": "berger-landscaping-528.jpg"
+ },
+ {
+  "id": "berger-beds-s545",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch bed with shrubs along a home foundation",
+  "orig": "berger-landscaping-545.jpg"
+ },
+ {
+  "id": "berger-beds-s546",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Mulched bed with ornamental grass along a fence",
+  "orig": "berger-landscaping-546.jpg"
+ },
+ {
+  "id": "berger-beds-s548",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Stone-edged island bed with red shrubs by a picket fence",
+  "orig": "berger-landscaping-548.jpg"
+ },
+ {
+  "id": "berger-beds-s551",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Hostas in a black mulch bed along siding",
+  "orig": "berger-landscaping-551.jpg"
+ },
+ {
+  "id": "berger-beds-s553",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Red-leaf shrubs in a mulch bed at a stone-accent home",
+  "orig": "berger-landscaping-553.jpg"
+ },
+ {
+  "id": "berger-beds-s571",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Curved mulch bed along a lawn and brick walk",
+  "orig": "berger-landscaping-571.jpg"
+ },
+ {
+  "id": "berger-beds-s578",
+  "cat": "beds",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulched bed with shrubs and a trellis at a gabled home",
+  "orig": "berger-landscaping-578.jpg"
+ },
+ {
+  "id": "berger-beds-s624",
+  "cat": "beds",
+  "w": 960,
+  "h": 1280,
+  "alt": "Mulch bed with shrubs and river rock beside siding",
+  "orig": "berger-landscaping-624.jpg"
+ },
+ {
+  "id": "berger-hardscape-s357",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "White stone border and shrubs at a commercial entrance",
+  "orig": "berger-landscaping-357.jpg"
+ },
+ {
+  "id": "berger-hardscape-s623",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Block-edged mulch bed along a porch",
+  "orig": "berger-landscaping-623.jpg"
+ },
+ {
+  "id": "berger-hardscape-s674",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Gravel and plantings along a wood fence",
+  "orig": "berger-landscaping-674.jpg"
+ },
+ {
+  "id": "berger-hardscape-s719",
+  "cat": "hardscape",
+  "w": 1280,
+  "h": 960,
+  "alt": "Brick-edged mulch bed at a front entry",
+  "orig": "berger-landscaping-719.jpg"
+ },
+ {
+  "id": "berger-trimming-s218",
+  "cat": "trimming",
+  "w": 960,
+  "h": 1280,
+  "alt": "Evergreen with a mulched bed along a walkway",
+  "orig": "berger-landscaping-218.jpg"
+ },
+ {
+  "id": "berger-trimming-s311",
+  "cat": "trimming",
+  "w": 1280,
+  "h": 960,
+  "alt": "Rounded shrubs in a mulch bed by a driveway",
+  "orig": "berger-landscaping-311.jpg"
+ },
+ {
+  "id": "berger-trees-s597",
+  "cat": "trees",
+  "w": 1280,
+  "h": 960,
+  "alt": "Mulch ring around a bare tree with a planting bed",
+  "orig": "berger-landscaping-597.jpg"
+ },
+ {
+  "id": "berger-seasonal-s677",
+  "cat": "seasonal",
+  "w": 960,
+  "h": 1280,
+  "alt": "Stone path covered in fallen leaves beside a house",
+  "orig": "berger-landscaping-677.jpg"
+ },
+ {
+  "id": "berger-seasonal-s681",
+  "cat": "seasonal",
+  "w": 1280,
+  "h": 960,
+  "alt": "Leaf-covered woodland yard in autumn",
+  "orig": "berger-landscaping-681.jpg"
  }
 ]
